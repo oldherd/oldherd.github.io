@@ -5,14 +5,18 @@
   
   <title>foldH&#39;s algorithm blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="keywords" content="oi">
-<meta property="og:type" content="website">
+  <meta name="description" content="codeforces round 1195 题解CF1195A Drinks Choosing这题很显然是一个贪心，能够配对的配对，不能的则有一半(上取整)能配对。考虑k&amp;lt;=1000 ,所以只要开桶来存储即可。如果增大k并且饮料标号不连续，则可以考察hash，并卡掉离散化。我们动态地统计不成对数，每当成对减一，不成对加一，然后用全部数值减去得到成对数。可以用已获来实现，或者直接记录数量来判断">
+<meta name="keywords" content="oi">
+<meta property="og:type" content="article">
 <meta property="og:title" content="foldH&#39;s algorithm blog">
-<meta property="og:url" content="http://froldH.github.io/index.html">
+<meta property="og:url" content="http://froldH.github.io/2019/07/22/CF1195/index.html">
 <meta property="og:site_name" content="foldH&#39;s algorithm blog">
+<meta property="og:description" content="codeforces round 1195 题解CF1195A Drinks Choosing这题很显然是一个贪心，能够配对的配对，不能的则有一半(上取整)能配对。考虑k&amp;lt;=1000 ,所以只要开桶来存储即可。如果增大k并且饮料标号不连续，则可以考察hash，并卡掉离散化。我们动态地统计不成对数，每当成对减一，不成对加一，然后用全部数值减去得到成对数。可以用已获来实现，或者直接记录数量来判断">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-07-22T12:13:36.647Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="foldH&#39;s algorithm blog">
+<meta name="twitter:description" content="codeforces round 1195 题解CF1195A Drinks Choosing这题很显然是一个贪心，能够配对的配对，不能的则有一半(上取整)能配对。考虑k&amp;lt;=1000 ,所以只要开桶来存储即可。如果增大k并且饮料标号不连续，则可以考察hash，并卡掉离散化。我们动态地统计不成对数，每当成对减一，不成对加一，然后用全部数值减去得到成对数。可以用已获来实现，或者直接记录数量来判断">
   
     <link rel="alternate" href="/atom.xml" title="foldH&#39;s algorithm blog" type="application/atom+xml">
   
@@ -65,9 +69,7 @@
   </div>
 </div>
 
-        <section id="main">
-  
-    <article id="post-CF1195" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-CF1195" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2019/07/22/CF1195/" class="article-date">
   <time class="post-time" datetime="2019-07-22T11:50:25.210Z" itemprop="datePublished">
@@ -101,12 +103,11 @@
     </footer>
   </div>
   
+    
+  
 </article>
 
 
-
-
-  
 
 </section>
         
