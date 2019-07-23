@@ -3,19 +3,19 @@
 <head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="utf-8">
   
-  <title>foldH&#39;s algorithm blog</title>
+  <title>codeforces round 1195题解 | foldH&#39;s algorithm blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="codeforces round 1195 题解CF1195A Drinks Choosing这题很显然是一个贪心，能够配对的配对，不能的则有一半(上取整)能配对。考虑k&amp;lt;=1000 ,所以只要开桶来存储即可。如果增大k并且饮料标号不连续，则可以考察hash，并卡掉离散化。我们动态地统计不成对数，每当成对减一，不成对加一，然后用全部数值减去得到成对数。可以用异或来实现，或者直接记录数量来判断">
-<meta name="keywords" content="oi">
+<meta name="keywords" content="codeforces">
 <meta property="og:type" content="article">
-<meta property="og:title" content="foldH&#39;s algorithm blog">
+<meta property="og:title" content="codeforces round 1195题解">
 <meta property="og:url" content="http://froldH.github.io/2019/07/22/codeforcesPlan/CF1195/index.html">
 <meta property="og:site_name" content="foldH&#39;s algorithm blog">
 <meta property="og:description" content="codeforces round 1195 题解CF1195A Drinks Choosing这题很显然是一个贪心，能够配对的配对，不能的则有一半(上取整)能配对。考虑k&amp;lt;=1000 ,所以只要开桶来存储即可。如果增大k并且饮料标号不连续，则可以考察hash，并卡掉离散化。我们动态地统计不成对数，每当成对减一，不成对加一，然后用全部数值减去得到成对数。可以用异或来实现，或者直接记录数量来判断">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-07-23T03:00:36.000Z">
+<meta property="og:updated_time" content="2019-07-23T05:48:46.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="foldH&#39;s algorithm blog">
+<meta name="twitter:title" content="codeforces round 1195题解">
 <meta name="twitter:description" content="codeforces round 1195 题解CF1195A Drinks Choosing这题很显然是一个贪心，能够配对的配对，不能的则有一半(上取整)能配对。考虑k&amp;lt;=1000 ,所以只要开桶来存储即可。如果增大k并且饮料标号不连续，则可以考察hash，并卡掉离散化。我们动态地统计不成对数，每当成对减一，不成对加一，然后用全部数值减去得到成对数。可以用异或来实现，或者直接记录数量来判断">
   
     <link rel="alternate" href="/atom.xml" title="foldH&#39;s algorithm blog" type="application/atom+xml">
@@ -44,8 +44,8 @@
     <h3 class="description"></h3>
     <div class="count-box">
       <a href="/archives"><div><strong>2</strong><br>文章</div></a>
-      <a href="/categories"><div><strong>0</strong><br>分类</div></a>
-      <a href="/tags"><div><strong>0</strong><br>标签</div></a>
+      <a href="/categories"><div><strong>1</strong><br>分类</div></a>
+      <a href="/tags"><div><strong>2</strong><br>标签</div></a>
     </div>
     <ul class="blog-link">
      
@@ -72,7 +72,7 @@
         <section id="main"><article id="post-codeforcesPlan/CF1195" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2019/07/22/codeforcesPlan/CF1195/" class="article-date">
-  <time class="post-time" datetime="2019-07-22T14:42:16.120Z" itemprop="datePublished">
+  <time class="post-time" datetime="2019-07-21T16:00:00.000Z" itemprop="datePublished">
     <span class="post-month">7月</span><br/>
     <span class="post-day">22</span>
   </time>
@@ -81,6 +81,34 @@
   </div>
   <div class="article-inner">
     
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      codeforces round 1195题解
+    </h1>
+  
+
+        <div>
+          
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/OI/">OI</a>
+  </div>
+
+          
+              
+  &nbsp; | &nbsp;
+  <div class="view-box">
+    <span id="/2019/07/22/codeforcesPlan/CF1195/" class="leancloud_visitors" data-flag-title="codeforces round 1195题解">
+      &nbsp;阅读次数<span class="leancloud-visitors-count"></span>
+    </span>
+  </div>
+
+
+          
+        </div>
+      </header>
     
     <div class="article-entry" itemprop="articleBody">
       
@@ -98,24 +126,22 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://froldH.github.io/2019/07/22/codeforcesPlan/CF1195/" data-id="cjyf8jvi50002p0rqyznyu3g8" class="article-share-link">分享</a>
+      <a data-url="http://froldH.github.io/2019/07/22/codeforcesPlan/CF1195/" data-id="cjyfefybc0002p8rq6cm2442x" class="article-share-link">分享</a>
       
       
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/codeforces/">codeforces</a></li></ul>
+
     </footer>
   </div>
   
     
 <nav id="article-nav">
   
-    <a href="/2019/07/22/summer2019plan/modui/modui/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">上一篇</strong>
-      <div class="article-nav-title">
-        
-          (no title)
-        
-      </div>
-    </a>
   
+    <a href="/2019/07/22/summer2019plan/modui/modui/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">下一篇</strong>
+      <div class="article-nav-title">莫队算法练习</div>
+    </a>
   
 </nav>
 
@@ -164,8 +190,8 @@
     <h3 class="description"></h3>
     <div class="count-box">
       <a href="/archives"><div><strong>2</strong><br>文章</div></a>
-      <a href="/categories"><div><strong>0</strong><br>分类</div></a>
-      <a href="/tags"><div><strong>0</strong><br>标签</div></a>
+      <a href="/categories"><div><strong>1</strong><br>分类</div></a>
+      <a href="/tags"><div><strong>2</strong><br>标签</div></a>
     </div>
 
 
