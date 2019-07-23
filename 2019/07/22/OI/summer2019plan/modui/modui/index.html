@@ -5,18 +5,18 @@
   
   <title>莫队算法练习 | froldH&#39;s algorithm blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="莫队算法将询问离线化，按区间右端点分块，然后暴力移动指针修改变化的位置的点。莫队算法适用于能够O(1)维护删除一个点和增加一个点，统计类(统计量能够装入桶中)的题目，复杂度为O(n√n + m√n)。一般块的大小为√n或者n / (√m * 2/3)，后者优于前者。初始化将l = 1, r = 0.这样在它们移动到排序后的询问序列过程中的中间段分别被添加和删除各一次，正好抵消。   例题一:小B的">
+  <meta name="description" content="莫队算法将询问离线化，按区间右端点分块，然后暴力移动指针修改变化的位置的点。莫队算法适用于能够O(1)维护删除一个点和增加一个点，统计类(统计量能够装入桶中)的题目，复杂度为O(n√n + m√n)。一般块的大小为√n或者n / (√m * 2/3)，后者优于前者。初始化将l = 1, r = 0.这样在它们移动到排序后的询问序列过程中的中间段分别被添加和删除各一次，正好抵消。">
 <meta name="keywords" content="莫队">
 <meta property="og:type" content="article">
 <meta property="og:title" content="莫队算法练习">
 <meta property="og:url" content="http://froldH.github.io/2019/07/22/OI/summer2019plan/modui/modui/index.html">
 <meta property="og:site_name" content="froldH&#39;s algorithm blog">
-<meta property="og:description" content="莫队算法将询问离线化，按区间右端点分块，然后暴力移动指针修改变化的位置的点。莫队算法适用于能够O(1)维护删除一个点和增加一个点，统计类(统计量能够装入桶中)的题目，复杂度为O(n√n + m√n)。一般块的大小为√n或者n / (√m * 2/3)，后者优于前者。初始化将l = 1, r = 0.这样在它们移动到排序后的询问序列过程中的中间段分别被添加和删除各一次，正好抵消。   例题一:小B的">
+<meta property="og:description" content="莫队算法将询问离线化，按区间右端点分块，然后暴力移动指针修改变化的位置的点。莫队算法适用于能够O(1)维护删除一个点和增加一个点，统计类(统计量能够装入桶中)的题目，复杂度为O(n√n + m√n)。一般块的大小为√n或者n / (√m * 2/3)，后者优于前者。初始化将l = 1, r = 0.这样在它们移动到排序后的询问序列过程中的中间段分别被添加和删除各一次，正好抵消。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-07-23T06:12:28.000Z">
+<meta property="og:updated_time" content="2019-07-23T06:57:58.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="莫队算法练习">
-<meta name="twitter:description" content="莫队算法将询问离线化，按区间右端点分块，然后暴力移动指针修改变化的位置的点。莫队算法适用于能够O(1)维护删除一个点和增加一个点，统计类(统计量能够装入桶中)的题目，复杂度为O(n√n + m√n)。一般块的大小为√n或者n / (√m * 2/3)，后者优于前者。初始化将l = 1, r = 0.这样在它们移动到排序后的询问序列过程中的中间段分别被添加和删除各一次，正好抵消。   例题一:小B的">
+<meta name="twitter:description" content="莫队算法将询问离线化，按区间右端点分块，然后暴力移动指针修改变化的位置的点。莫队算法适用于能够O(1)维护删除一个点和增加一个点，统计类(统计量能够装入桶中)的题目，复杂度为O(n√n + m√n)。一般块的大小为√n或者n / (√m * 2/3)，后者优于前者。初始化将l = 1, r = 0.这样在它们移动到排序后的询问序列过程中的中间段分别被添加和删除各一次，正好抵消。">
   
     <link rel="alternate" href="/atom.xml" title="froldH&#39;s algorithm blog" type="application/atom+xml">
   
@@ -98,13 +98,6 @@
 
           
               
-  &nbsp; | &nbsp;
-  <div class="view-box">
-    <span id="/2019/07/22/OI/summer2019plan/modui/modui/" class="leancloud_visitors" data-flag-title="莫队算法练习">
-      &nbsp;阅读次数<span class="leancloud-visitors-count"></span>
-    </span>
-  </div>
-
 
           
         </div>
@@ -113,6 +106,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>莫队算法将询问离线化，按区间右端点分块，然后暴力移动指针修改变化的位置的点。<br>莫队算法适用于能够O(1)维护删除一个点和增加一个点，统计类(统计量能够装入桶中)的题目，复杂度为O(n√n + m√n)。<br>一般块的大小为√n或者n / (√m * 2/3)，后者优于前者。<br>初始化将l = 1, r = 0.这样在它们移动到排序后的询问序列过程中的中间段分别被添加和删除各一次，正好抵消。  </p>
+<a id="more"></a>
 <h3 id="例题一-小B的询问-洛谷P2709-BZOJ3781"><a href="#例题一-小B的询问-洛谷P2709-BZOJ3781" class="headerlink" title="例题一:小B的询问 洛谷P2709 BZOJ3781"></a>例题一:小B的询问 洛谷P2709 BZOJ3781</h3><p>这是一道板子题。  </p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cmath&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn = <span class="number">50010</span>, maxm = <span class="number">50010</span>;</span><br><span class="line"><span class="keyword">int</span> a[maxn], pos[maxn], c[maxn], ans;</span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">query</span>&#123;</span></span><br><span class="line">	<span class="keyword">int</span> l, r, id, ans;</span><br><span class="line">	<span class="keyword">bool</span> <span class="keyword">operator</span> &lt; (<span class="keyword">const</span> query &amp;o) <span class="keyword">const</span> &#123; <span class="keyword">return</span> pos[l] == pos[o.l] ? r &lt; o.r : pos[l] &lt; pos[o.l]; &#125;</span><br><span class="line">&#125;q[maxm];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">add</span><span class="params">(<span class="keyword">int</span> p)</span> </span>&#123;</span><br><span class="line">	ans -= c[a[p]] * c[a[p]]; c[a[p]]++; ans += c[a[p]] * c[a[p]];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">del</span><span class="params">(<span class="keyword">int</span> p)</span> </span>&#123;</span><br><span class="line">	ans -= c[a[p]] * c[a[p]]; c[a[p]]--; ans += c[a[p]] * c[a[p]];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">bool</span> <span class="title">cmp1</span><span class="params">(query x, query y)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">return</span> x.id &lt; y.id;	</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">int</span> n, m, k;</span><br><span class="line">	ans = <span class="number">0</span>;</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">"%d %d %d"</span>, &amp;n, &amp;m, &amp;k);</span><br><span class="line">	<span class="keyword">int</span> block = (<span class="keyword">int</span>)( n / (<span class="built_in">sqrt</span>((<span class="keyword">double</span>)m * <span class="number">2</span> / <span class="number">3</span>)));</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++) <span class="built_in">scanf</span>(<span class="string">"%d"</span>, a+i);</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++) pos[i] = i / block;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= m; i++) <span class="built_in">scanf</span>(<span class="string">"%d %d"</span>, &amp;q[i].l, &amp;q[i].r), q[i].id = i;</span><br><span class="line">	sort(q+<span class="number">1</span>, q+m+<span class="number">1</span>);</span><br><span class="line">	<span class="keyword">int</span> l = <span class="number">1</span>, r = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= m; i++) &#123;</span><br><span class="line">		<span class="keyword">while</span>(l &lt; q[i].l) del(l++);</span><br><span class="line">		<span class="keyword">while</span>(l &gt; q[i].l) add(--l);</span><br><span class="line">		<span class="keyword">while</span>(r &lt; q[i].r) add(++r);</span><br><span class="line">		<span class="keyword">while</span>(r &gt; q[i].r) del(r--);</span><br><span class="line">		q[i].ans = ans;</span><br><span class="line">	&#125;</span><br><span class="line">	sort(q+<span class="number">1</span>, q+m+<span class="number">1</span>, cmp1);</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= m; i++) <span class="built_in">printf</span>(<span class="string">"%d\n"</span>, q[i].ans);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;	</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
@@ -123,7 +117,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://froldH.github.io/2019/07/22/OI/summer2019plan/modui/modui/" data-id="cjyffvodf000ic0rq4egg9cns" class="article-share-link">分享</a>
+      <a data-url="http://froldH.github.io/2019/07/22/OI/summer2019plan/modui/modui/" data-id="cjyfgydd4000i4wrqhyf7hifc" class="article-share-link">分享</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/莫队/">莫队</a></li></ul>
@@ -301,115 +295,6 @@ new WOW().init();
   </ul>
 </section>
 <script src="/js/script.js"></script>
-
-
-
-
-  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
-  <script>AV.initialize("", "");</script>
-  <script>
-    function showTime(Counter) {
-      var query = new AV.Query(Counter);
-      var entries = [];
-      var $visitors = $(".leancloud_visitors");
-
-      $visitors.each(function () {
-        entries.push( $(this).attr("id").trim() );
-      });
-
-      query.containedIn('url', entries);
-      query.find()
-        .done(function (results) {
-          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
-
-          if (results.length === 0) {
-            $visitors.find(COUNT_CONTAINER_REF).text(0);
-            return;
-          }
-
-          for (var i = 0; i < results.length; i++) {
-            var item = results[i];
-            var url = item.get('url');
-            var time = item.get('time');
-            var element = document.getElementById(url);
-
-            $(element).find(COUNT_CONTAINER_REF).text(time);
-          }
-          for(var i = 0; i < entries.length; i++) {
-            var url = entries[i];
-            var element = document.getElementById(url);
-            var countSpan = $(element).find(COUNT_CONTAINER_REF);
-            if( countSpan.text() == '') {
-              countSpan.text(0);
-            }
-          }
-        })
-        .fail(function (object, error) {
-          console.log("Error: " + error.code + " " + error.message);
-        });
-    }
-
-    function addCount(Counter) {
-      var $visitors = $(".leancloud_visitors");
-      var url = $visitors.attr('id').trim();
-      var title = $visitors.attr('data-flag-title').trim();
-      var query = new AV.Query(Counter);
-
-      query.equalTo("url", url);
-      query.find({
-        success: function(results) {
-          if (results.length > 0) {
-            var counter = results[0];
-            counter.fetchWhenSave(true);
-            counter.increment("time");
-            counter.save(null, {
-              success: function(counter) {
-                var $element = $(document.getElementById(url));
-                $element.find('.leancloud-visitors-count').text(counter.get('time'));
-              },
-              error: function(counter, error) {
-                console.log('Failed to save Visitor num, with error message: ' + error.message);
-              }
-            });
-          } else {
-            var newcounter = new Counter();
-            /* Set ACL */
-            var acl = new AV.ACL();
-            acl.setPublicReadAccess(true);
-            acl.setPublicWriteAccess(true);
-            newcounter.setACL(acl);
-            /* End Set ACL */
-            newcounter.set("title", title);
-            newcounter.set("url", url);
-            newcounter.set("time", 1);
-            newcounter.save(null, {
-              success: function(newcounter) {
-                var $element = $(document.getElementById(url));
-                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
-              },
-              error: function(newcounter, error) {
-                console.log('Failed to create');
-              }
-            });
-          }
-        },
-        error: function(error) {
-          console.log('Error:' + error.code + " " + error.message);
-        }
-      });
-    }
-
-    $(function() {
-      var Counter = AV.Object.extend("Counter");
-      if ($('.leancloud_visitors').length == 1) {
-        addCount(Counter);
-      } else if ($('.article-title').length > 1) {
-        showTime(Counter);
-      }
-    });
-  </script>
-
-
 
 
 
