@@ -13,7 +13,7 @@
 <meta property="og:site_name" content="froldH&#39;s algorithm blog">
 <meta property="og:description" content="首先是关于二分答案法的一些赘述:它大致上有几种模型。   1.最大值的最小值， 最小值的最大值。这是二分答案法最为常见的一种模型。只要证明解的单调性，就可以尝试使用二分答案法。在这种情况下二分适用时，二分答案法将最值性问题转化成判断性问题从而简化了求解的过程。它一般是不亏的，因为只增加了一个log的时间复杂度因子。然而在有些时候判断性问题不一定比最值性问题更优，这时候二分答案法就用不上了。例如:H">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-07-23T12:09:14.000Z">
+<meta property="og:updated_time" content="2019-07-23T12:11:34.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="UVA11090 Going in cycle!! 题解(有关于二分答案和spfa判(负)环的详细讨论)">
 <meta name="twitter:description" content="首先是关于二分答案法的一些赘述:它大致上有几种模型。   1.最大值的最小值， 最小值的最大值。这是二分答案法最为常见的一种模型。只要证明解的单调性，就可以尝试使用二分答案法。在这种情况下二分适用时，二分答案法将最值性问题转化成判断性问题从而简化了求解的过程。它一般是不亏的，因为只增加了一个log的时间复杂度因子。然而在有些时候判断性问题不一定比最值性问题更优，这时候二分答案法就用不上了。例如:H">
@@ -108,7 +108,7 @@
         <h3 id="首先是关于二分答案法的一些赘述"><a href="#首先是关于二分答案法的一些赘述" class="headerlink" title="首先是关于二分答案法的一些赘述:"></a>首先是关于二分答案法的一些赘述:</h3><p>它大致上有几种模型。  </p>
 <h5 id="1-最大值的最小值，-最小值的最大值。"><a href="#1-最大值的最小值，-最小值的最大值。" class="headerlink" title="1.最大值的最小值， 最小值的最大值。"></a>1.最大值的最小值， 最小值的最大值。</h5><p>这是二分答案法最为常见的一种模型。只要证明解的单调性，就可以尝试使用二分答案法。在这种情况下二分适用时，二分答案法将最值性问题转化成判断性问题从而简化了求解的过程。它一般是不亏的，因为只增加了一个log的时间复杂度因子。然而在有些时候判断性问题不一定比最值性问题更优，这时候二分答案法就用不上了。例如:HDU4044 GeoDefense。  </p>
 <a id="more"></a>
-<h5 id="2-平均值的最小值"><a href="#2-平均值的最小值" class="headerlink" title="2.平均值的最小值"></a>2.平均值的最小值</h5><p>这种二分答案法一般将每个值减去平均值，然后判断是否为负值。这种二分答案法的特征一般为:求解负值往往比求解最值更易。例如在本题中，求解环权最值较难，但是判断图中是否有一个及以上的环确实相对简单的事情。还记得有一个选定最大平均值字串的题目，也是二分答案然后判断最大字段和是否为正数来求解的。  </p>
+<h5 id="2-平均值的最小值"><a href="#2-平均值的最小值" class="headerlink" title="2.平均值的最小值"></a>2.平均值的最小值</h5><p>这种二分答案法一般将每个值减去平均值，然后判断是否为负值。这种二分答案法的特征一般为:求解负值往往比求解最值更易。例如在本题中，求解环权最值较难，但是判断图中是否有一个及以上的环是相对简单的事情。还记得有一个选定最大平均值字串的题目，也是二分答案然后判断最大字段和是否为正数来求解的。  </p>
 <h5 id="3-其他模型"><a href="#3-其他模型" class="headerlink" title="3.其他模型"></a>3.其他模型</h5><p>这类问题往往也是最值难以判断，但是转成判断性问题后易解且复杂度较小。具体参见1。如hzwer的小奇吃奶酪<del>木头</del>等等。   </p>
 <p>那么我们将本题依据2的模型二分平均值判定，只需要判断负环的存在性即可。  </p>
 <h3 id="接下来是关于spfa判断负环的一些赘述"><a href="#接下来是关于spfa判断负环的一些赘述" class="headerlink" title="接下来是关于spfa判断负环的一些赘述:"></a>接下来是关于spfa判断负环的一些赘述:</h3><p>由于图不一定连通并且有向图中不一定从一个点出发能走到相邻环(例如基环外向树中树杈上的节点无法走到环上)。所以一般有两种处理方法:  </p>
@@ -122,7 +122,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://froldH.github.io/2019/07/23/OI/daily/20190723/uva11090/" data-id="cjyfs0khi000m2krqmfq24zs9" class="article-share-link">分享</a>
+      <a data-url="http://froldH.github.io/2019/07/23/OI/daily/20190723/uva11090/" data-id="cjyfs3m93000iu4rq29r5nxli" class="article-share-link">分享</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/SPFA/">SPFA</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/二分/">二分</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/最短路/">最短路</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/负环/">负环</a></li></ul>
