@@ -3,20 +3,16 @@
 <head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="utf-8">
   
-  <title>hexo笔记 | froldH&#39;s algorithm blog</title>
+  <title>Tag: 负环 | froldH&#39;s algorithm blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="本文主要讲述日常用到过的hexo方法。   1.文件开头1234title: 		//存放文章标题date: 		//存放文章日期categories:	//存放文章类别tags[A, B, ...]	//存放文章标签  2.ymlhexo的基本配置信息在_config.yml中更改。如:">
-<meta name="keywords" content="hexo">
-<meta property="og:type" content="article">
-<meta property="og:title" content="hexo笔记">
-<meta property="og:url" content="http://froldH.github.io/2019/07/23/hexo/hexo_notes/index.html">
+  <meta name="keywords" content="oi">
+<meta property="og:type" content="website">
+<meta property="og:title" content="froldH&#39;s algorithm blog">
+<meta property="og:url" content="http://froldH.github.io/tags/负环/index.html">
 <meta property="og:site_name" content="froldH&#39;s algorithm blog">
-<meta property="og:description" content="本文主要讲述日常用到过的hexo方法。   1.文件开头1234title: 		//存放文章标题date: 		//存放文章日期categories:	//存放文章类别tags[A, B, ...]	//存放文章标签  2.ymlhexo的基本配置信息在_config.yml中更改。如:">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-07-23T07:02:52.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="hexo笔记">
-<meta name="twitter:description" content="本文主要讲述日常用到过的hexo方法。   1.文件开头1234title: 		//存放文章标题date: 		//存放文章日期categories:	//存放文章类别tags[A, B, ...]	//存放文章标签  2.ymlhexo的基本配置信息在_config.yml中更改。如:">
+<meta name="twitter:title" content="froldH&#39;s algorithm blog">
   
     <link rel="alternate" href="/atom.xml" title="froldH&#39;s algorithm blog" type="application/atom+xml">
   
@@ -69,87 +65,42 @@
   </div>
 </div>
 
-        <section id="main"><article id="post-hexo/hexo_notes" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2019/07/23/hexo/hexo_notes/" class="article-date">
-  <time class="post-time" datetime="2019-07-22T16:00:00.000Z" itemprop="datePublished">
+        <section id="main">
+  
+  
+    
+    
+      
+      
+      <section class="archives-wrap animated rubberBand">
+        <div class="archive-year-wrap">
+          <a href="/archives/2019" class="archive-year">2019</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      <a href="/2019/07/23/OI/daily/20190723/uva11090/" class="archive-article-date">
+  <time class="post-time" datetime="2019-07-23T10:40:33.000Z" itemprop="datePublished">
     <span class="post-month">7月</span><br/>
     <span class="post-day">23</span>
   </time>
 </a>
-   
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
+      
   
-    <h1 class="article-title" itemprop="name">
-      hexo笔记
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2019/07/23/OI/daily/20190723/uva11090/">UVA11090 Going in cycle!! 题解(有关于二分答案和spfa判(负)环的详细讨论)</a>
     </h1>
   
 
-        <div>
-          
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/hexo/">hexo</a>
+    </header>
   </div>
-
-          
-              
-
-          
-        </div>
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>本文主要讲述日常用到过的hexo方法。  </p>
-<h3 id="1-文件开头"><a href="#1-文件开头" class="headerlink" title="1.文件开头"></a>1.文件开头</h3><figure class="highlight md"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">title: 		//存放文章标题</span><br><span class="line">date: 		//存放文章日期</span><br><span class="line">categories:	//存放文章类别</span><br><span class="line">tags[A, B, ...]	//存放文章标签</span><br></pre></td></tr></table></figure>
-
-<h3 id="2-yml"><a href="#2-yml" class="headerlink" title="2.yml"></a>2.yml</h3><p>hexo的基本配置信息在_config.yml中更改。<br>如:</p>
-<a id="more"></a>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">title: 						//博客的名字</span><br><span class="line">author: 					//作者的名字</span><br><span class="line">language: 					//应用的语言，如zh-CN为简体中文</span><br><span class="line">theme:						//应用的主题</span><br><span class="line">deploy:</span><br><span class="line">  type: 					//发布形式，一般填写git</span><br><span class="line">  repo: 					//发布的位置，如在github上应填写：https://github.com/username/username.github.io.git(username为github用户名，创建的respositries名称应当与username相同)</span><br></pre></td></tr></table></figure>
-
-<h3 id="3-theme"><a href="#3-theme" class="headerlink" title="3.theme"></a>3.theme</h3><p>主题的下载大致采用如下格式:<br>git clone + 网址 + themes/+主题名称<br>主题中可以更改一些东西，如背景等，应该在themes下的主题文件夹中的source/halmenu中更改<br>打开主题的excerpt(部分主题已经默认打开)，在文章中某部分加入<code>&lt;!-- more --&gt;</code>可以使在主页只加载这之前的部分作为预览。  </p>
-<h3 id="4-发布"><a href="#4-发布" class="headerlink" title="4.发布"></a>4.发布</h3><p><code>hexo clean &amp;&amp; hexo g &amp;&amp; hexo d</code>  </p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://froldH.github.io/2019/07/23/hexo/hexo_notes/" data-id="cjyfrigw10002bsrqf7fc5ita" class="article-share-link">分享</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hexo/">hexo</a></li></ul>
-
-    </footer>
-  </div>
-  
-    
-<nav id="article-nav">
-  
-    <a href="/2019/07/23/OI/daily/20190723/uva11090/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">上一篇</strong>
-      <div class="article-nav-title">
-        
-          UVA11090 Going in cycle!! 题解(有关于二分答案和spfa判(负)环的详细讨论)
-        
-      </div>
-    </a>
-  
-  
-    <a href="/2019/07/22/OI/codeforcesPlan/CF1195/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">下一篇</strong>
-      <div class="article-nav-title">codeforces round 1195题解</div>
-    </a>
-  
-</nav>
-
-  
 </article>
-
-
+  
+  
+    </div></section>
+  
 
 </section>
         

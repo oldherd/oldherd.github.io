@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+  <title>UVA11090 Going in cycle!! 题解(有关于二分答案和spfa判(负)环的详细讨论) | froldH&#39;s algorithm blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="首先是关于二分答案法的一些赘述:它大致上有几种模型。   1.最大值的最小值， 最小值的最大值。这是二分答案法最为常见的一种模型。只要证明解的单调性，就可以尝试使用二分答案法。在这种情况下二分适用时，二分答案法将最值性问题转化成判断性问题从而简化了求解的过程。它一般是不亏的，因为只增加了一个log的时间复杂度因子。然而在有些时候判断性问题不一定比最值性问题更优，这时候二分答案法就用不上了。例如:H">
+<meta name="keywords" content="二分,SPFA,最短路,负环">
+<meta property="og:type" content="article">
+<meta property="og:title" content="UVA11090 Going in cycle!! 题解(有关于二分答案和spfa判(负)环的详细讨论)">
+<meta property="og:url" content="http://froldH.github.io/2019/07/23/OI/daily/20190723/uva11090/index.html">
+<meta property="og:site_name" content="froldH&#39;s algorithm blog">
+<meta property="og:description" content="首先是关于二分答案法的一些赘述:它大致上有几种模型。   1.最大值的最小值， 最小值的最大值。这是二分答案法最为常见的一种模型。只要证明解的单调性，就可以尝试使用二分答案法。在这种情况下二分适用时，二分答案法将最值性问题转化成判断性问题从而简化了求解的过程。它一般是不亏的，因为只增加了一个log的时间复杂度因子。然而在有些时候判断性问题不一定比最值性问题更优，这时候二分答案法就用不上了。例如:H">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-07-23T11:54:00.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="UVA11090 Going in cycle!! 题解(有关于二分答案和spfa判(负)环的详细讨论)">
+<meta name="twitter:description" content="首先是关于二分答案法的一些赘述:它大致上有几种模型。   1.最大值的最小值， 最小值的最大值。这是二分答案法最为常见的一种模型。只要证明解的单调性，就可以尝试使用二分答案法。在这种情况下二分适用时，二分答案法将最值性问题转化成判断性问题从而简化了求解的过程。它一般是不亏的，因为只增加了一个log的时间复杂度因子。然而在有些时候判断性问题不一定比最值性问题更优，这时候二分答案法就用不上了。例如:H">
+  
+    <link rel="alternate" href="/atom.xml" title="froldH&#39;s algorithm blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/plugin/bganimation/bg.css">
+  
+
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <div class="outer">
+        <div class="widget-wrap mobile-header">
+  <h3 class="widget-title"></h3>
+  <div class="widget">
+    <img class="avatar" src="https://i.loli.net/2019/07/22/5d35ce8ea2af983072.jpg">
+    <h2 class="author">froldH</h2>
+    <h3 class="description"></h3>
+    <div class="count-box">
+      <a href="/archives"><div><strong>4</strong><br>文章</div></a>
+      <a href="/categories"><div><strong>2</strong><br>分类</div></a>
+      <a href="/tags"><div><strong>9</strong><br>标签</div></a>
+    </div>
+    <ul class="blog-link">
+     
+          <a href="/" title="Home">
+            <li>主页</li>
+          </a>
+        
+          <a href="/archives" title="Archives">
+            <li>归档</li>
+          </a>
+        
+          <a href="/categories" title="Categories">
+            <li>分类</li>
+          </a>
+        
+          <a href="/tags" title="Tags">
+            <li>标签</li>
+          </a>
+        
+    </ul>
+  </div>
+</div>
+
+        <section id="main"><article id="post-OI/daily/20190723/uva11090" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/07/23/OI/daily/20190723/uva11090/" class="article-date">
+  <time class="post-time" datetime="2019-07-23T10:40:33.000Z" itemprop="datePublished">
+    <span class="post-month">7月</span><br/>
+    <span class="post-day">23</span>
+  </time>
+</a>
+   
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      UVA11090 Going in cycle!! 题解(有关于二分答案和spfa判(负)环的详细讨论)
+    </h1>
+  
+
+        <div>
+          
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/OI/">OI</a>
+  </div>
+
+          
+              
+
+          
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="首先是关于二分答案法的一些赘述"><a href="#首先是关于二分答案法的一些赘述" class="headerlink" title="首先是关于二分答案法的一些赘述:"></a>首先是关于二分答案法的一些赘述:</h3><p>它大致上有几种模型。  </p>
+<h5 id="1-最大值的最小值，-最小值的最大值。"><a href="#1-最大值的最小值，-最小值的最大值。" class="headerlink" title="1.最大值的最小值， 最小值的最大值。"></a>1.最大值的最小值， 最小值的最大值。</h5><p>这是二分答案法最为常见的一种模型。只要证明解的单调性，就可以尝试使用二分答案法。在这种情况下二分适用时，二分答案法将最值性问题转化成判断性问题从而简化了求解的过程。它一般是不亏的，因为只增加了一个log的时间复杂度因子。然而在有些时候判断性问题不一定比最值性问题更优，这时候二分答案法就用不上了。例如:HDU4044 GeoDefense。  </p>
+<a id="more"></a>
+<h5 id="2-平均值的最小值"><a href="#2-平均值的最小值" class="headerlink" title="2.平均值的最小值"></a>2.平均值的最小值</h5><p>这种二分答案法一般将每个值减去平均值，然后判断是否为负值。这种二分答案法的特征一般为:求解负值往往比求解最值更易。例如在本题中，求解环权最值较难，但是判断图中是否有一个及以上的环确实相对简单的事情。还记得有一个选定最大平均值字串的题目，也是二分答案然后判断最大字段和是否为正数来求解的。  </p>
+<h5 id="3-其他模型"><a href="#3-其他模型" class="headerlink" title="3.其他模型"></a>3.其他模型</h5><p>这类问题往往也是最值难以判断，但是转成判断性问题后易解且复杂度较小。具体参见1。如hzwer的小奇吃奶酪<del>木头</del>等等。   </p>
+<p>那么我们将本题依据2的模型二分平均值判定，只需要判断负环的存在性即可。  </p>
+<h3 id="接下来是关于spfa判断负环的一些赘述"><a href="#接下来是关于spfa判断负环的一些赘述" class="headerlink" title="接下来是关于spfa判断负环的一些赘述:"></a>接下来是关于spfa判断负环的一些赘述:</h3><p>由于图不一定连通并且有向图中不一定从一个点出发能走到相邻环(例如基环外向树中树杈上的节点无法走到环上)。所以一般有两种处理方法:  </p>
+<h5 id="1-建立超级源点，然后连上特殊边权使得不影响整个题目的答案。"><a href="#1-建立超级源点，然后连上特殊边权使得不影响整个题目的答案。" class="headerlink" title="1.建立超级源点，然后连上特殊边权使得不影响整个题目的答案。"></a>1.建立超级源点，然后连上特殊边权使得不影响整个题目的答案。</h5><p>这样做可以使从超级源点出发能走到每一个环上的结点。从而对所有环进行判断。例如，在本题中，每一次建立的超级源点对所有边连上的权值应当为二分平均值的相反数。这样运行时就会减去这个数值从而不影响对答案的判定。<br>当然这个点不一定要真的建出来。我们在大脑中模拟从这个超级源点出发对所有边进行更新时产生的影响。当该超级源点完成更新其他结点时，由于等效的边权为零，更新结束时，所有点的距离都应该为零。并且所有结点均在队列中。这之后，由于其他结点对于该超级源点并不再产生影响，该节点也不会影响求解。所以这个过程就相当于将所有实际结点的权值设为0并且将它们入队。  </p>
+<h5 id="2-以所有结点为源点各跑一边spfa判环。"><a href="#2-以所有结点为源点各跑一边spfa判环。" class="headerlink" title="2.以所有结点为源点各跑一边spfa判环。"></a>2.以所有结点为源点各跑一边spfa判环。</h5><p>在本题中两者均不会超时且都可以建出不影响答案的模型。我的代码中采用了1。  </p>
+<h3 id="其他的一些问题"><a href="#其他的一些问题" class="headerlink" title="其他的一些问题:"></a>其他的一些问题:</h3><p>题目中要求先判断是否存在环。这怎么操作呢？当然可以打一遍拓扑或者深搜判环。但是既然本题中判了负环，不妨将所有边权减去最大边权+1，这样所有边都成为了负权边，原图中所有的环都变成了负权环。这样用spfa判负环做一遍，减少了多打一个topo或者深搜判环的代码量。  </p>
+<p>解决了这些问题，代码就好写了。  </p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="number">1</span><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;queue&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">double</span> <span class="built_in">exp</span> = <span class="number">1e-5</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn = <span class="number">60</span>, maxm = <span class="number">2510</span>;</span><br><span class="line"><span class="keyword">int</span> n;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> head[maxn], ver[maxm&lt;&lt;<span class="number">1</span>], wei[maxm&lt;&lt;<span class="number">1</span>], nex[maxm&lt;&lt;<span class="number">1</span>], a[maxn][maxn], tot;</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">addedge</span><span class="params">(<span class="keyword">int</span> u, <span class="keyword">int</span> v, <span class="keyword">int</span> w)</span> </span>&#123;</span><br><span class="line">	ver[tot] = v; wei[tot] = w; nex[tot] = head[u]; head[u] = tot++;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">double</span> dis[maxn];</span><br><span class="line"><span class="keyword">int</span> inq[maxn], cnt[maxn];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">bool</span> <span class="title">ng_circle</span><span class="params">(<span class="keyword">double</span> dx)</span> </span>&#123;</span><br><span class="line">	<span class="built_in">queue</span>&lt;<span class="keyword">int</span>&gt; q;</span><br><span class="line">	<span class="built_in">memset</span>(inq, <span class="number">1</span>, <span class="keyword">sizeof</span>(inq));</span><br><span class="line">	<span class="built_in">memset</span>(cnt, <span class="number">0</span>, <span class="keyword">sizeof</span>(cnt));</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++) &#123;</span><br><span class="line">		dis[i] = <span class="number">0</span>; q.push(i);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">while</span>(!q.empty()) &#123;</span><br><span class="line">		<span class="keyword">int</span> cur = q.front(); q.pop(); inq[cur] = <span class="number">0</span>;</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i = head[cur]; i != <span class="number">-1</span>; i = nex[i])</span><br><span class="line">			<span class="keyword">if</span>(dis[ver[i]] &gt; dis[cur] + wei[i] - dx) &#123;</span><br><span class="line">				dis[ver[i]] = dis[cur] + wei[i] - dx;</span><br><span class="line">				<span class="keyword">if</span>(!inq[ver[i]]) &#123;</span><br><span class="line">					<span class="keyword">if</span>(++cnt[ver[i]] &gt; n) <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">					inq[ver[i]] = <span class="number">1</span>;</span><br><span class="line">					q.push(ver[i]);</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">int</span> T, m, u, v, w, cnt, mx;</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;T);</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> t = <span class="number">1</span>; t &lt;= T; t++) &#123;</span><br><span class="line">		<span class="built_in">memset</span>(head, <span class="number">-1</span>, <span class="keyword">sizeof</span>(head));</span><br><span class="line">		<span class="built_in">memset</span>(a, <span class="number">-1</span>, <span class="keyword">sizeof</span>(a));</span><br><span class="line">		tot = <span class="number">0</span>;</span><br><span class="line">		<span class="built_in">scanf</span>(<span class="string">"%d %d"</span>, &amp;n, &amp;m);</span><br><span class="line">		<span class="keyword">while</span>(m--) &#123;</span><br><span class="line">			<span class="built_in">scanf</span>(<span class="string">"%d %d %d"</span>, &amp;u, &amp;v, &amp;w);</span><br><span class="line">			a[u][v] = a[u][v] == <span class="number">-1</span> ? w : min(a[u][v], w);</span><br><span class="line">			mx = max(a[u][v], mx);</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++) &#123; </span><br><span class="line">			addedge(<span class="number">0</span>, i, <span class="number">0</span>);</span><br><span class="line">			<span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">1</span>; j &lt;= n; j++)</span><br><span class="line">				<span class="keyword">if</span>(a[i][j] != <span class="number">-1</span>) &#123;</span><br><span class="line">					addedge(i, j, a[i][j]);</span><br><span class="line">					cnt++;</span><br><span class="line">				&#125;</span><br><span class="line">		&#125; </span><br><span class="line">		<span class="keyword">if</span>(cnt &lt; n || !ng_circle(mx+<span class="number">1</span>)) &#123;</span><br><span class="line">			<span class="built_in">printf</span>(<span class="string">"Case #%d: No cycle found.\n"</span>, t);</span><br><span class="line">			<span class="keyword">continue</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">double</span> l = <span class="number">0</span>, r = mx;</span><br><span class="line">		<span class="keyword">while</span>(r - l &gt;= <span class="built_in">exp</span>) &#123;</span><br><span class="line">			<span class="keyword">double</span> mid = (l + r) / <span class="number">2</span>;</span><br><span class="line">			<span class="keyword">if</span>(ng_circle(mid)) r = mid;</span><br><span class="line">			<span class="keyword">else</span> l = mid;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">"Case #%d: %.2f\n"</span>, t, l);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;	</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>本篇文章及本博客所有文章转载均应当注明出处。用于商业用途的还应当征得本人同意。qq:2249133934。否则将追究法律责任。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://froldH.github.io/2019/07/23/OI/daily/20190723/uva11090/" data-id="cjyfrigwt000jbsrqxdxkr64f" class="article-share-link">分享</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/SPFA/">SPFA</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/二分/">二分</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/最短路/">最短路</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/负环/">负环</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2019/07/23/hexo/hexo_notes/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">下一篇</strong>
+      <div class="article-nav-title">hexo笔记</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    <div class="widget-wrap">
+  <h3 class="widget-title"></h3>
+  <div class="widget">
+    <h1 class="blog-title">froldH&#39;s algorithm blog</h1>
+    <h2 class="blog-subtitle"></h2>
+    <ul class="blog-link">
+     
+          <a href="/" title="Home">
+            <li>主页</li>
+          </a>
+        
+          <a href="/archives" title="Archives">
+            <li>归档</li>
+          </a>
+        
+          <a href="/categories" title="Categories">
+            <li>分类</li>
+          </a>
+        
+          <a href="/tags" title="Tags">
+            <li>标签</li>
+          </a>
+        
+    </ul>
+  </div>
+</div>
+
+  
+    <div class="widget-wrap">
+  <h3 class="widget-title"></h3>
+  <div class="widget">
+    <img class="avatar" src="https://i.loli.net/2019/07/22/5d35ce8ea2af983072.jpg">
+    <h2 class="author">froldH</h2>
+    <h3 class="description"></h3>
+    <div class="count-box">
+      <a href="/archives"><div><strong>4</strong><br>文章</div></a>
+      <a href="/categories"><div><strong>2</strong><br>分类</div></a>
+      <a href="/tags"><div><strong>9</strong><br>标签</div></a>
+    </div>
+
+
+
+    <div class="social-link">
+      
+        <a class="hvr-bounce-in" href="http://github.com/froldH" target="_blank" title="Github">
+          Github
+        </a>
+      
+        <a class="hvr-bounce-in" href="https://www.luogu.org/blog/oldherd/" target="_blank" title="Luogu博客">
+          Luogu博客
+        </a>
+      
+    </div>
+
+    <div class="friend-link">
+      <h2>友情链接</h2>
+      
+        <a class="hvr-bounce-in" href="http://blog.shanamaid.top/" target="_blank" title="ShanaMaid">
+          ShanaMaid
+        </a>
+      
+    </div>
+  </div>
+</div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy;2018 - 2019 froldH<br>
+      由<a href="http://hexo.io/" target="_blank">Hexo</a>强力驱动 | 
+      主题-<a href="https://github.com/ShanaMaid/hexo-theme-shana">Shana</a>
+      
+    </div>
+    
+  </div>
+</footer>
+    </div>
+    
+
+<script src="//apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="//apps.bdimg.com/libs/wow/0.1.6/wow.min.js"></script>
+<script>
+new WOW().init();
+</script>   
+
+
+  <link rel="stylesheet" href="/plugin/fancybox/jquery.fancybox.css">
+  <script src="/plugin/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+  <link rel="stylesheet" href="/plugin/galmenu/GalMenu.css">
+  <script src="/plugin/galmenu/GalMenu.js"></script>
+  <div class="GalMenu GalDropDown">
+      <div class="circle" id="gal">
+        <div class="ring">
+          
+            <a href="/" title="" class="menuItem">首页</a>
+          
+            <a href="/tags" title="" class="menuItem">标签</a>
+          
+            <a href="/categories" title="" class="menuItem">分类</a>
+          
+            <a href="/archives" title="" class="menuItem">归档</a>
+          
+            <a href="/xxxxxxxxx" title="" class="menuItem">xxx</a>
+          
+            <a href="/xxxxxxx" title="" class="menuItem">xxxx</a>
+          
+        </div>
+        
+          <audio id="audio" src="#"></audio>
+        
+      </div> 
+</div>
+<div id="overlay" style="opacity: 1; cursor: pointer;"></div>
+  <script type="text/javascript">var items = document.querySelectorAll('.menuItem');
+    for (var i = 0,
+    l = items.length; i < l; i++) {
+      items[i].style.left = (50 - 35 * Math.cos( - 0.5 * Math.PI - 2 * (1 / l) * i * Math.PI)).toFixed(4) + "%";
+      items[i].style.top = (50 + 35 * Math.sin( - 0.5 * Math.PI - 2 * (1 / l) * i * Math.PI)).toFixed(4) + "%"
+    }</script>
+<script type="text/javascript">
+  $(document).ready(function() {
+    $('body').GalMenu({
+      'menu': 'GalDropDown'
+    })
+  });
+</script>
+
+  <section class="hidden-xs"> 
+  <ul class="cb-slideshow"> 
+    <li><span>苟利</span></li> 
+    <li><span>国家</span></li> 
+    <li><span>生死以</span></li> 
+    <li><span>岂能</span></li> 
+    <li><span>祸福</span></li> 
+    <li><span>趋避之</span></li> 
+  </ul>
+</section>
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>
