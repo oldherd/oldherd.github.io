@@ -13,7 +13,7 @@
 <meta property="og:site_name" content="froldH&#39;s algorithm blog">
 <meta property="og:description" content="本文主要讲述日常用到过的hexo方法。   1.文件开头1234title: 		//存放文章标题date: 		//存放文章日期categories:	//存放文章类别tags[A, B, ...]	//存放文章标签  2.ymlhexo的基本配置信息在_config.yml中更改。如:">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-07-23T06:56:08.000Z">
+<meta property="og:updated_time" content="2019-07-23T07:02:52.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="hexo笔记">
 <meta name="twitter:description" content="本文主要讲述日常用到过的hexo方法。   1.文件开头1234title: 		//存放文章标题date: 		//存放文章日期categories:	//存放文章类别tags[A, B, ...]	//存放文章标签  2.ymlhexo的基本配置信息在_config.yml中更改。如:">
@@ -112,12 +112,13 @@
 <a id="more"></a>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">title: 						//博客的名字</span><br><span class="line">author: 					//作者的名字</span><br><span class="line">language: 					//应用的语言，如zh-CN为简体中文</span><br><span class="line">theme:						//应用的主题</span><br><span class="line">deploy:</span><br><span class="line">  type: 					//发布形式，一般填写git</span><br><span class="line">  repo: 					//发布的位置，如在github上应填写：https://github.com/username/username.github.io.git(username为github用户名，创建的respositries名称应当与username相同)</span><br></pre></td></tr></table></figure>
 
-<h3 id="3-theme"><a href="#3-theme" class="headerlink" title="3.theme"></a>3.theme</h3><p>主题的下载大致采用如下格式:<br>git clone + 网址 + themes/+主题名称<br>主题中可以更改一些东西，如背景等，应该在themes下的主题文件夹中的source/halmenu中更改  </p>
+<h3 id="3-theme"><a href="#3-theme" class="headerlink" title="3.theme"></a>3.theme</h3><p>主题的下载大致采用如下格式:<br>git clone + 网址 + themes/+主题名称<br>主题中可以更改一些东西，如背景等，应该在themes下的主题文件夹中的source/halmenu中更改<br>打开主题的excerpt(部分主题已经默认打开)，在文章中某部分加入<code>&lt;!-- more --&gt;</code>可以使在主页只加载这之前的部分作为预览。  </p>
+<h3 id="4-发布"><a href="#4-发布" class="headerlink" title="4.发布"></a>4.发布</h3><p><code>hexo clean &amp;&amp; hexo g &amp;&amp; hexo d</code>  </p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://froldH.github.io/2019/07/23/hexo/hexo_notes/" data-id="cjyfgydck00024wrq3026nhs2" class="article-share-link">分享</a>
+      <a data-url="http://froldH.github.io/2019/07/23/hexo/hexo_notes/" data-id="cjyfkxg6d0002rwrqn3jhp6h7" class="article-share-link">分享</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hexo/">hexo</a></li></ul>
