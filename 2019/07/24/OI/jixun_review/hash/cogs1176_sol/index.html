@@ -3,16 +3,20 @@
 <head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="utf-8">
   
-  <title>Tag: 莫队 | froldH&#39;s algorithm blog</title>
+  <title>COGS1176 月考 题解 | froldH&#39;s algorithm blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="keywords" content="oi">
-<meta property="og:type" content="website">
-<meta property="og:title" content="froldH&#39;s algorithm blog">
-<meta property="og:url" content="http://froldH.github.io/tags/莫队/index.html">
+  <meta name="description" content="本来想复习一下hash，在rxz老师的博客里莫名发现了一篇课件讲这个的。于是复制了一份看了起来。于是便有了这一题。">
+<meta name="keywords" content="hash,字符串">
+<meta property="og:type" content="article">
+<meta property="og:title" content="COGS1176 月考 题解">
+<meta property="og:url" content="http://froldH.github.io/2019/07/24/OI/jixun_review/hash/cogs1176_sol/index.html">
 <meta property="og:site_name" content="froldH&#39;s algorithm blog">
+<meta property="og:description" content="本来想复习一下hash，在rxz老师的博客里莫名发现了一篇课件讲这个的。于是复制了一份看了起来。于是便有了这一题。">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-07-24T14:45:42.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="froldH&#39;s algorithm blog">
+<meta name="twitter:title" content="COGS1176 月考 题解">
+<meta name="twitter:description" content="本来想复习一下hash，在rxz老师的博客里莫名发现了一篇课件讲这个的。于是复制了一份看了起来。于是便有了这一题。">
   
     <link rel="alternate" href="/atom.xml" title="froldH&#39;s algorithm blog" type="application/atom+xml">
   
@@ -65,42 +69,81 @@
   </div>
 </div>
 
-        <section id="main">
-  
-  
-    
-    
-      
-      
-      <section class="archives-wrap animated rubberBand">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2019/07/22/OI/summer2019plan/modui/modui/" class="archive-article-date">
-  <time class="post-time" datetime="2019-07-21T16:00:00.000Z" itemprop="datePublished">
+        <section id="main"><article id="post-OI/jixun_review/hash/cogs1176_sol" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/07/24/OI/jixun_review/hash/cogs1176_sol/" class="article-date">
+  <time class="post-time" datetime="2019-07-24T14:35:00.000Z" itemprop="datePublished">
     <span class="post-month">7月</span><br/>
-    <span class="post-day">22</span>
+    <span class="post-day">24</span>
   </time>
 </a>
-      
+   
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/07/22/OI/summer2019plan/modui/modui/">莫队算法练习</a>
+    <h1 class="article-title" itemprop="name">
+      COGS1176 月考 题解
     </h1>
   
 
-    </header>
+        <div>
+          
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/OI/">OI</a>
   </div>
+
+          
+              
+  &nbsp; | &nbsp;
+  <div class="view-box">
+    <span id="/2019/07/24/OI/jixun_review/hash/cogs1176_sol/" class="leancloud_visitors" data-flag-title="COGS1176 月考 题解">
+      &nbsp;阅读次数<span class="leancloud-visitors-count"></span>
+    </span>
+  </div>
+
+
+          
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>本来想复习一下hash，在rxz老师的博客里莫名发现了一篇课件讲这个的。于是复制了一份看了起来。于是便有了这一题。  </p>
+<a id="more"></a>
+<p>hzwer老师说过一般先考虑STL实现。于是并没有手写字符串hash然后苦逼地开散列去存它。<br>于是有了这一篇用map水过去地题解。(话说写完之后这个码风连我自己也不敢认QaQ)  </p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="built_in">map</span>&lt;<span class="built_in">string</span>, <span class="keyword">bool</span>&gt; h;</span><br><span class="line"></span><br><span class="line"><span class="built_in">string</span> s;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	freopen(<span class="string">"mtest.in"</span>, <span class="string">"r"</span>, <span class="built_in">stdin</span>);</span><br><span class="line">	freopen(<span class="string">"mtest.out"</span>, <span class="string">"w"</span>, <span class="built_in">stdout</span>);</span><br><span class="line">	<span class="keyword">int</span> n, cnt = <span class="number">0</span>;</span><br><span class="line">	<span class="built_in">cin</span> &gt;&gt; n;</span><br><span class="line">	<span class="keyword">while</span>(n--) &#123;</span><br><span class="line">		<span class="built_in">cin</span> &gt;&gt; s;</span><br><span class="line">		h[s] = <span class="literal">true</span>;	</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">cin</span> &gt;&gt; n;</span><br><span class="line">	<span class="keyword">while</span>(n--) &#123;</span><br><span class="line">		<span class="built_in">cin</span> &gt;&gt; s;</span><br><span class="line">		<span class="keyword">if</span>(h[s]) cnt++, h[s] = <span class="literal">false</span>;	</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; cnt &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="声明-本篇文章及本博客所有文章版权均归本人froldH所有。原文地址位于-https-froldh-github-io-2019-07-24-OI-jixun-review-hash-cogs1176-sol。转载和整体或部分应用于其他场合如课件或讲义的制作均应当在明显位置保留本段声明，除非征得本人同意。用于商业用途的也应当征得本人同意。qq-2249133934。否则将追究法律责任。"><a href="#声明-本篇文章及本博客所有文章版权均归本人froldH所有。原文地址位于-https-froldh-github-io-2019-07-24-OI-jixun-review-hash-cogs1176-sol。转载和整体或部分应用于其他场合如课件或讲义的制作均应当在明显位置保留本段声明，除非征得本人同意。用于商业用途的也应当征得本人同意。qq-2249133934。否则将追究法律责任。" class="headerlink" title="声明:本篇文章及本博客所有文章版权均归本人froldH所有。原文地址位于:https://froldh.github.io/2019/07/24/OI/jixun_review/hash/cogs1176_sol。转载和整体或部分应用于其他场合如课件或讲义的制作均应当在明显位置保留本段声明，除非征得本人同意。用于商业用途的也应当征得本人同意。qq:2249133934。否则将追究法律责任。"></a>声明:本篇文章及本博客所有文章版权均归本人froldH所有。原文地址位于:<code>https://froldh.github.io/2019/07/24/OI/jixun_review/hash/cogs1176_sol</code>。转载和整体或部分应用于其他场合如课件或讲义的制作均应当在明显位置保留本段声明，除非征得本人同意。用于商业用途的也应当征得本人同意。qq:2249133934。否则将追究法律责任。</h5>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://froldH.github.io/2019/07/24/OI/jixun_review/hash/cogs1176_sol/" data-id="cjyhd1rwp0013a4rq9nq5wvzq" class="article-share-link">分享</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hash/">hash</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/字符串/">字符串</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2019/07/24/OI/jixun_review/meet_in_the_middle/gift_acwing171/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">下一篇</strong>
+      <div class="article-nav-title">送礼物 ACwing171 题解</div>
+    </a>
+  
+</nav>
+
+  
 </article>
-  
-  
-    </div></section>
-  
+
+
 
 </section>
         
