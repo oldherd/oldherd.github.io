@@ -13,7 +13,7 @@
 <meta property="og:site_name" content="froldH&#39;s algorithm blog">
 <meta property="og:description" content="首先是关于二分答案法的一些赘述:它大致上有几种模型。   1.最大值的最小值， 最小值的最大值。这是二分答案法最为常见的一种模型。只要证明解的单调性，就可以尝试使用二分答案法。在这种情况下二分适用时，二分答案法将最值性问题转化成判断性问题从而简化了求解的过程。它一般是不亏的，因为只增加了一个log的时间复杂度因子。然而在有些时候判断性问题不一定比最值性问题更优，这时候二分答案法就用不上了。例如:H">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-07-24T08:09:56.000Z">
+<meta property="og:updated_time" content="2019-07-24T09:12:22.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="UVA11090 Going in cycle!! 题解(有关于二分答案和spfa判(负)环的详细讨论)">
 <meta name="twitter:description" content="首先是关于二分答案法的一些赘述:它大致上有几种模型。   1.最大值的最小值， 最小值的最大值。这是二分答案法最为常见的一种模型。只要证明解的单调性，就可以尝试使用二分答案法。在这种情况下二分适用时，二分答案法将最值性问题转化成判断性问题从而简化了求解的过程。它一般是不亏的，因为只增加了一个log的时间复杂度因子。然而在有些时候判断性问题不一定比最值性问题更优，这时候二分答案法就用不上了。例如:H">
@@ -119,7 +119,7 @@
 <h5 id="3-其他模型"><a href="#3-其他模型" class="headerlink" title="3.其他模型"></a>3.其他模型</h5><p>这类问题往往也是最值难以判断，但是转成判断性问题后易解且复杂度较小。具体参见1。如hzwer的小奇吃奶酪<del>木头</del>等等。   </p>
 <p>那么我们将本题依据2的模型二分平均值判定，只需要判断负环的存在性即可。  </p>
 <h3 id="接下来是关于spfa判断负环的一些赘述"><a href="#接下来是关于spfa判断负环的一些赘述" class="headerlink" title="接下来是关于spfa判断负环的一些赘述:"></a>接下来是关于spfa判断负环的一些赘述:</h3><p>由于图不一定连通并且有向图中不一定从一个点出发能走到相邻环(例如基环外向树中树杈上的节点无法走到环上)。所以一般有两种处理方法:  </p>
-<h5 id="1-建立超级源点，然后连上特殊边权使得不影响整个题目的答案。"><a href="#1-建立超级源点，然后连上特殊边权使得不影响整个题目的答案。" class="headerlink" title="1.建立超级源点，然后连上特殊边权使得不影响整个题目的答案。"></a>1.建立超级源点，然后连上特殊边权使得不影响整个题目的答案。</h5><p>这样做可以使从超级源点出发能走到每一个环上的结点。从而对所有环进行判断。例如，在本题中，每一次建立的超级源点对所有边连上的权值应当为二分平均值的相反数。这样运行时就会减去这个数值从而不影响对答案的判定。<br>当然这个点不一定要真的建出来。我们在大脑中模拟从这个超级源点出发对所有边进行更新时产生的影响。当该超级源点完成更新其他结点时，由于等效的边权为零，更新结束时，所有点的距离都应该为零。并且所有结点均在队列中。这之后，由于其他结点对于该超级源点并不再产生影响，该节点也不会影响求解。所以这个过程就相当于将所有实际结点的权值设为0并且将它们入队。  </p>
+<h5 id="1-建立超级源点，然后连上特殊边权使得不影响整个题目的答案。"><a href="#1-建立超级源点，然后连上特殊边权使得不影响整个题目的答案。" class="headerlink" title="1.建立超级源点，然后连上特殊边权使得不影响整个题目的答案。"></a>1.建立超级源点，然后连上特殊边权使得不影响整个题目的答案。</h5><p>这样做可以使从超级源点出发能走到每一个环上的结点。从而对所有环进行判断。例如，在本题中，每一次建立的超级源点对所有边连上的权值应当为二分平均值的相反数。这样运行时就会减去这个数值从而不影响对答案的判定。<br>当然这个点不一定要真的建出来。我们在大脑中模拟从这个超级源点出发对所有边进行更新时产生的影响。当该超级源点完成更新其他结点时，由于等效的边权为零，更新结束时，所有点的距离都应该为零。并且所有结点均在队列中。这之后，由于其他结点对于该超级源点并不再产生影响，该节点也不会影响求解。所以这个过程就相当于将所有实际结点的权值设为0并且将它们入队。该结论同样适用于无向图，因为我们用超级源点模拟连出的边仍为有向边(有向图+无向图 或 将原无向图的边看作两条方向相反连接两个顶点的有向边)。  </p>
 <h5 id="2-以所有结点为源点各跑一边spfa判环。"><a href="#2-以所有结点为源点各跑一边spfa判环。" class="headerlink" title="2.以所有结点为源点各跑一边spfa判环。"></a>2.以所有结点为源点各跑一边spfa判环。</h5><p>在本题中两者均不会超时且都可以建出不影响答案的模型。我的代码中采用了1。  </p>
 <h3 id="其他的一些问题"><a href="#其他的一些问题" class="headerlink" title="其他的一些问题:"></a>其他的一些问题:</h3><h4 id="判环"><a href="#判环" class="headerlink" title="判环"></a>判环</h4><h5 id="spfa用来判环"><a href="#spfa用来判环" class="headerlink" title="spfa用来判环"></a>spfa用来判环</h5><p>题目中要求先判断是否存在环。这怎么操作呢？当然可以打一遍拓扑或者深搜判环。但是既然本题中判了负环，不妨将所有边权减去最大边权+1，这样所有边都成为了负权边，原图中所有的环都变成了负权环。这样用spfa判负环做一遍，减少了多打一个topo或者深搜判环的代码量。  </p>
 <h5 id="topo"><a href="#topo" class="headerlink" title="topo"></a>topo</h5><p>topo_sort后剩下的结点即为环上结点  </p>
@@ -133,7 +133,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://froldH.github.io/2019/07/23/OI/daily/20190723/uva11090/" data-id="cjygyxw8z000lusrq5wx4iox3" class="article-share-link">分享</a>
+      <a data-url="http://froldH.github.io/2019/07/23/OI/daily/20190723/uva11090/" data-id="cjyh15xdv000iskrqr9rqpzvg" class="article-share-link">分享</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/SPFA/">SPFA</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/二分/">二分</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/最短路/">最短路</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/负环/">负环</a></li></ul>
