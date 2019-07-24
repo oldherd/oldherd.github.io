@@ -3,19 +3,19 @@
 <head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="utf-8">
   
-  <title>codeforces round 1195题解 | froldH&#39;s algorithm blog</title>
+  <title>Codeforces Round 574(Div. 2), contest 1195 题解 | froldH&#39;s algorithm blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="CF1195A Drinks Choosing这题很显然是一个贪心，能够配对的配对，不能的则有一半(上取整)能配对。考虑k&amp;lt;=1000 ,所以只要开桶来存储即可。如果增大k并且饮料标号不连续，则可以考察hash，并卡掉离散化。我们动态地统计不成对数，每当成对减一，不成对加一，然后用全部数值减去得到成对数。可以用异或来实现，或者直接记录数量来判断奇偶性。">
 <meta name="keywords" content="codeforces,greedy,二分,dp">
 <meta property="og:type" content="article">
-<meta property="og:title" content="codeforces round 1195题解">
+<meta property="og:title" content="Codeforces Round 574(Div. 2), contest 1195 题解">
 <meta property="og:url" content="http://froldH.github.io/2019/07/22/OI/codeforcesPlan/CF1195/index.html">
 <meta property="og:site_name" content="froldH&#39;s algorithm blog">
 <meta property="og:description" content="CF1195A Drinks Choosing这题很显然是一个贪心，能够配对的配对，不能的则有一半(上取整)能配对。考虑k&amp;lt;=1000 ,所以只要开桶来存储即可。如果增大k并且饮料标号不连续，则可以考察hash，并卡掉离散化。我们动态地统计不成对数，每当成对减一，不成对加一，然后用全部数值减去得到成对数。可以用异或来实现，或者直接记录数量来判断奇偶性。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-07-23T14:15:20.000Z">
+<meta property="og:updated_time" content="2019-07-24T01:43:40.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="codeforces round 1195题解">
+<meta name="twitter:title" content="Codeforces Round 574(Div. 2), contest 1195 题解">
 <meta name="twitter:description" content="CF1195A Drinks Choosing这题很显然是一个贪心，能够配对的配对，不能的则有一半(上取整)能配对。考虑k&amp;lt;=1000 ,所以只要开桶来存储即可。如果增大k并且饮料标号不连续，则可以考察hash，并卡掉离散化。我们动态地统计不成对数，每当成对减一，不成对加一，然后用全部数值减去得到成对数。可以用异或来实现，或者直接记录数量来判断奇偶性。">
   
     <link rel="alternate" href="/atom.xml" title="froldH&#39;s algorithm blog" type="application/atom+xml">
@@ -86,7 +86,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      codeforces round 1195题解
+      Codeforces Round 574(Div. 2), contest 1195 题解
     </h1>
   
 
@@ -120,7 +120,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://froldH.github.io/2019/07/22/OI/codeforcesPlan/CF1195/" data-id="cjyfwkopf0007ysrqvqfnv2pt" class="article-share-link">分享</a>
+      <a data-url="http://froldH.github.io/2019/07/22/OI/codeforcesPlan/CF1195/" data-id="cjygl57em0007forq0e1lzlda" class="article-share-link">分享</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/codeforces/">codeforces</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/dp/">dp</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/greedy/">greedy</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/二分/">二分</a></li></ul>
