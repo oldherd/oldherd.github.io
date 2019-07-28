@@ -3,16 +3,20 @@
 <head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="utf-8">
   
-  <title>froldH&#39;s algorithm blog</title>
+  <title>SuperGCD SDOI2009 LuoguP2152 题解(含有关于更相减损术的步骤描述) | froldH&#39;s algorithm blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="keywords" content="oi">
-<meta property="og:type" content="website">
-<meta property="og:title" content="froldH&#39;s algorithm blog">
-<meta property="og:url" content="http://froldH.github.io/index.html">
+  <meta name="description" content="hzwer: 更相减损术在时间上比较慢,一般用于证明一些结论和在高精度下求GCD。本题数据范围在高精度的范畴,由于高精度除法(取模)难度较大,但是高精度相减而高精度除以单精度、乘以单精度在实现上相对简单,所以考虑用更相减损术来实现。更相减损术的实现:1.若两个整数都为偶数,将他们不断同时除以2，直到其中任意一个不为偶数。记录除以2的次数。2.若其中有任意数为偶数,将其除以2,直到没有偶数。3.用大">
+<meta name="keywords" content="腾飞营集训,BigNumber,GCD,更相减损术">
+<meta property="og:type" content="article">
+<meta property="og:title" content="SuperGCD SDOI2009 LuoguP2152 题解(含有关于更相减损术的步骤描述)">
+<meta property="og:url" content="http://froldH.github.io/2019/07/28/OI/daily/20190728/SuperGCD_SDOI2009_LuoguP2152/index.html">
 <meta property="og:site_name" content="froldH&#39;s algorithm blog">
+<meta property="og:description" content="hzwer: 更相减损术在时间上比较慢,一般用于证明一些结论和在高精度下求GCD。本题数据范围在高精度的范畴,由于高精度除法(取模)难度较大,但是高精度相减而高精度除以单精度、乘以单精度在实现上相对简单,所以考虑用更相减损术来实现。更相减损术的实现:1.若两个整数都为偶数,将他们不断同时除以2，直到其中任意一个不为偶数。记录除以2的次数。2.若其中有任意数为偶数,将其除以2,直到没有偶数。3.用大">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-07-28T11:10:34.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="froldH&#39;s algorithm blog">
+<meta name="twitter:title" content="SuperGCD SDOI2009 LuoguP2152 题解(含有关于更相减损术的步骤描述)">
+<meta name="twitter:description" content="hzwer: 更相减损术在时间上比较慢,一般用于证明一些结论和在高精度下求GCD。本题数据范围在高精度的范畴,由于高精度除法(取模)难度较大,但是高精度相减而高精度除以单精度、乘以单精度在实现上相对简单,所以考虑用更相减损术来实现。更相减损术的实现:1.若两个整数都为偶数,将他们不断同时除以2，直到其中任意一个不为偶数。记录除以2的次数。2.若其中有任意数为偶数,将其除以2,直到没有偶数。3.用大">
   
     <link rel="alternate" href="/atom.xml" title="froldH&#39;s algorithm blog" type="application/atom+xml">
   
@@ -65,9 +69,7 @@
   </div>
 </div>
 
-        <section id="main">
-  
-    <article id="post-OI/daily/20190728/SuperGCD_SDOI2009_LuoguP2152" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-OI/daily/20190728/SuperGCD_SDOI2009_LuoguP2152" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2019/07/28/OI/daily/20190728/SuperGCD_SDOI2009_LuoguP2152/" class="article-date">
   <time class="post-time" datetime="2019-07-28T10:50:49.000Z" itemprop="datePublished">
@@ -83,8 +85,8 @@
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/07/28/OI/daily/20190728/SuperGCD_SDOI2009_LuoguP2152/">SuperGCD SDOI2009 LuoguP2152 题解(含有关于更相减损术的步骤描述)</a>
+    <h1 class="article-title" itemprop="name">
+      SuperGCD SDOI2009 LuoguP2152 题解(含有关于更相减损术的步骤描述)
     </h1>
   
 
@@ -125,478 +127,21 @@
     </footer>
   </div>
   
-</article>
-
-
-
-
-  
-    <article id="post-OI/codeforcesPlan/CF1197" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2019/07/26/OI/codeforcesPlan/CF1197/" class="article-date">
-  <time class="post-time" datetime="2019-07-26T14:44:04.000Z" itemprop="datePublished">
-    <span class="post-month">7月</span><br/>
-    <span class="post-day">26</span>
-  </time>
-</a>
-   
-  </div>
-  <div class="article-inner">
     
-    
-      <header class="article-header">
-        
+<nav id="article-nav">
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/07/26/OI/codeforcesPlan/CF1197/">Educational codeforces Round 69(Rated for Div. 2), contest 1197 题解</a>
-    </h1>
   
+    <a href="/2019/07/26/OI/codeforcesPlan/CF1197/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">下一篇</strong>
+      <div class="article-nav-title">Educational codeforces Round 69(Rated for Div. 2), contest 1197 题解</div>
+    </a>
+  
+</nav>
 
-        <div>
-          
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/OI/">OI</a>
-  </div>
-
-          
-              
-  &nbsp; | &nbsp;
-  <div class="view-box">
-    <span id="/2019/07/26/OI/codeforcesPlan/CF1197/" class="leancloud_visitors" data-flag-title="Educational codeforces Round 69(Rated for Div. 2), contest 1197 题解">
-      &nbsp;阅读次数<span class="leancloud-visitors-count"></span>
-    </span>
-  </div>
-
-
-          
-        </div>
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>话说上一回的Regular Round 574题解还没更完，但是又开了一本(画风有点不对?)<br>因为从不修仙(有人信吗?)刷题所以没办法参加比赛只能赛后打打。所以您看到的一直是Div. 2(说的好像Div. 1我能做出几道一样)。<br>这次比赛几乎没有考察高级的算法，全都是智商题(其实就是水)。<br>这次首更四题
-        
-          <p class="article-more-link">
-            <a href="/2019/07/26/OI/codeforcesPlan/CF1197/#more">expand all</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://froldH.github.io/2019/07/26/OI/codeforcesPlan/CF1197/" data-id="cjymv8xm2000iskrqug3pej15" class="article-share-link">分享</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/dp/">dp</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/greedy/">greedy</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/智商题/">智商题</a></li></ul>
-
-    </footer>
-  </div>
   
 </article>
 
 
-
-
-  
-    <article id="post-OI/jixun_review/hash/cogs1176_sol" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2019/07/24/OI/jixun_review/hash/cogs1176_sol/" class="article-date">
-  <time class="post-time" datetime="2019-07-24T14:35:00.000Z" itemprop="datePublished">
-    <span class="post-month">7月</span><br/>
-    <span class="post-day">24</span>
-  </time>
-</a>
-   
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/07/24/OI/jixun_review/hash/cogs1176_sol/">COGS1176 月考 题解</a>
-    </h1>
-  
-
-        <div>
-          
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/OI/">OI</a>
-  </div>
-
-          
-              
-  &nbsp; | &nbsp;
-  <div class="view-box">
-    <span id="/2019/07/24/OI/jixun_review/hash/cogs1176_sol/" class="leancloud_visitors" data-flag-title="COGS1176 月考 题解">
-      &nbsp;阅读次数<span class="leancloud-visitors-count"></span>
-    </span>
-  </div>
-
-
-          
-        </div>
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>本来想复习一下hash，在rxz老师的博客里莫名发现了一篇课件讲这个的。于是复制了一份看了起来。于是便有了这一题。
-        
-          <p class="article-more-link">
-            <a href="/2019/07/24/OI/jixun_review/hash/cogs1176_sol/#more">expand all</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://froldH.github.io/2019/07/24/OI/jixun_review/hash/cogs1176_sol/" data-id="cjymv8xm6000oskrqqsjys0ce" class="article-share-link">分享</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hash/">hash</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/字符串/">字符串</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/腾飞营集训/">腾飞营集训</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-
-  
-    <article id="post-OI/jixun_review/meet_in_the_middle/gift_acwing171" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2019/07/24/OI/jixun_review/meet_in_the_middle/gift_acwing171/" class="article-date">
-  <time class="post-time" datetime="2019-07-23T16:00:00.000Z" itemprop="datePublished">
-    <span class="post-month">7月</span><br/>
-    <span class="post-day">24</span>
-  </time>
-</a>
-   
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/07/24/OI/jixun_review/meet_in_the_middle/gift_acwing171/">送礼物 ACwing171 题解</a>
-    </h1>
-  
-
-        <div>
-          
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/OI/">OI</a>
-  </div>
-
-          
-              
-  &nbsp; | &nbsp;
-  <div class="view-box">
-    <span id="/2019/07/24/OI/jixun_review/meet_in_the_middle/gift_acwing171/" class="leancloud_visitors" data-flag-title="送礼物 ACwing171 题解">
-      &nbsp;阅读次数<span class="leancloud-visitors-count"></span>
-    </span>
-  </div>
-
-
-          
-        </div>
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>之前暑期集训有一道买汽水的题目和这个类似，现在复习做了一下。<br>本题是一个NPC问题，按照hzwer学长的说法，没有特殊特性的NPC问题一般都是用搜索解决。(01背包就是一个NPC问题但由于w比较小所以可以dp)<br>搜索的话状态空间2^N,N到20多就已经比较吃力了。45过不了。但是一半是可以通过的。所以考虑折半搜索。
-        
-          <p class="article-more-link">
-            <a href="/2019/07/24/OI/jixun_review/meet_in_the_middle/gift_acwing171/#more">expand all</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://froldH.github.io/2019/07/24/OI/jixun_review/meet_in_the_middle/gift_acwing171/" data-id="cjymv8xm9000rskrqxuk4zsqt" class="article-share-link">分享</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/meet-in-the-middle/">meet in the middle</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/搜索/">搜索</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/腾飞营集训/">腾飞营集训</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-
-  
-    <article id="post-OI/daily/20190723/uva11090" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2019/07/23/OI/daily/20190723/uva11090/" class="article-date">
-  <time class="post-time" datetime="2019-07-23T10:40:33.000Z" itemprop="datePublished">
-    <span class="post-month">7月</span><br/>
-    <span class="post-day">23</span>
-  </time>
-</a>
-   
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/07/23/OI/daily/20190723/uva11090/">UVA11090 Going in cycle!! 题解(有关于二分答案和spfa判(负)环的详细讨论)</a>
-    </h1>
-  
-
-        <div>
-          
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/OI/">OI</a>
-  </div>
-
-          
-              
-  &nbsp; | &nbsp;
-  <div class="view-box">
-    <span id="/2019/07/23/OI/daily/20190723/uva11090/" class="leancloud_visitors" data-flag-title="UVA11090 Going in cycle!! 题解(有关于二分答案和spfa判(负)环的详细讨论)">
-      &nbsp;阅读次数<span class="leancloud-visitors-count"></span>
-    </span>
-  </div>
-
-
-          
-        </div>
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="首先是关于二分答案法的一些赘述"><a href="#首先是关于二分答案法的一些赘述" class="headerlink" title="首先是关于二分答案法的一些赘述:"></a>首先是关于二分答案法的一些赘述:</h3><p>它大致上有几种模型。  </p>
-<h5 id="1-最大值的最小值，-最小值的最大值。"><a href="#1-最大值的最小值，-最小值的最大值。" class="headerlink" title="1.最大值的最小值， 最小值的最大值。"></a>1.最大值的最小值， 最小值的最大值。</h5><p>这是二分答案法最为常见的一种模型。只要证明解的单调性，就可以尝试使用二分答案法。在这种情况下二分适用时，二分答案法将最值性问题转化成判断性问题从而简化了求解的过程。它一般是不亏的，因为只增加了一个log的时间复杂度因子。然而在有些时候判断性问题不一定比最值性问题更优，这时候二分答案法就用不上了。例如:HDU4044 GeoDefense。
-        
-          <p class="article-more-link">
-            <a href="/2019/07/23/OI/daily/20190723/uva11090/#more">expand all</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://froldH.github.io/2019/07/23/OI/daily/20190723/uva11090/" data-id="cjymv8xm7000pskrqh1r26wj3" class="article-share-link">分享</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/SPFA/">SPFA</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/二分/">二分</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/最短路/">最短路</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/负环/">负环</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-
-  
-    <article id="post-hexo/hexo_notes" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2019/07/23/hexo/hexo_notes/" class="article-date">
-  <time class="post-time" datetime="2019-07-22T16:00:00.000Z" itemprop="datePublished">
-    <span class="post-month">7月</span><br/>
-    <span class="post-day">23</span>
-  </time>
-</a>
-   
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/07/23/hexo/hexo_notes/">hexo笔记</a>
-    </h1>
-  
-
-        <div>
-          
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/hexo/">hexo</a>
-  </div>
-
-          
-              
-  &nbsp; | &nbsp;
-  <div class="view-box">
-    <span id="/2019/07/23/hexo/hexo_notes/" class="leancloud_visitors" data-flag-title="hexo笔记">
-      &nbsp;阅读次数<span class="leancloud-visitors-count"></span>
-    </span>
-  </div>
-
-
-          
-        </div>
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>本文主要讲述日常用到过的hexo方法。  </p>
-<h3 id="1-文件开头"><a href="#1-文件开头" class="headerlink" title="1.文件开头"></a>1.文件开头</h3><figure class="highlight md"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">title: 		//存放文章标题</span><br><span class="line">date: 		//存放文章日期</span><br><span class="line">categories:	//存放文章类别</span><br><span class="line">tags[A, B, ...]	//存放文章标签</span><br></pre></td></tr></table></figure>
-
-<h3 id="2-yml"><a href="#2-yml" class="headerlink" title="2.yml"></a>2.yml</h3><p>hexo的基本配置信息在_config.yml中更改。<br>如:
-        
-          <p class="article-more-link">
-            <a href="/2019/07/23/hexo/hexo_notes/#more">expand all</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://froldH.github.io/2019/07/23/hexo/hexo_notes/" data-id="cjymv8xla0002skrq996ry1u1" class="article-share-link">分享</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hexo/">hexo</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-
-  
-    <article id="post-OI/codeforcesPlan/CF1195" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2019/07/22/OI/codeforcesPlan/CF1195/" class="article-date">
-  <time class="post-time" datetime="2019-07-21T16:00:00.000Z" itemprop="datePublished">
-    <span class="post-month">7月</span><br/>
-    <span class="post-day">22</span>
-  </time>
-</a>
-   
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/07/22/OI/codeforcesPlan/CF1195/">Codeforces Round 574(Div. 2), contest 1195 题解</a>
-    </h1>
-  
-
-        <div>
-          
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/OI/">OI</a>
-  </div>
-
-          
-              
-  &nbsp; | &nbsp;
-  <div class="view-box">
-    <span id="/2019/07/22/OI/codeforcesPlan/CF1195/" class="leancloud_visitors" data-flag-title="Codeforces Round 574(Div. 2), contest 1195 题解">
-      &nbsp;阅读次数<span class="leancloud-visitors-count"></span>
-    </span>
-  </div>
-
-
-          
-        </div>
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="CF1195A-Drinks-Choosing"><a href="#CF1195A-Drinks-Choosing" class="headerlink" title="CF1195A Drinks Choosing"></a>CF1195A Drinks Choosing</h3><p>这题很显然是一个贪心，能够配对的配对，不能的则有一半(上取整)能配对。<br>考虑k&lt;=1000 ,所以只要开桶来存储即可。<br>如果增大k并且饮料标号不连续，则可以考察hash，并卡掉离散化。<br>我们动态地统计不成对数，每当成对减一，不成对加一，然后用全部数值减去得到成对数。可以用异或来实现，或者直接记录数量来判断奇偶性。
-        
-          <p class="article-more-link">
-            <a href="/2019/07/22/OI/codeforcesPlan/CF1195/#more">expand all</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://froldH.github.io/2019/07/22/OI/codeforcesPlan/CF1195/" data-id="cjymv8xlu0007skrqpq5lvqtm" class="article-share-link">分享</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/codeforces/">codeforces</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/dp/">dp</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/greedy/">greedy</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/二分/">二分</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-
-  
-    <article id="post-OI/summer2019plan/modui/modui" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2019/07/22/OI/summer2019plan/modui/modui/" class="article-date">
-  <time class="post-time" datetime="2019-07-21T16:00:00.000Z" itemprop="datePublished">
-    <span class="post-month">7月</span><br/>
-    <span class="post-day">22</span>
-  </time>
-</a>
-   
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/07/22/OI/summer2019plan/modui/modui/">莫队算法练习</a>
-    </h1>
-  
-
-        <div>
-          
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/OI/">OI</a>
-  </div>
-
-          
-              
-  &nbsp; | &nbsp;
-  <div class="view-box">
-    <span id="/2019/07/22/OI/summer2019plan/modui/modui/" class="leancloud_visitors" data-flag-title="莫队算法练习">
-      &nbsp;阅读次数<span class="leancloud-visitors-count"></span>
-    </span>
-  </div>
-
-
-          
-        </div>
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>莫队算法将询问离线化，按区间右端点分块，然后暴力移动指针修改变化的位置的点。<br>莫队算法适用于能够O(1)维护删除一个点和增加一个点，统计类(统计量能够装入桶中)的题目，复杂度为O(n√n + m√n)。<br>一般块的大小为√n或者n / (√m * 2/3)，后者优于前者。<br>初始化将l = 1, r = 0.这样在它们移动到排序后的询问序列过程中的中间段分别被添加和删除各一次，正好抵消。
-        
-          <p class="article-more-link">
-            <a href="/2019/07/22/OI/summer2019plan/modui/modui/#more">expand all</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://froldH.github.io/2019/07/22/OI/summer2019plan/modui/modui/" data-id="cjymv8xma000sskrqvkul77ox" class="article-share-link">分享</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/莫队/">莫队</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-
-  
 
 </section>
         
