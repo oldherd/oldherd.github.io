@@ -3,14 +3,14 @@
 <head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="utf-8">
   
-  <title>送礼物 ACwing171 题解 | froldH&#39;s algorithm blog</title>
+  <title>送礼物 ACwing171 题解 | froldH&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="之前暑期集训有一道买汽水的题目和这个类似，现在复习做了一下。本题是一个NPC问题，按照hzwer学长的说法，没有特殊特性的NPC问题一般都是用搜索解决。(01背包就是一个NPC问题但由于w比较小所以可以dp)搜索的话状态空间2^N,N到20多就已经比较吃力了。45过不了。但是一半是可以通过的。所以考虑折半搜索。">
 <meta name="keywords" content="腾飞营集训,搜索,meet in the middle">
 <meta property="og:type" content="article">
 <meta property="og:title" content="送礼物 ACwing171 题解">
 <meta property="og:url" content="http://froldH.github.io/2019/07/24/OI/jixun_review/meet_in_the_middle/gift_acwing171/index.html">
-<meta property="og:site_name" content="froldH&#39;s algorithm blog">
+<meta property="og:site_name" content="froldH&#39;s blog">
 <meta property="og:description" content="之前暑期集训有一道买汽水的题目和这个类似，现在复习做了一下。本题是一个NPC问题，按照hzwer学长的说法，没有特殊特性的NPC问题一般都是用搜索解决。(01背包就是一个NPC问题但由于w比较小所以可以dp)搜索的话状态空间2^N,N到20多就已经比较吃力了。45过不了。但是一半是可以通过的。所以考虑折半搜索。">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:updated_time" content="2019-07-24T14:55:02.000Z">
@@ -18,7 +18,7 @@
 <meta name="twitter:title" content="送礼物 ACwing171 题解">
 <meta name="twitter:description" content="之前暑期集训有一道买汽水的题目和这个类似，现在复习做了一下。本题是一个NPC问题，按照hzwer学长的说法，没有特殊特性的NPC问题一般都是用搜索解决。(01背包就是一个NPC问题但由于w比较小所以可以dp)搜索的话状态空间2^N,N到20多就已经比较吃力了。45过不了。但是一半是可以通过的。所以考虑折半搜索。">
   
-    <link rel="alternate" href="/atom.xml" title="froldH&#39;s algorithm blog" type="application/atom+xml">
+    <link rel="alternate" href="/atom.xml" title="froldH&#39;s blog" type="application/atom+xml">
   
   
     <link rel="icon" href="/favicon.png">
@@ -63,6 +63,14 @@
         
           <a href="/tags" title="Tags">
             <li>标签</li>
+          </a>
+        
+          <a href="/about" title="About">
+            <li>关于</li>
+          </a>
+        
+          <a href="/feed" title="投喂">
+            <li>投喂</li>
           </a>
         
     </ul>
@@ -119,7 +127,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://froldH.github.io/2019/07/24/OI/jixun_review/meet_in_the_middle/gift_acwing171/" data-id="cjymvd52z000u30rqwt98r4d6" class="article-share-link">分享</a>
+      <a data-url="http://froldH.github.io/2019/07/24/OI/jixun_review/meet_in_the_middle/gift_acwing171/" data-id="cjyn45wip000zv8rqbedc3hs6" class="article-share-link">分享</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/meet-in-the-middle/">meet in the middle</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/搜索/">搜索</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/腾飞营集训/">腾飞营集训</a></li></ul>
@@ -159,7 +167,7 @@
     <div class="widget-wrap">
   <h3 class="widget-title"></h3>
   <div class="widget">
-    <h1 class="blog-title">froldH&#39;s algorithm blog</h1>
+    <h1 class="blog-title">froldH&#39;s blog</h1>
     <h2 class="blog-subtitle"></h2>
     <ul class="blog-link">
      
@@ -177,6 +185,14 @@
         
           <a href="/tags" title="Tags">
             <li>标签</li>
+          </a>
+        
+          <a href="/about" title="About">
+            <li>关于</li>
+          </a>
+        
+          <a href="/feed" title="投喂">
+            <li>投喂</li>
           </a>
         
     </ul>
@@ -266,9 +282,9 @@ new WOW().init();
           
             <a href="/archives" title="" class="menuItem">归档</a>
           
-            <a href="/xxxxxxxxx" title="" class="menuItem">xxx</a>
+            <a href="/about" title="" class="menuItem">关于</a>
           
-            <a href="/xxxxxxx" title="" class="menuItem">xxxx</a>
+            <a href="/feed" title="" class="menuItem">投喂</a>
           
         </div>
         

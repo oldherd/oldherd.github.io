@@ -3,14 +3,14 @@
 <head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="utf-8">
   
-  <title>SuperGCD SDOI2009 LuoguP2152 题解(含有关于更相减损术的步骤描述) | froldH&#39;s algorithm blog</title>
+  <title>SuperGCD SDOI2009 LuoguP2152 题解(含有关于更相减损术的步骤描述) | froldH&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="hzwer: 更相减损术在时间上比较慢,一般用于证明一些结论和在高精度下求GCD。本题数据范围在高精度的范畴,由于高精度除法(取模)难度较大,但是高精度相减而高精度除以单精度、乘以单精度在实现上相对简单,所以考虑用更相减损术来实现。">
-<meta name="keywords" content="腾飞营集训,BigNumber,GCD,更相减损术">
+<meta name="keywords" content="BigNumber,GCD,更相减损术,腾飞营集训">
 <meta property="og:type" content="article">
 <meta property="og:title" content="SuperGCD SDOI2009 LuoguP2152 题解(含有关于更相减损术的步骤描述)">
 <meta property="og:url" content="http://froldH.github.io/2019/07/28/OI/daily/20190728/SuperGCD_SDOI2009_LuoguP2152/index.html">
-<meta property="og:site_name" content="froldH&#39;s algorithm blog">
+<meta property="og:site_name" content="froldH&#39;s blog">
 <meta property="og:description" content="hzwer: 更相减损术在时间上比较慢,一般用于证明一些结论和在高精度下求GCD。本题数据范围在高精度的范畴,由于高精度除法(取模)难度较大,但是高精度相减而高精度除以单精度、乘以单精度在实现上相对简单,所以考虑用更相减损术来实现。">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:updated_time" content="2019-07-28T11:16:36.000Z">
@@ -18,7 +18,7 @@
 <meta name="twitter:title" content="SuperGCD SDOI2009 LuoguP2152 题解(含有关于更相减损术的步骤描述)">
 <meta name="twitter:description" content="hzwer: 更相减损术在时间上比较慢,一般用于证明一些结论和在高精度下求GCD。本题数据范围在高精度的范畴,由于高精度除法(取模)难度较大,但是高精度相减而高精度除以单精度、乘以单精度在实现上相对简单,所以考虑用更相减损术来实现。">
   
-    <link rel="alternate" href="/atom.xml" title="froldH&#39;s algorithm blog" type="application/atom+xml">
+    <link rel="alternate" href="/atom.xml" title="froldH&#39;s blog" type="application/atom+xml">
   
   
     <link rel="icon" href="/favicon.png">
@@ -63,6 +63,14 @@
         
           <a href="/tags" title="Tags">
             <li>标签</li>
+          </a>
+        
+          <a href="/about" title="About">
+            <li>关于</li>
+          </a>
+        
+          <a href="/feed" title="投喂">
+            <li>投喂</li>
           </a>
         
     </ul>
@@ -119,7 +127,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://froldH.github.io/2019/07/28/OI/daily/20190728/SuperGCD_SDOI2009_LuoguP2152/" data-id="cjymvd53i001k30rq0n9qxrwa" class="article-share-link">分享</a>
+      <a data-url="http://froldH.github.io/2019/07/28/OI/daily/20190728/SuperGCD_SDOI2009_LuoguP2152/" data-id="cjyn45wii000uv8rqjiq8conz" class="article-share-link">分享</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/BigNumber/">BigNumber</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/GCD/">GCD</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/更相减损术/">更相减损术</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/腾飞营集训/">腾飞营集训</a></li></ul>
@@ -150,7 +158,7 @@
     <div class="widget-wrap">
   <h3 class="widget-title"></h3>
   <div class="widget">
-    <h1 class="blog-title">froldH&#39;s algorithm blog</h1>
+    <h1 class="blog-title">froldH&#39;s blog</h1>
     <h2 class="blog-subtitle"></h2>
     <ul class="blog-link">
      
@@ -168,6 +176,14 @@
         
           <a href="/tags" title="Tags">
             <li>标签</li>
+          </a>
+        
+          <a href="/about" title="About">
+            <li>关于</li>
+          </a>
+        
+          <a href="/feed" title="投喂">
+            <li>投喂</li>
           </a>
         
     </ul>
@@ -257,9 +273,9 @@ new WOW().init();
           
             <a href="/archives" title="" class="menuItem">归档</a>
           
-            <a href="/xxxxxxxxx" title="" class="menuItem">xxx</a>
+            <a href="/about" title="" class="menuItem">关于</a>
           
-            <a href="/xxxxxxx" title="" class="menuItem">xxxx</a>
+            <a href="/feed" title="" class="menuItem">投喂</a>
           
         </div>
         

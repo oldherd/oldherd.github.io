@@ -3,14 +3,14 @@
 <head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="utf-8">
   
-  <title>UVA11090 Going in cycle!! 题解(有关于二分答案和spfa判(负)环的详细讨论) | froldH&#39;s algorithm blog</title>
+  <title>UVA11090 Going in cycle!! 题解(有关于二分答案和spfa判(负)环的详细讨论) | froldH&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="首先是关于二分答案法的一些赘述:它大致上有几种模型。   1.最大值的最小值， 最小值的最大值。这是二分答案法最为常见的一种模型。只要证明解的单调性，就可以尝试使用二分答案法。在这种情况下二分适用时，二分答案法将最值性问题转化成判断性问题从而简化了求解的过程。它一般是不亏的，因为只增加了一个log的时间复杂度因子。然而在有些时候判断性问题不一定比最值性问题更优，这时候二分答案法就用不上了。例如:H">
 <meta name="keywords" content="二分,SPFA,最短路,负环">
 <meta property="og:type" content="article">
 <meta property="og:title" content="UVA11090 Going in cycle!! 题解(有关于二分答案和spfa判(负)环的详细讨论)">
 <meta property="og:url" content="http://froldH.github.io/2019/07/23/OI/daily/20190723/uva11090/index.html">
-<meta property="og:site_name" content="froldH&#39;s algorithm blog">
+<meta property="og:site_name" content="froldH&#39;s blog">
 <meta property="og:description" content="首先是关于二分答案法的一些赘述:它大致上有几种模型。   1.最大值的最小值， 最小值的最大值。这是二分答案法最为常见的一种模型。只要证明解的单调性，就可以尝试使用二分答案法。在这种情况下二分适用时，二分答案法将最值性问题转化成判断性问题从而简化了求解的过程。它一般是不亏的，因为只增加了一个log的时间复杂度因子。然而在有些时候判断性问题不一定比最值性问题更优，这时候二分答案法就用不上了。例如:H">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:updated_time" content="2019-07-24T14:55:00.000Z">
@@ -18,7 +18,7 @@
 <meta name="twitter:title" content="UVA11090 Going in cycle!! 题解(有关于二分答案和spfa判(负)环的详细讨论)">
 <meta name="twitter:description" content="首先是关于二分答案法的一些赘述:它大致上有几种模型。   1.最大值的最小值， 最小值的最大值。这是二分答案法最为常见的一种模型。只要证明解的单调性，就可以尝试使用二分答案法。在这种情况下二分适用时，二分答案法将最值性问题转化成判断性问题从而简化了求解的过程。它一般是不亏的，因为只增加了一个log的时间复杂度因子。然而在有些时候判断性问题不一定比最值性问题更优，这时候二分答案法就用不上了。例如:H">
   
-    <link rel="alternate" href="/atom.xml" title="froldH&#39;s algorithm blog" type="application/atom+xml">
+    <link rel="alternate" href="/atom.xml" title="froldH&#39;s blog" type="application/atom+xml">
   
   
     <link rel="icon" href="/favicon.png">
@@ -63,6 +63,14 @@
         
           <a href="/tags" title="Tags">
             <li>标签</li>
+          </a>
+        
+          <a href="/about" title="About">
+            <li>关于</li>
+          </a>
+        
+          <a href="/feed" title="投喂">
+            <li>投喂</li>
           </a>
         
     </ul>
@@ -132,7 +140,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://froldH.github.io/2019/07/23/OI/daily/20190723/uva11090/" data-id="cjymvd52y000s30rqe5e6ppg9" class="article-share-link">分享</a>
+      <a data-url="http://froldH.github.io/2019/07/23/OI/daily/20190723/uva11090/" data-id="cjyn45wig000tv8rqu43zr2dm" class="article-share-link">分享</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/SPFA/">SPFA</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/二分/">二分</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/最短路/">最短路</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/负环/">负环</a></li></ul>
@@ -172,7 +180,7 @@
     <div class="widget-wrap">
   <h3 class="widget-title"></h3>
   <div class="widget">
-    <h1 class="blog-title">froldH&#39;s algorithm blog</h1>
+    <h1 class="blog-title">froldH&#39;s blog</h1>
     <h2 class="blog-subtitle"></h2>
     <ul class="blog-link">
      
@@ -190,6 +198,14 @@
         
           <a href="/tags" title="Tags">
             <li>标签</li>
+          </a>
+        
+          <a href="/about" title="About">
+            <li>关于</li>
+          </a>
+        
+          <a href="/feed" title="投喂">
+            <li>投喂</li>
           </a>
         
     </ul>
@@ -279,9 +295,9 @@ new WOW().init();
           
             <a href="/archives" title="" class="menuItem">归档</a>
           
-            <a href="/xxxxxxxxx" title="" class="menuItem">xxx</a>
+            <a href="/about" title="" class="menuItem">关于</a>
           
-            <a href="/xxxxxxx" title="" class="menuItem">xxxx</a>
+            <a href="/feed" title="" class="menuItem">投喂</a>
           
         </div>
         
