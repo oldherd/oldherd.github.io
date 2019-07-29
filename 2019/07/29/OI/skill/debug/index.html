@@ -3,16 +3,20 @@
 <head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="utf-8">
   
-  <title>Tag: meet in the middle | froldH&#39;s blog</title>
+  <title>关于调试的方法 | froldH&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="keywords" content="oi">
-<meta property="og:type" content="website">
-<meta property="og:title" content="froldH&#39;s blog">
-<meta property="og:url" content="http://froldH.github.io/tags/meet-in-the-middle/index.html">
+  <meta name="description" content="1.hzwer: 感觉gdb就不是给算法竞赛的学生用的。现在顶尖的选手都在用输调(输出调试)。2.关于特殊点的跟踪:往往我们在锁定循环中某一处的问题时,可以加一个if语句,把代码块单独放进去(记得continue)。然后在语句块内设置断点为所欲为。">
+<meta name="keywords" content="调试,应试技巧">
+<meta property="og:type" content="article">
+<meta property="og:title" content="关于调试的方法">
+<meta property="og:url" content="http://froldH.github.io/2019/07/29/OI/skill/debug/index.html">
 <meta property="og:site_name" content="froldH&#39;s blog">
+<meta property="og:description" content="1.hzwer: 感觉gdb就不是给算法竞赛的学生用的。现在顶尖的选手都在用输调(输出调试)。2.关于特殊点的跟踪:往往我们在锁定循环中某一处的问题时,可以加一个if语句,把代码块单独放进去(记得continue)。然后在语句块内设置断点为所欲为。">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-07-29T15:37:12.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="froldH&#39;s blog">
+<meta name="twitter:title" content="关于调试的方法">
+<meta name="twitter:description" content="1.hzwer: 感觉gdb就不是给算法竞赛的学生用的。现在顶尖的选手都在用输调(输出调试)。2.关于特殊点的跟踪:往往我们在锁定循环中某一处的问题时,可以加一个if语句,把代码块单独放进去(记得continue)。然后在语句块内设置断点为所欲为。">
   
     <link rel="alternate" href="/atom.xml" title="froldH&#39;s blog" type="application/atom+xml">
   
@@ -73,42 +77,86 @@
   </div>
 </div>
 
-        <section id="main">
-  
-  
-    
-    
-      
-      
-      <section class="archives-wrap animated rubberBand">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2019/07/24/OI/jixun_review/meet_in_the_middle/gift_acwing171/" class="archive-article-date">
-  <time class="post-time" datetime="2019-07-23T16:00:00.000Z" itemprop="datePublished">
+        <section id="main"><article id="post-OI/skill/debug" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/07/29/OI/skill/debug/" class="article-date">
+  <time class="post-time" datetime="2019-07-29T15:01:58.000Z" itemprop="datePublished">
     <span class="post-month">7月</span><br/>
-    <span class="post-day">24</span>
+    <span class="post-day">29</span>
   </time>
 </a>
-      
+   
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/07/24/OI/jixun_review/meet_in_the_middle/gift_acwing171/">送礼物 ACwing171 题解</a>
+    <h1 class="article-title" itemprop="name">
+      关于调试的方法
     </h1>
   
 
-    </header>
+        <div>
+          
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/OI/">OI</a>
   </div>
+
+          
+              
+  &nbsp; | &nbsp;
+  <div class="view-box">
+    <span id="/2019/07/29/OI/skill/debug/" class="leancloud_visitors" data-flag-title="关于调试的方法">
+      &nbsp;阅读次数<span class="leancloud-visitors-count"></span>
+    </span>
+  </div>
+
+
+          
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>1.hzwer: 感觉gdb就不是给算法竞赛的学生用的。现在顶尖的选手都在用输调(输出调试)。<br>2.关于特殊点的跟踪:<br>往往我们在锁定循环中某一处的问题时,可以加一个if语句,把代码块单独放进去(记得continue)。然后在语句块内设置断点为所欲为。<a id="more"></a><br>其他的日后想到会有更新 2019-07-29晚  </p>
+<h5 id="声明-本篇文章及本博客所有文章版权均归本人froldH所有。原文地址位于-https-froldh-github-io-2019-07-29-OI-skill-debug。转载和整体或部分应用于其他场合如课件或讲义的制作均应当在明显位置保留本段声明，除非征得本人同意。用于商业用途的也应当征得本人同意。qq-2249133934。"><a href="#声明-本篇文章及本博客所有文章版权均归本人froldH所有。原文地址位于-https-froldh-github-io-2019-07-29-OI-skill-debug。转载和整体或部分应用于其他场合如课件或讲义的制作均应当在明显位置保留本段声明，除非征得本人同意。用于商业用途的也应当征得本人同意。qq-2249133934。" class="headerlink" title="声明:本篇文章及本博客所有文章版权均归本人froldH所有。原文地址位于:https://froldh.github.io/2019/07/29/OI/skill/debug。转载和整体或部分应用于其他场合如课件或讲义的制作均应当在明显位置保留本段声明，除非征得本人同意。用于商业用途的也应当征得本人同意。qq:2249133934。"></a>声明:本篇文章及本博客所有文章版权均归本人froldH所有。原文地址位于:<code>https://froldh.github.io/2019/07/29/OI/skill/debug</code>。转载和整体或部分应用于其他场合如课件或讲义的制作均应当在明显位置保留本段声明，除非征得本人同意。用于商业用途的也应当征得本人同意。qq:2249133934。</h5>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://froldH.github.io/2019/07/29/OI/skill/debug/" data-id="cjyok7x4t000d5wrqrmg58a6x" class="article-share-link">分享</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/应试技巧/">应试技巧</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/调试/">调试</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2019/07/29/OI/daily/20190729/juzhenqushuyouxi_NOIp2007T3_dp/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">上一篇</strong>
+      <div class="article-nav-title">
+        
+          矩阵取数游戏 NOIp2007_T3 LuoguP1005 题解
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2019/07/28/OI/daily/20190728/SuperGCD_SDOI2009_LuoguP2152/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">下一篇</strong>
+      <div class="article-nav-title">SuperGCD SDOI2009 LuoguP2152 题解(含有关于更相减损术的步骤描述)</div>
+    </a>
+  
+</nav>
+
+  
 </article>
-  
-  
-    </div></section>
-  
+
+
 
 </section>
         
