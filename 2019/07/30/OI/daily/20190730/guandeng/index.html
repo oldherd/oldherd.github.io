@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+  <title>关灯-关路灯 NOIp模拟题 HLOJ343-LuoguP1220题解 | froldH&#39;s blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="这道题其实是有原题的。原题并没有确定起点的灯的位置而是让我们自己选一个。这个等下会展开。   状态设计&amp;amp;转移方程$f_i,j,0|1$设为从开始到关掉区间[i,j]的所有路灯,最后站在0:左端点,1:右端点时消耗的总功率。">
+<meta name="keywords" content="dp,腾飞营集训,区间dp">
+<meta property="og:type" content="article">
+<meta property="og:title" content="关灯-关路灯 NOIp模拟题 HLOJ343-LuoguP1220题解">
+<meta property="og:url" content="http://froldH.github.io/2019/07/30/OI/daily/20190730/guandeng/index.html">
+<meta property="og:site_name" content="froldH&#39;s blog">
+<meta property="og:description" content="这道题其实是有原题的。原题并没有确定起点的灯的位置而是让我们自己选一个。这个等下会展开。   状态设计&amp;amp;转移方程$f_i,j,0|1$设为从开始到关掉区间[i,j]的所有路灯,最后站在0:左端点,1:右端点时消耗的总功率。">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-07-30T15:05:58.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="关灯-关路灯 NOIp模拟题 HLOJ343-LuoguP1220题解">
+<meta name="twitter:description" content="这道题其实是有原题的。原题并没有确定起点的灯的位置而是让我们自己选一个。这个等下会展开。   状态设计&amp;amp;转移方程$f_i,j,0|1$设为从开始到关掉区间[i,j]的所有路灯,最后站在0:左端点,1:右端点时消耗的总功率。">
+  
+    <link rel="alternate" href="/atom.xml" title="froldH&#39;s blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/plugin/bganimation/bg.css">
+  
+
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <div class="outer">
+        <div class="widget-wrap mobile-header">
+  <h3 class="widget-title"></h3>
+  <div class="widget">
+    <img class="avatar" src="https://froldh.github.io/images/avatar/avatar2.jpg">
+    <h2 class="author">froldH</h2>
+    <h3 class="description"></h3>
+    <div class="count-box">
+      <a href="/archives"><div><strong>12</strong><br>文章</div></a>
+      <a href="/categories"><div><strong>2</strong><br>分类</div></a>
+      <a href="/tags"><div><strong>22</strong><br>标签</div></a>
+    </div>
+    <ul class="blog-link">
+     
+          <a href="/" title="Home">
+            <li>主页</li>
+          </a>
+        
+          <a href="/archives" title="Archives">
+            <li>归档</li>
+          </a>
+        
+          <a href="/categories" title="Categories">
+            <li>分类</li>
+          </a>
+        
+          <a href="/tags" title="Tags">
+            <li>标签</li>
+          </a>
+        
+          <a href="/about" title="About">
+            <li>关于</li>
+          </a>
+        
+          <a href="/feed" title="投喂">
+            <li>投喂</li>
+          </a>
+        
+    </ul>
+  </div>
+</div>
+
+        <section id="main"><article id="post-OI/daily/20190730/guandeng" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/07/30/OI/daily/20190730/guandeng/" class="article-date">
+  <time class="post-time" datetime="2019-07-30T14:12:14.000Z" itemprop="datePublished">
+    <span class="post-month">7月</span><br/>
+    <span class="post-day">30</span>
+  </time>
+</a>
+   
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      关灯-关路灯 NOIp模拟题 HLOJ343-LuoguP1220题解
+    </h1>
+  
+
+        <div>
+          
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/OI/">OI</a>
+  </div>
+
+          
+              
+  &nbsp; | &nbsp;
+  <div class="view-box">
+    <span id="/2019/07/30/OI/daily/20190730/guandeng/" class="leancloud_visitors" data-flag-title="关灯-关路灯 NOIp模拟题 HLOJ343-LuoguP1220题解">
+      &nbsp;阅读次数<span class="leancloud-visitors-count"></span>
+    </span>
+  </div>
+
+
+          
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>这道题其实是有原题的。原题并没有确定起点的灯的位置而是让我们自己选一个。这个等下会展开。  </p>
+<h3 id="状态设计-amp-转移方程"><a href="#状态设计-amp-转移方程" class="headerlink" title="状态设计&amp;转移方程"></a>状态设计&amp;转移方程</h3><p>$f_i,j,0|1$设为从开始到关掉区间[i,j]的所有路灯,最后站在0:左端点,1:右端点时消耗的总功率。<a id="more"></a><br>这样设计的话,每个值有4种转移。以$f_i,j,0$为例,分别可由$f_i+1,j,0, f_i+1,j,1 f_i,j-1,0 f_i,j-1,1$转移得到。<br>再仔细想想,这四种转移中,例如我们求$f_i,j,0$,它的合法值若由$f_i,j-1,1$转移而来,实际意义是什么?我们从j-1处出发关掉j处的灯之后又跑回l处。但是即便下一次转移到[l-1,r]的最小值是由它转移来的,这不也可以由$f_i,j,1$转移到么?既然已经包含了,可以顺利将这种情况传递下去,”跑”到l不是显得多此一举吗?但按照定义求值必须求完4种的最小值,而且在最后递推完了统计整个区间的情况时还会有这种乱”跑”的现象,这根本不需要。这说明我们的状态设计有冗余。<br>再结合最后关的灯一定在端点处。<br>我们不妨将状态设计成这个样子:$f_i,j,0|1$表示从开始到关掉区间[i,j]的所有路灯,最后关闭的灯在0:l处,1:r处。<br>那么$f_i,j,0$的转移就仅从$f_i+1,j,0$和$f_i+1,j,1$得来。<br>具体可以参看代码。  </p>
+<h3 id="边界-amp-初始化"><a href="#边界-amp-初始化" class="headerlink" title="边界&amp;初始化"></a>边界&amp;初始化</h3><p>我们分别来考虑原题:从任意点出发和LG的从给定点出发的做法。<br>递推式子遵循的是关灯的规则、灯泡的属性,因此上述状态设计两题均适用。<br>关于边界:<br>追根溯源,对于从给定点出发的题,边界值即为起始点。设c为起始灯位置编号,起始位置为$f_c,c,0 = f_c,c,1 = 0$。由于状态转移是区间长度递增的,所以并不会转移到$f_i,i,0$或者$f_i,i,1$。也就是说,这些位置是不合法的。len = 2的位置呢?合法的值仅有$f_c-1,c,0|1$和$f_c,c+1,0|1$等等。而其他长度为2的值显然是不合法的。解决方案有许多。一种是特判,即对于那些可以根据定义解释但是在实际问题中无法达到或者没有意义的状态用if排除掉。但对于dp来说比较麻烦,在广搜地图时倒是常常用到这些特判。另一种是给无意义的地方附上最优方向上的负无穷大值。例如,本题要求最小消耗。那么我们便给无意义的地方赋值为正无穷大。具体地,我们将原数组赋值为inf,然后将合法的边界附上初值开始递推。在这里要注意到+=的使用。造成这种现象的原因是状态定义适用范畴大于问题范畴(这通常由题目限制(如本题中的起点c)和客观因素(如状态宽于问题)等造成)。试想,在本题中我们对状态的定义,$f_i,i,0 i \not c$是不是也合法？但由题目限制这根本不可能。究其根本我们可以将状态范围拓开来想,我们定义的状态究竟能适用于多大的范畴,这也方便对初始化正确性的检验。当然,考场中想问题的方式还是采取想想转移中是否有不合法的值混进来,我们的转移是否会默认不合法的值进入。<br>而关于在所有起点中找最小值,状态定义范畴与应用范畴正好吻合。对所有$f_i,i,0|1$赋0以后便无需再管,因为转移都是由这些”合法”的边界得来的。<br>具体技巧,一般状态设计适用范畴大于题目的,或者说有不合法值混入的,应当在初始化时不只是将合法初值赋值,还有将其他部分赋为最优意义上的负无穷大。防止非法值混入。而无非法值混入的只要小心将初始值赋完即可。  </p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt; </span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn = <span class="number">60</span>; </span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> f[maxn][maxn][<span class="number">2</span>], pl[maxn], wei[maxn], s[maxn];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">int</span> <span class="title">min</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> y)</span> </span>&#123; <span class="keyword">return</span> x &lt; y ? x : y; &#125; </span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">int</span> n, c;</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">"%d %d"</span>, &amp;n, &amp;c);</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++) <span class="built_in">scanf</span>(<span class="string">"%d %d"</span>, pl+i, wei+i);</span><br><span class="line">	s[<span class="number">1</span>] = wei[<span class="number">1</span>];</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">2</span>; i &lt;= n; i++) s[i] = s[i<span class="number">-1</span>] + wei[i];</span><br><span class="line">	<span class="built_in">memset</span>(f, <span class="number">0x3f3f3f3f</span>, <span class="keyword">sizeof</span>(f));</span><br><span class="line">	f[c][c][<span class="number">0</span>] = f[c][c][<span class="number">1</span>] = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> len = <span class="number">2</span>; len &lt;= n; len++)</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> l = <span class="number">1</span>; l+len &lt;= n+<span class="number">1</span>; l++) &#123;</span><br><span class="line">			<span class="keyword">int</span> r = len + l - <span class="number">1</span>;</span><br><span class="line">			f[l][r][<span class="number">0</span>] = min(f[l+<span class="number">1</span>][r][<span class="number">0</span>] + (pl[l+<span class="number">1</span>]-pl[l])*(s[n]-s[r]+s[l]), f[l+<span class="number">1</span>][r][<span class="number">1</span>] + (pl[r]-pl[l])*(s[n]-s[r]+s[l]));</span><br><span class="line">			f[l][r][<span class="number">1</span>] = min(f[l][r<span class="number">-1</span>][<span class="number">0</span>] + (pl[r]-pl[l])*(s[n]-s[r<span class="number">-1</span>]+s[l<span class="number">-1</span>]), f[l][r<span class="number">-1</span>][<span class="number">1</span>] + (pl[r]-pl[r<span class="number">-1</span>])*(s[n]-s[r<span class="number">-1</span>]+s[l<span class="number">-1</span>]));</span><br><span class="line">		&#125;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"%d\n"</span>, min(f[<span class="number">1</span>][n][<span class="number">0</span>], f[<span class="number">1</span>][n][<span class="number">1</span>]));</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="声明-本篇文章及本博客所有文章版权均归本人froldH所有。原文地址位于-https-froldh-github-io-2019-07-30-OI-daily-20190730-guandeng-。转载和整体或部分应用于其他场合如课件或讲义的制作均应当在明显位置保留本段声明，除非征得本人同意。用于商业用途的也应当征得本人同意。qq-2249133934。"><a href="#声明-本篇文章及本博客所有文章版权均归本人froldH所有。原文地址位于-https-froldh-github-io-2019-07-30-OI-daily-20190730-guandeng-。转载和整体或部分应用于其他场合如课件或讲义的制作均应当在明显位置保留本段声明，除非征得本人同意。用于商业用途的也应当征得本人同意。qq-2249133934。" class="headerlink" title="声明:本篇文章及本博客所有文章版权均归本人froldH所有。原文地址位于:https://froldh.github.io/2019/07/30/OI/daily/20190730/guandeng/ 。转载和整体或部分应用于其他场合如课件或讲义的制作均应当在明显位置保留本段声明，除非征得本人同意。用于商业用途的也应当征得本人同意。qq:2249133934。"></a>声明:本篇文章及本博客所有文章版权均归本人froldH所有。原文地址位于:<a href="https://froldh.github.io/2019/07/30/OI/daily/20190730/guandeng/">https://froldh.github.io/2019/07/30/OI/daily/20190730/guandeng/</a> 。转载和整体或部分应用于其他场合如课件或讲义的制作均应当在明显位置保留本段声明，除非征得本人同意。用于商业用途的也应当征得本人同意。qq:2249133934。</h5>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://froldH.github.io/2019/07/30/OI/daily/20190730/guandeng/" data-id="cjypygpi9001hagrq4ick9sxx" class="article-share-link">分享</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/dp/">dp</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/区间dp/">区间dp</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/腾飞营集训/">腾飞营集训</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2019/07/30/OI/daily/20190730/LuoguP1373/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">下一篇</strong>
+      <div class="article-nav-title">小a和uim之大逃离 LuoguP1373</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    <div class="widget-wrap">
+  <h3 class="widget-title"></h3>
+  <div class="widget">
+    <h1 class="blog-title">froldH&#39;s blog</h1>
+    <h2 class="blog-subtitle"></h2>
+    <ul class="blog-link">
+     
+          <a href="/" title="Home">
+            <li>主页</li>
+          </a>
+        
+          <a href="/archives" title="Archives">
+            <li>归档</li>
+          </a>
+        
+          <a href="/categories" title="Categories">
+            <li>分类</li>
+          </a>
+        
+          <a href="/tags" title="Tags">
+            <li>标签</li>
+          </a>
+        
+          <a href="/about" title="About">
+            <li>关于</li>
+          </a>
+        
+          <a href="/feed" title="投喂">
+            <li>投喂</li>
+          </a>
+        
+    </ul>
+  </div>
+</div>
+
+  
+    <div class="widget-wrap">
+  <h3 class="widget-title"></h3>
+  <div class="widget">
+    <img class="avatar" src="https://froldh.github.io/images/avatar/avatar2.jpg">
+    <h2 class="author">froldH</h2>
+    <h3 class="description"></h3>
+    <div class="count-box">
+      <a href="/archives"><div><strong>12</strong><br>文章</div></a>
+      <a href="/categories"><div><strong>2</strong><br>分类</div></a>
+      <a href="/tags"><div><strong>22</strong><br>标签</div></a>
+    </div>
+
+
+
+    <div class="social-link">
+      
+        <a class="hvr-bounce-in" href="http://github.com/froldH" target="_blank" title="Github">
+          Github
+        </a>
+      
+        <a class="hvr-bounce-in" href="https://www.luogu.org/blog/oldherd/" target="_blank" title="Luogu博客">
+          Luogu博客
+        </a>
+      
+    </div>
+
+    <div class="friend-link">
+      <h2>友情链接</h2>
+      
+        <a class="hvr-bounce-in" href="http://blog.shanamaid.top/" target="_blank" title="ShanaMaid">
+          ShanaMaid
+        </a>
+      
+    </div>
+  </div>
+</div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy;2018 - 2019 froldH<br>
+      由<a href="http://hexo.io/" target="_blank">Hexo</a>强力驱动 | 
+      主题-<a href="https://github.com/ShanaMaid/hexo-theme-shana">Shana</a>
+      
+    </div>
+    
+  </div>
+</footer>
+    </div>
+    
+
+<script src="//apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="//apps.bdimg.com/libs/wow/0.1.6/wow.min.js"></script>
+<script>
+new WOW().init();
+</script>   
+
+
+  <link rel="stylesheet" href="/plugin/fancybox/jquery.fancybox.css">
+  <script src="/plugin/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+  <link rel="stylesheet" href="/plugin/galmenu/GalMenu.css">
+  <script src="/plugin/galmenu/GalMenu.js"></script>
+  <div class="GalMenu GalDropDown">
+      <div class="circle" id="gal">
+        <div class="ring">
+          
+            <a href="/" title="" class="menuItem">首页</a>
+          
+            <a href="/tags" title="" class="menuItem">标签</a>
+          
+            <a href="/categories" title="" class="menuItem">分类</a>
+          
+            <a href="/archives" title="" class="menuItem">归档</a>
+          
+            <a href="/about" title="" class="menuItem">关于</a>
+          
+            <a href="/feed" title="" class="menuItem">投喂</a>
+          
+        </div>
+        
+          <audio id="audio" src="#"></audio>
+        
+      </div> 
+</div>
+<div id="overlay" style="opacity: 1; cursor: pointer;"></div>
+  <script type="text/javascript">var items = document.querySelectorAll('.menuItem');
+    for (var i = 0,
+    l = items.length; i < l; i++) {
+      items[i].style.left = (50 - 35 * Math.cos( - 0.5 * Math.PI - 2 * (1 / l) * i * Math.PI)).toFixed(4) + "%";
+      items[i].style.top = (50 + 35 * Math.sin( - 0.5 * Math.PI - 2 * (1 / l) * i * Math.PI)).toFixed(4) + "%"
+    }</script>
+<script type="text/javascript">
+  $(document).ready(function() {
+    $('body').GalMenu({
+      'menu': 'GalDropDown'
+    })
+  });
+</script>
+
+  <section class="hidden-xs"> 
+  <ul class="cb-slideshow"> 
+    <li><span>苟利</span></li> 
+    <li><span>国家</span></li> 
+    <li><span>生死以</span></li> 
+    <li><span>岂能</span></li> 
+    <li><span>祸福</span></li> 
+    <li><span>趋避之</span></li> 
+  </ul>
+</section>
+<script src="/js/script.js"></script>
+
+
+
+
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("", "");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.article-title').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+
+
+  </div>
+</body>
+</html>
