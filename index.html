@@ -124,11 +124,11 @@
 <p>解法二:O($n^2$)<br>延用解法一中合法矩形的定义。<br>以从左上角到右下角的对角线方向为例。如果我们已经求出右上角的点的合法矩阵大小为t,那么该点合法矩阵的大小&lt;=t+1。具体的,还要判断和该矩阵同行和同列连续0的长度来确定。这个自己画一下图就能搞懂。而连续0的长度可以提前预处理出来,打成表即可。<br>递推即可。<br><a href="https://www.luogu.org/record/22718574" target="_blank" rel="noopener">ac记录</a>  </p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn = <span class="number">2510</span>, maxm = <span class="number">2510</span>; </span><br><span class="line"><span class="keyword">int</span> a[maxn][maxm], zeroL[maxn][maxm], zeroR[maxn][maxm], f1[maxn][maxm], f2[maxn][maxm];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">int</span> <span class="title">min</span><span class="params">(<span class="keyword">int</span> i, <span class="keyword">int</span> j)</span> </span>&#123; <span class="keyword">return</span> i &lt; j ? i : j; &#125;</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">int</span> <span class="title">max</span><span class="params">(<span class="keyword">int</span> i, <span class="keyword">int</span> j)</span> </span>&#123; <span class="keyword">return</span> i &gt; j ? i : j; &#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">int</span> n, m, ans = <span class="number">0</span>;</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">"%d %d"</span>, &amp;n, &amp;m);</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++)</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">1</span>; j &lt;= m; j++) &#123;</span><br><span class="line">			<span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;a[i][j]);</span><br><span class="line">			<span class="keyword">if</span>(!ans &amp;&amp; a[i][j]) ans = <span class="number">1</span>;</span><br><span class="line">		&#125;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++) zeroL[i][<span class="number">1</span>] = zeroR[i][<span class="number">1</span>] = <span class="number">1</span>;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">1</span>; j &lt;= m; j++) zeroL[<span class="number">1</span>][j] = zeroR[<span class="number">1</span>][j] = <span class="number">1</span>;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++) f1[i][<span class="number">1</span>] = a[i][<span class="number">1</span>];</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">1</span>; j &lt;= m; j++) f1[<span class="number">1</span>][j] = a[<span class="number">1</span>][j];</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">2</span>; i &lt;= n; i++)</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">2</span>; j &lt;= m; j++) &#123;</span><br><span class="line">			zeroL[i][j] = a[i][j<span class="number">-1</span>] == <span class="number">1</span> ? <span class="number">1</span> : zeroL[i][j<span class="number">-1</span>] + <span class="number">1</span>;</span><br><span class="line">			zeroR[i][j] = a[i<span class="number">-1</span>][j] == <span class="number">1</span> ? <span class="number">1</span> : zeroR[i<span class="number">-1</span>][j] + <span class="number">1</span>;</span><br><span class="line">		&#125;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">2</span>; i &lt;= n; i++)</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">2</span>; j &lt;= m; j++) &#123;</span><br><span class="line">			<span class="keyword">if</span>(!a[i][j]) <span class="keyword">continue</span>;</span><br><span class="line">			f1[i][j] = min(min(f1[i<span class="number">-1</span>][j<span class="number">-1</span>]+<span class="number">1</span>, zeroL[i][j]), zeroR[i][j]);</span><br><span class="line">			ans = max(ans, f1[i][j]);</span><br><span class="line">		&#125;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++) zeroL[i][m] = <span class="number">1</span>;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++) f2[i][m] = a[i][m];</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">1</span>; j &lt;= m; j++) f2[<span class="number">1</span>][j] = a[<span class="number">1</span>][j];</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">2</span>; i &lt;= n; i++)</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> j = m<span class="number">-1</span>; j &gt; <span class="number">0</span>; --j)</span><br><span class="line">			zeroL[i][j] = a[i][j+<span class="number">1</span>] == <span class="number">1</span> ? <span class="number">1</span> : zeroL[i][j+<span class="number">1</span>] + <span class="number">1</span>;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">2</span>; i &lt;= n; i++)</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> j = m<span class="number">-1</span>; j &gt; <span class="number">0</span>; --j) &#123;</span><br><span class="line">			<span class="keyword">if</span>(!a[i][j]) <span class="keyword">continue</span>;</span><br><span class="line">			f2[i][j] = min(f2[i<span class="number">-1</span>][j+<span class="number">1</span>]+<span class="number">1</span>, min(zeroL[i][j], zeroR[i][j]));</span><br><span class="line">			ans = max(ans, f2[i][j]);</span><br><span class="line">		&#125;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"%d\n"</span>, ans);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h5 id="声明-本篇文章及本博客所有文章版权均归本人froldH所有。原文地址位于-https-froldh-github-io-2019-07-28-OI-daily-20190814-LuoguP1376-。转载和整体或部分应用于其他场合如课件或讲义的制作均应当在明显位置保留本段声明，除非征得本人同意。用于商业用途的也应当征得本人同意。qq-2249133934。"><a href="#声明-本篇文章及本博客所有文章版权均归本人froldH所有。原文地址位于-https-froldh-github-io-2019-07-28-OI-daily-20190814-LuoguP1376-。转载和整体或部分应用于其他场合如课件或讲义的制作均应当在明显位置保留本段声明，除非征得本人同意。用于商业用途的也应当征得本人同意。qq-2249133934。" class="headerlink" title="声明:本篇文章及本博客所有文章版权均归本人froldH所有。原文地址位于:https://froldh.github.io/2019/07/28/OI/daily/20190814/LuoguP1376/ 。转载和整体或部分应用于其他场合如课件或讲义的制作均应当在明显位置保留本段声明，除非征得本人同意。用于商业用途的也应当征得本人同意。qq:2249133934。"></a>声明:本篇文章及本博客所有文章版权均归本人froldH所有。原文地址位于:<a href="https://froldh.github.io/2019/07/28/OI/daily/20190814/LuoguP1376/">https://froldh.github.io/2019/07/28/OI/daily/20190814/LuoguP1376/</a> 。转载和整体或部分应用于其他场合如课件或讲义的制作均应当在明显位置保留本段声明，除非征得本人同意。用于商业用途的也应当征得本人同意。qq:2249133934。</h5>
+<h5 id="声明-本篇文章及本博客所有文章版权均归本人froldH所有。原文地址位于-https-froldh-github-io-2019-08-14-OI-daily-20190814-LuoguP1736-。转载和整体或部分应用于其他场合如课件或讲义的制作均应当在明显位置保留本段声明，除非征得本人同意。用于商业用途的也应当征得本人同意。qq-2249133934。"><a href="#声明-本篇文章及本博客所有文章版权均归本人froldH所有。原文地址位于-https-froldh-github-io-2019-08-14-OI-daily-20190814-LuoguP1736-。转载和整体或部分应用于其他场合如课件或讲义的制作均应当在明显位置保留本段声明，除非征得本人同意。用于商业用途的也应当征得本人同意。qq-2249133934。" class="headerlink" title="声明:本篇文章及本博客所有文章版权均归本人froldH所有。原文地址位于:https://froldh.github.io/2019/08/14/OI/daily/20190814/LuoguP1736/ 。转载和整体或部分应用于其他场合如课件或讲义的制作均应当在明显位置保留本段声明，除非征得本人同意。用于商业用途的也应当征得本人同意。qq:2249133934。"></a>声明:本篇文章及本博客所有文章版权均归本人froldH所有。原文地址位于:<a href="https://froldh.github.io/2019/08/14/OI/daily/20190814/LuoguP1736/">https://froldh.github.io/2019/08/14/OI/daily/20190814/LuoguP1736/</a> 。转载和整体或部分应用于其他场合如课件或讲义的制作均应当在明显位置保留本段声明，除非征得本人同意。用于商业用途的也应当征得本人同意。qq:2249133934。</h5>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://froldH.github.io/2019/08/14/OI/daily/20190814/LuoguP1736/" data-id="cjzapfnmv001ia8rqmb5x49l0" class="article-share-link">分享</a>
+      <a data-url="http://froldH.github.io/2019/08/14/OI/daily/20190814/LuoguP1736/" data-id="cjzapl365002ldsrqctzui8yq" class="article-share-link">分享</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/dp/">dp</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/二分/">二分</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/多维dp/">多维dp</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/线性dp/">线性dp</a></li></ul>
@@ -195,7 +195,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://froldH.github.io/2019/07/30/OI/daily/20190730/guandeng/" data-id="cjzapfnms001da8rqxp1r5hhu" class="article-share-link">分享</a>
+      <a data-url="http://froldH.github.io/2019/07/30/OI/daily/20190730/guandeng/" data-id="cjzapl34v0016dsrq3u36vg57" class="article-share-link">分享</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/dp/">dp</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/区间dp/">区间dp</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/腾飞营集训/">腾飞营集训</a></li></ul>
@@ -262,7 +262,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://froldH.github.io/2019/07/30/OI/daily/20190730/LuoguP1373/" data-id="cjzapfnmc0010a8rqz8eqoc1e" class="article-share-link">分享</a>
+      <a data-url="http://froldH.github.io/2019/07/30/OI/daily/20190730/LuoguP1373/" data-id="cjzapl356001bdsrqg9rnvgw6" class="article-share-link">分享</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/dp/">dp</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/线性dp/">线性dp</a></li></ul>
@@ -329,7 +329,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://froldH.github.io/2019/07/29/OI/daily/20190729/juzhenqushuyouxi_NOIp2007T3_dp/" data-id="cjzapfnmo0016a8rq3mm9oqyk" class="article-share-link">分享</a>
+      <a data-url="http://froldH.github.io/2019/07/29/OI/daily/20190729/juzhenqushuyouxi_NOIp2007T3_dp/" data-id="cjzapl34r0011dsrqsvmlg6j0" class="article-share-link">分享</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/BigNumber/">BigNumber</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/dp/">dp</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/区间dp/">区间dp</a></li></ul>
@@ -395,7 +395,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://froldH.github.io/2019/07/29/OI/skill/debug/" data-id="cjzapfnlo000aa8rqxg1fgqqp" class="article-share-link">分享</a>
+      <a data-url="http://froldH.github.io/2019/07/29/OI/skill/debug/" data-id="cjzapl33t0009dsrqj3o9ch7b" class="article-share-link">分享</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/应试技巧/">应试技巧</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/调试/">调试</a></li></ul>
@@ -461,7 +461,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://froldH.github.io/2019/07/28/OI/daily/20190728/SuperGCD_SDOI2009_LuoguP2152/" data-id="cjzapfnmg0013a8rqcmr5q5ha" class="article-share-link">分享</a>
+      <a data-url="http://froldH.github.io/2019/07/28/OI/daily/20190728/SuperGCD_SDOI2009_LuoguP2152/" data-id="cjzapl34u0014dsrq94vtibee" class="article-share-link">分享</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/BigNumber/">BigNumber</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/GCD/">GCD</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/更相减损术/">更相减损术</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/腾飞营集训/">腾飞营集训</a></li></ul>
@@ -527,7 +527,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://froldH.github.io/2019/07/26/OI/codeforcesPlan/CF1197/" data-id="cjzapfnls000da8rqie4ap1h5" class="article-share-link">分享</a>
+      <a data-url="http://froldH.github.io/2019/07/26/OI/codeforcesPlan/CF1197/" data-id="cjzapl33w000ddsrqggq3509b" class="article-share-link">分享</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/dp/">dp</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/greedy/">greedy</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/智商题/">智商题</a></li></ul>
@@ -593,7 +593,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://froldH.github.io/2019/07/24/OI/jixun_review/hash/cogs1176_sol/" data-id="cjzapfnmk0014a8rqn1xw41ge" class="article-share-link">分享</a>
+      <a data-url="http://froldH.github.io/2019/07/24/OI/jixun_review/hash/cogs1176_sol/" data-id="cjzapl34q0010dsrqvmzv2tm5" class="article-share-link">分享</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hash/">hash</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/字符串/">字符串</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/腾飞营集训/">腾飞营集训</a></li></ul>
@@ -659,7 +659,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://froldH.github.io/2019/07/24/OI/jixun_review/meet_in_the_middle/gift_acwing171/" data-id="cjzapfnmq001aa8rqi3viheyl" class="article-share-link">分享</a>
+      <a data-url="http://froldH.github.io/2019/07/24/OI/jixun_review/meet_in_the_middle/gift_acwing171/" data-id="cjzapl358001edsrqz7ldl1b5" class="article-share-link">分享</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/meet-in-the-middle/">meet in the middle</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/搜索/">搜索</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/腾飞营集训/">腾飞营集训</a></li></ul>
@@ -726,7 +726,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://froldH.github.io/2019/07/23/OI/daily/20190723/uva11090/" data-id="cjzapfnme0011a8rqg7gu6xiv" class="article-share-link">分享</a>
+      <a data-url="http://froldH.github.io/2019/07/23/OI/daily/20190723/uva11090/" data-id="cjzapl34t0013dsrqmx0v3sgg" class="article-share-link">分享</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/SPFA/">SPFA</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/二分/">二分</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/最短路/">最短路</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/负环/">负环</a></li></ul>
