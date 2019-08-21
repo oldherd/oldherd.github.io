@@ -6,7 +6,7 @@
   <title>关灯-关路灯 NOIp模拟题 HLOJ343-LuoguP1220题解(含有关于初始值的讨论和思考) | froldH&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="这道题其实是有原题的。原题并没有确定起点的灯的位置而是让我们自己选一个。这个等下会展开。   状态设计&amp;amp;转移方程$f_i,j,0|1$设为从开始到关掉区间[i,j]的所有路灯,最后站在0:左端点,1:右端点时消耗的总功率。">
-<meta name="keywords" content="dp,区间dp,腾飞营集训">
+<meta name="keywords" content="dp,腾飞营集训,区间dp">
 <meta property="og:type" content="article">
 <meta property="og:title" content="关灯-关路灯 NOIp模拟题 HLOJ343-LuoguP1220题解(含有关于初始值的讨论和思考)">
 <meta property="og:url" content="http://froldH.github.io/2019/07/30/OI/daily/20190730/guandeng/index.html">
@@ -43,9 +43,9 @@
     <h2 class="author">froldH</h2>
     <h3 class="description"></h3>
     <div class="count-box">
-      <a href="/archives"><div><strong>14</strong><br>文章</div></a>
+      <a href="/archives"><div><strong>15</strong><br>文章</div></a>
       <a href="/categories"><div><strong>2</strong><br>分类</div></a>
-      <a href="/tags"><div><strong>28</strong><br>标签</div></a>
+      <a href="/tags"><div><strong>29</strong><br>标签</div></a>
     </div>
     <ul class="blog-link">
      
@@ -129,7 +129,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://froldH.github.io/2019/07/30/OI/daily/20190730/guandeng/" data-id="cjziianqv001hicrqjtww4uvc" class="article-share-link">分享</a>
+      <a data-url="http://froldH.github.io/2019/07/30/OI/daily/20190730/guandeng/" data-id="cjzkpht74001p1krqhmngjsmi" class="article-share-link">分享</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/dp/">dp</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/区间dp/">区间dp</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/腾飞营集训/">腾飞营集训</a></li></ul>
@@ -209,9 +209,9 @@
     <h2 class="author">froldH</h2>
     <h3 class="description"></h3>
     <div class="count-box">
-      <a href="/archives"><div><strong>14</strong><br>文章</div></a>
+      <a href="/archives"><div><strong>15</strong><br>文章</div></a>
       <a href="/categories"><div><strong>2</strong><br>分类</div></a>
-      <a href="/tags"><div><strong>28</strong><br>标签</div></a>
+      <a href="/tags"><div><strong>29</strong><br>标签</div></a>
     </div>
 
 
@@ -273,45 +273,6 @@ new WOW().init();
   <script src="/plugin/fancybox/jquery.fancybox.pack.js"></script>
 
 
-
-  <link rel="stylesheet" href="/plugin/galmenu/GalMenu.css">
-  <script src="/plugin/galmenu/GalMenu.js"></script>
-  <div class="GalMenu GalDropDown">
-      <div class="circle" id="gal">
-        <div class="ring">
-          
-            <a href="/" title="" class="menuItem">首页</a>
-          
-            <a href="/tags" title="" class="menuItem">标签</a>
-          
-            <a href="/categories" title="" class="menuItem">分类</a>
-          
-            <a href="/archives" title="" class="menuItem">归档</a>
-          
-            <a href="/about" title="" class="menuItem">关于</a>
-          
-            <a href="/feed" title="" class="menuItem">投喂</a>
-          
-        </div>
-        
-          <audio id="audio" src="#"></audio>
-        
-      </div> 
-</div>
-<div id="overlay" style="opacity: 1; cursor: pointer;"></div>
-  <script type="text/javascript">var items = document.querySelectorAll('.menuItem');
-    for (var i = 0,
-    l = items.length; i < l; i++) {
-      items[i].style.left = (50 - 35 * Math.cos( - 0.5 * Math.PI - 2 * (1 / l) * i * Math.PI)).toFixed(4) + "%";
-      items[i].style.top = (50 + 35 * Math.sin( - 0.5 * Math.PI - 2 * (1 / l) * i * Math.PI)).toFixed(4) + "%"
-    }</script>
-<script type="text/javascript">
-  $(document).ready(function() {
-    $('body').GalMenu({
-      'menu': 'GalDropDown'
-    })
-  });
-</script>
 
   <section class="hidden-xs"> 
   <ul class="cb-slideshow"> 

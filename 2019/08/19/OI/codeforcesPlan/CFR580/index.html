@@ -6,14 +6,14 @@
   <title>Codeforces Round#580 div2 题解 | froldH&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="第一次正式参赛，打的真的惨。 1206A Choose Two Numbers目的是从给定的两个数组中选择两个数字使得其和不为两数组中的元素。注意到题目限制数组中的元素为正整数，也就是说，我们可以从两个数组中选择最大的数，其和一定大于两数组中的任一数，换言之，不在两个数组之内。">
-<meta name="keywords" content="智商题,math,floyd,最短路,graphs,抽屉原理,pod推算">
+<meta name="keywords" content="math,floyd,最短路,graphs,智商题,抽屉原理,pod推算">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Codeforces Round#580 div2 题解">
 <meta property="og:url" content="http://froldH.github.io/2019/08/19/OI/codeforcesPlan/CFR580/index.html">
 <meta property="og:site_name" content="froldH&#39;s blog">
 <meta property="og:description" content="第一次正式参赛，打的真的惨。 1206A Choose Two Numbers目的是从给定的两个数组中选择两个数字使得其和不为两数组中的元素。注意到题目限制数组中的元素为正整数，也就是说，我们可以从两个数组中选择最大的数，其和一定大于两数组中的任一数，换言之，不在两个数组之内。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-08-19T04:02:26.000Z">
+<meta property="og:updated_time" content="2019-08-21T03:36:12.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Codeforces Round#580 div2 题解">
 <meta name="twitter:description" content="第一次正式参赛，打的真的惨。 1206A Choose Two Numbers目的是从给定的两个数组中选择两个数字使得其和不为两数组中的元素。注意到题目限制数组中的元素为正整数，也就是说，我们可以从两个数组中选择最大的数，其和一定大于两数组中的任一数，换言之，不在两个数组之内。">
@@ -43,9 +43,9 @@
     <h2 class="author">froldH</h2>
     <h3 class="description"></h3>
     <div class="count-box">
-      <a href="/archives"><div><strong>14</strong><br>文章</div></a>
+      <a href="/archives"><div><strong>15</strong><br>文章</div></a>
       <a href="/categories"><div><strong>2</strong><br>分类</div></a>
-      <a href="/tags"><div><strong>28</strong><br>标签</div></a>
+      <a href="/tags"><div><strong>29</strong><br>标签</div></a>
     </div>
     <ul class="blog-link">
      
@@ -135,7 +135,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://froldH.github.io/2019/08/19/OI/codeforcesPlan/CFR580/" data-id="cjziianpl000aicrqkfva2bo7" class="article-share-link">分享</a>
+      <a data-url="http://froldH.github.io/2019/08/19/OI/codeforcesPlan/CFR580/" data-id="cjzkpht5v00091krq7b8j7w0h" class="article-share-link">分享</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/floyd/">floyd</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/graphs/">graphs</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/math/">math</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/pod推算/">pod推算</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/抽屉原理/">抽屉原理</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/智商题/">智商题</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/最短路/">最短路</a></li></ul>
@@ -145,6 +145,15 @@
   
     
 <nav id="article-nav">
+  
+    <a href="/2019/08/21/OI/codeforcesPlan/R581/1204A/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">上一篇</strong>
+      <div class="article-nav-title">
+        
+          Codeforces Round581 1204A题解
+        
+      </div>
+    </a>
   
   
     <a href="/2019/08/14/OI/daily/20190814/LuoguP1736/" id="article-nav-older" class="article-nav-link-wrap">
@@ -206,9 +215,9 @@
     <h2 class="author">froldH</h2>
     <h3 class="description"></h3>
     <div class="count-box">
-      <a href="/archives"><div><strong>14</strong><br>文章</div></a>
+      <a href="/archives"><div><strong>15</strong><br>文章</div></a>
       <a href="/categories"><div><strong>2</strong><br>分类</div></a>
-      <a href="/tags"><div><strong>28</strong><br>标签</div></a>
+      <a href="/tags"><div><strong>29</strong><br>标签</div></a>
     </div>
 
 
@@ -270,45 +279,6 @@ new WOW().init();
   <script src="/plugin/fancybox/jquery.fancybox.pack.js"></script>
 
 
-
-  <link rel="stylesheet" href="/plugin/galmenu/GalMenu.css">
-  <script src="/plugin/galmenu/GalMenu.js"></script>
-  <div class="GalMenu GalDropDown">
-      <div class="circle" id="gal">
-        <div class="ring">
-          
-            <a href="/" title="" class="menuItem">首页</a>
-          
-            <a href="/tags" title="" class="menuItem">标签</a>
-          
-            <a href="/categories" title="" class="menuItem">分类</a>
-          
-            <a href="/archives" title="" class="menuItem">归档</a>
-          
-            <a href="/about" title="" class="menuItem">关于</a>
-          
-            <a href="/feed" title="" class="menuItem">投喂</a>
-          
-        </div>
-        
-          <audio id="audio" src="#"></audio>
-        
-      </div> 
-</div>
-<div id="overlay" style="opacity: 1; cursor: pointer;"></div>
-  <script type="text/javascript">var items = document.querySelectorAll('.menuItem');
-    for (var i = 0,
-    l = items.length; i < l; i++) {
-      items[i].style.left = (50 - 35 * Math.cos( - 0.5 * Math.PI - 2 * (1 / l) * i * Math.PI)).toFixed(4) + "%";
-      items[i].style.top = (50 + 35 * Math.sin( - 0.5 * Math.PI - 2 * (1 / l) * i * Math.PI)).toFixed(4) + "%"
-    }</script>
-<script type="text/javascript">
-  $(document).ready(function() {
-    $('body').GalMenu({
-      'menu': 'GalDropDown'
-    })
-  });
-</script>
 
   <section class="hidden-xs"> 
   <ul class="cb-slideshow"> 

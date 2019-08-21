@@ -6,7 +6,7 @@
   <title>SuperGCD SDOI2009 LuoguP2152 题解(含有关于更相减损术的步骤描述) | froldH&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="hzwer: 更相减损术在时间上比较慢,一般用于证明一些结论和在高精度下求GCD。本题数据范围在高精度的范畴,由于高精度除法(取模)难度较大,但是高精度相减而高精度除以单精度、乘以单精度在实现上相对简单,所以考虑用更相减损术来实现。">
-<meta name="keywords" content="BigNumber,腾飞营集训,GCD,更相减损术">
+<meta name="keywords" content="BigNumber,GCD,更相减损术,腾飞营集训">
 <meta property="og:type" content="article">
 <meta property="og:title" content="SuperGCD SDOI2009 LuoguP2152 题解(含有关于更相减损术的步骤描述)">
 <meta property="og:url" content="http://froldH.github.io/2019/07/28/OI/daily/20190728/SuperGCD_SDOI2009_LuoguP2152/index.html">
@@ -43,9 +43,9 @@
     <h2 class="author">froldH</h2>
     <h3 class="description"></h3>
     <div class="count-box">
-      <a href="/archives"><div><strong>14</strong><br>文章</div></a>
+      <a href="/archives"><div><strong>15</strong><br>文章</div></a>
       <a href="/categories"><div><strong>2</strong><br>分类</div></a>
-      <a href="/tags"><div><strong>28</strong><br>标签</div></a>
+      <a href="/tags"><div><strong>29</strong><br>标签</div></a>
     </div>
     <ul class="blog-link">
      
@@ -127,7 +127,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://froldH.github.io/2019/07/28/OI/daily/20190728/SuperGCD_SDOI2009_LuoguP2152/" data-id="cjziianqz001micrqxmj2nhpr" class="article-share-link">分享</a>
+      <a data-url="http://froldH.github.io/2019/07/28/OI/daily/20190728/SuperGCD_SDOI2009_LuoguP2152/" data-id="cjzkpht6x001g1krqoe65uv6r" class="article-share-link">分享</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/BigNumber/">BigNumber</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/GCD/">GCD</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/更相减损术/">更相减损术</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/腾飞营集训/">腾飞营集训</a></li></ul>
@@ -207,9 +207,9 @@
     <h2 class="author">froldH</h2>
     <h3 class="description"></h3>
     <div class="count-box">
-      <a href="/archives"><div><strong>14</strong><br>文章</div></a>
+      <a href="/archives"><div><strong>15</strong><br>文章</div></a>
       <a href="/categories"><div><strong>2</strong><br>分类</div></a>
-      <a href="/tags"><div><strong>28</strong><br>标签</div></a>
+      <a href="/tags"><div><strong>29</strong><br>标签</div></a>
     </div>
 
 
@@ -271,45 +271,6 @@ new WOW().init();
   <script src="/plugin/fancybox/jquery.fancybox.pack.js"></script>
 
 
-
-  <link rel="stylesheet" href="/plugin/galmenu/GalMenu.css">
-  <script src="/plugin/galmenu/GalMenu.js"></script>
-  <div class="GalMenu GalDropDown">
-      <div class="circle" id="gal">
-        <div class="ring">
-          
-            <a href="/" title="" class="menuItem">首页</a>
-          
-            <a href="/tags" title="" class="menuItem">标签</a>
-          
-            <a href="/categories" title="" class="menuItem">分类</a>
-          
-            <a href="/archives" title="" class="menuItem">归档</a>
-          
-            <a href="/about" title="" class="menuItem">关于</a>
-          
-            <a href="/feed" title="" class="menuItem">投喂</a>
-          
-        </div>
-        
-          <audio id="audio" src="#"></audio>
-        
-      </div> 
-</div>
-<div id="overlay" style="opacity: 1; cursor: pointer;"></div>
-  <script type="text/javascript">var items = document.querySelectorAll('.menuItem');
-    for (var i = 0,
-    l = items.length; i < l; i++) {
-      items[i].style.left = (50 - 35 * Math.cos( - 0.5 * Math.PI - 2 * (1 / l) * i * Math.PI)).toFixed(4) + "%";
-      items[i].style.top = (50 + 35 * Math.sin( - 0.5 * Math.PI - 2 * (1 / l) * i * Math.PI)).toFixed(4) + "%"
-    }</script>
-<script type="text/javascript">
-  $(document).ready(function() {
-    $('body').GalMenu({
-      'menu': 'GalDropDown'
-    })
-  });
-</script>
 
   <section class="hidden-xs"> 
   <ul class="cb-slideshow"> 
