@@ -39,9 +39,9 @@
     <h2 class="author">froldH</h2>
     <h3 class="description"></h3>
     <div class="count-box">
-      <a href="/archives"><div><strong>15</strong><br>文章</div></a>
+      <a href="/archives"><div><strong>16</strong><br>文章</div></a>
       <a href="/categories"><div><strong>2</strong><br>分类</div></a>
-      <a href="/tags"><div><strong>29</strong><br>标签</div></a>
+      <a href="/tags"><div><strong>30</strong><br>标签</div></a>
     </div>
     <ul class="blog-link">
      
@@ -74,6 +74,70 @@
 </div>
 
         <section id="main">
+  
+    <article id="post-OI/codeforcesPlan/R581/1204C" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/08/21/OI/codeforcesPlan/R581/1204C/" class="article-date">
+  <time class="post-time" datetime="2019-08-21T04:07:52.000Z" itemprop="datePublished">
+    <span class="post-month">8月</span><br/>
+    <span class="post-day">21</span>
+  </time>
+</a>
+   
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/08/21/OI/codeforcesPlan/R581/1204C/">Codeforces Rpund581 1204C题解</a>
+    </h1>
+  
+
+        <div>
+          
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/OI/">OI</a>
+  </div>
+
+          
+              
+  &nbsp; | &nbsp;
+  <div class="view-box">
+    <span id="/2019/08/21/OI/codeforcesPlan/R581/1204C/" class="leancloud_visitors" data-flag-title="Codeforces Rpund581 1204C题解">
+      &nbsp;阅读次数<span class="leancloud-visitors-count"></span>
+    </span>
+  </div>
+
+
+          
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>题意简述:以邻接矩阵的形式给定一张有向无环图无权图,1表示有边0表示没有。然后给定一条路径(不一定为简单路径),按照遍历的点的顺序给出。要求:尝试在路径中删除尽可能多的点,使得要按顺序走完剩余的结点(可以经过其他结点)所走的最短路径长度等于原路径长度。<br>来看数据:$2&lt;= n &lt;=100$,暗示O($n^3$)，$m &lt;= 10^6$暗示O($mlogm$)或者O(m)<br>O($n^3$)可以跑个floyd。O($mlogm$)或者O(m)只能一遍扫下来在扫的过程中决策。<br>一个点能够被删除的条件是什么？如果前面一个保留的点到这个点后一个点的最短路径等于前面一个点经过这个点到这个点后面一个点的最短路径相等,那么这个点可以被删除。换言之,在路径$p_1$ $p_2$ … $p_k$ … $p_i$ $p_{i+1}$ …$p_m$ 我们的决策已经进行到$p_i$,上一个没有被删除的点是$p_k$，那么$p_i$能被删除的条件是:从$p_k$按原路径走到$p_{i+1}$的长度等于从$p_k$走到$p_{i+1}$的最短路径长度。其中,$p_k$按原路径走到$p_{i+1}$的路径长度等于$i-k$，而$p_k$到$p_{i+1}$的最短路径长度我们可以采用floyd O($n^3$)预处理出来。而如果后者小于前者,则$p_i$不能被删除。<br>代码:  </p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">char</span> buf[<span class="number">2000000</span>], *p1 = buf, *p2 = buf;</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">char</span> <span class="title">gc</span><span class="params">()</span> </span>&#123; <span class="keyword">return</span> p1==p2&amp;&amp;(p2=(p1=buf)+fread(buf,<span class="number">1</span>,<span class="number">2000000</span>,<span class="built_in">stdin</span>), p1==p2)?EOF:*p1++; &#125;</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">read</span><span class="params">(<span class="keyword">int</span> &amp;x)</span> </span>&#123;</span><br><span class="line">    x = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">char</span> ch = gc();</span><br><span class="line">    <span class="keyword">while</span>(ch &lt; <span class="string">'0'</span> || ch &gt; <span class="string">'9'</span>) ch = gc();</span><br><span class="line">    <span class="keyword">while</span>(ch &gt;= <span class="string">'0'</span> &amp;&amp; ch &lt;= <span class="string">'9'</span>) x = (x&lt;&lt;<span class="number">3</span>)+(x&lt;&lt;<span class="number">1</span>)+(ch&amp;<span class="number">15</span>), ch = gc();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn = <span class="number">110</span>, maxm = <span class="number">1000010</span>;</span><br><span class="line"><span class="keyword">int</span> dis[maxn][maxn], p[maxm], ans[maxm];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">register</span> <span class="keyword">int</span> n;</span><br><span class="line">	<span class="keyword">register</span> <span class="keyword">char</span> ch;</span><br><span class="line">	read(n);</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">register</span> <span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++)</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">register</span> <span class="keyword">int</span> j = <span class="number">1</span>; j &lt;= n; j++) &#123;</span><br><span class="line">			ch = gc();</span><br><span class="line">			<span class="keyword">while</span>(ch != <span class="string">'0'</span> &amp;&amp; ch != <span class="string">'1'</span>) ch = gc();</span><br><span class="line">			dis[i][j] = ch==<span class="string">'1'</span>?<span class="number">1</span>:<span class="number">-1</span>;</span><br><span class="line">		&#125;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">register</span> <span class="keyword">int</span> k = <span class="number">1</span>; k &lt;= n; k++)</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">register</span> <span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++)</span><br><span class="line">			<span class="keyword">for</span>(<span class="keyword">register</span> <span class="keyword">int</span> j = <span class="number">1</span>; j &lt;= n; j++) &#123;</span><br><span class="line">				<span class="keyword">if</span>(i==j || j==k || k==i || dis[i][k]==<span class="number">-1</span> || dis[k][j]==<span class="number">-1</span>) <span class="keyword">continue</span>;</span><br><span class="line">				<span class="keyword">if</span>(dis[i][j]==<span class="number">-1</span> || dis[i][j] &gt; dis[i][k]+dis[k][j]) dis[i][j] = dis[i][k] + dis[k][j];</span><br><span class="line">			&#125;</span><br><span class="line">	<span class="keyword">register</span> <span class="keyword">int</span> m, au = <span class="number">1</span>;</span><br><span class="line">	read(m);</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">register</span> <span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= m; i++) read(p[i]);</span><br><span class="line">	ans[<span class="number">0</span>] = p[<span class="number">1</span>];</span><br><span class="line">	<span class="keyword">int</span> la = <span class="number">1</span>;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">register</span> <span class="keyword">int</span> i = <span class="number">2</span>; i &lt; m; i++)</span><br><span class="line">		<span class="keyword">if</span>(dis[ans[au<span class="number">-1</span>]][p[i+<span class="number">1</span>]] &lt; i+<span class="number">1</span>-la)</span><br><span class="line">			ans[au++] = p[i], la = i;</span><br><span class="line">	ans[au++] = p[m];</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"%d\n"</span>, au);</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">register</span> <span class="keyword">int</span> i = <span class="number">0</span>; i &lt; au; i++) <span class="built_in">printf</span>(<span class="string">"%d "</span>, ans[i]);</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"\n"</span>);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="声明-本篇文章及本博客所有文章版权均归本人froldH所有。原文地址位于-https-froldh-github-io-2019-08-21-OI-codeforcesPlan-R581-1204C-。转载和整体或部分应用于其他场合均应当在明显位置保留本段声明，除非征得本人同意。用于商业用途的也应当征得本人同意。qq-2249133934。"><a href="#声明-本篇文章及本博客所有文章版权均归本人froldH所有。原文地址位于-https-froldh-github-io-2019-08-21-OI-codeforcesPlan-R581-1204C-。转载和整体或部分应用于其他场合均应当在明显位置保留本段声明，除非征得本人同意。用于商业用途的也应当征得本人同意。qq-2249133934。" class="headerlink" title="声明:本篇文章及本博客所有文章版权均归本人froldH所有。原文地址位于: https://froldh.github.io/2019/08/21/OI/codeforcesPlan/R581/1204C 。转载和整体或部分应用于其他场合均应当在明显位置保留本段声明，除非征得本人同意。用于商业用途的也应当征得本人同意。qq:2249133934。"></a>声明:本篇文章及本博客所有文章版权均归本人froldH所有。原文地址位于: <a href="https://froldh.github.io/2019/08/21/OI/codeforcesPlan/R581/1204C">https://froldh.github.io/2019/08/21/OI/codeforcesPlan/R581/1204C</a> 。转载和整体或部分应用于其他场合均应当在明显位置保留本段声明，除非征得本人同意。用于商业用途的也应当征得本人同意。qq:2249133934。</h5>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://froldH.github.io/2019/08/21/OI/codeforcesPlan/R581/1204C/" data-id="cjzkqwzij001x94rqltgltrn8" class="article-share-link">分享</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/floyd/">floyd</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/graghs/">graghs</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/最短路/">最短路</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+
   
     <article id="post-OI/codeforcesPlan/R581/1204A" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
@@ -127,7 +191,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://froldH.github.io/2019/08/21/OI/codeforcesPlan/R581/1204A/" data-id="cjzkpke4i003ag8rq3lbtxdj8" class="article-share-link">分享</a>
+      <a data-url="http://froldH.github.io/2019/08/21/OI/codeforcesPlan/R581/1204A/" data-id="cjzkqwzin002194rqq0b5dvnw" class="article-share-link">分享</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/bit/">bit</a></li></ul>
@@ -194,7 +258,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://froldH.github.io/2019/08/19/OI/codeforcesPlan/CFR580/" data-id="cjzkpke28000dg8rq6hu77ljm" class="article-share-link">分享</a>
+      <a data-url="http://froldH.github.io/2019/08/19/OI/codeforcesPlan/CFR580/" data-id="cjzkqwzh4000d94rqtahvnfms" class="article-share-link">分享</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/floyd/">floyd</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/graphs/">graphs</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/math/">math</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/pod推算/">pod推算</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/抽屉原理/">抽屉原理</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/智商题/">智商题</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/最短路/">最短路</a></li></ul>
@@ -260,7 +324,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://froldH.github.io/2019/08/14/OI/daily/20190814/LuoguP1736/" data-id="cjzkpke3e001mg8rqfre4nj0j" class="article-share-link">分享</a>
+      <a data-url="http://froldH.github.io/2019/08/14/OI/daily/20190814/LuoguP1736/" data-id="cjzkqwzid001p94rqjrrbaw9a" class="article-share-link">分享</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/dp/">dp</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/二分/">二分</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/多维dp/">多维dp</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/线性dp/">线性dp</a></li></ul>
@@ -327,7 +391,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://froldH.github.io/2019/07/30/OI/daily/20190730/guandeng/" data-id="cjzkpke3i001rg8rq1q9au4ik" class="article-share-link">分享</a>
+      <a data-url="http://froldH.github.io/2019/07/30/OI/daily/20190730/guandeng/" data-id="cjzkqwzib001m94rqie395txz" class="article-share-link">分享</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/dp/">dp</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/区间dp/">区间dp</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/腾飞营集训/">腾飞营集训</a></li></ul>
@@ -394,7 +458,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://froldH.github.io/2019/07/30/OI/daily/20190730/LuoguP1373/" data-id="cjzkpke3c001kg8rq4vicvnov" class="article-share-link">分享</a>
+      <a data-url="http://froldH.github.io/2019/07/30/OI/daily/20190730/LuoguP1373/" data-id="cjzkqwzi9001k94rqb4j8vkk8" class="article-share-link">分享</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/dp/">dp</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/线性dp/">线性dp</a></li></ul>
@@ -461,7 +525,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://froldH.github.io/2019/07/29/OI/daily/20190729/juzhenqushuyouxi_NOIp2007T3_dp/" data-id="cjzkpke3a001jg8rqc1oveg8e" class="article-share-link">分享</a>
+      <a data-url="http://froldH.github.io/2019/07/29/OI/daily/20190729/juzhenqushuyouxi_NOIp2007T3_dp/" data-id="cjzkqwzi2001g94rqnmdxweb3" class="article-share-link">分享</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/BigNumber/">BigNumber</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/dp/">dp</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/区间dp/">区间dp</a></li></ul>
@@ -527,7 +591,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://froldH.github.io/2019/07/29/OI/skill/debug/" data-id="cjzkpke29000eg8rqw2ilcxyx" class="article-share-link">分享</a>
+      <a data-url="http://froldH.github.io/2019/07/29/OI/skill/debug/" data-id="cjzkqwzh5000e94rq6ldlc13n" class="article-share-link">分享</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/应试技巧/">应试技巧</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/调试/">调试</a></li></ul>
@@ -593,7 +657,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://froldH.github.io/2019/07/28/OI/daily/20190728/SuperGCD_SDOI2009_LuoguP2152/" data-id="cjzkpke36001hg8rqr8l4rjmc" class="article-share-link">分享</a>
+      <a data-url="http://froldH.github.io/2019/07/28/OI/daily/20190728/SuperGCD_SDOI2009_LuoguP2152/" data-id="cjzkqwzi6001j94rq8hmbsgse" class="article-share-link">分享</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/BigNumber/">BigNumber</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/GCD/">GCD</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/更相减损术/">更相减损术</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/腾飞营集训/">腾飞营集训</a></li></ul>
@@ -659,76 +723,10 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://froldH.github.io/2019/07/26/OI/codeforcesPlan/CF1197/" data-id="cjzkpke240009g8rqyofmcg0y" class="article-share-link">分享</a>
+      <a data-url="http://froldH.github.io/2019/07/26/OI/codeforcesPlan/CF1197/" data-id="cjzkqwzh1000994rqk1toln0i" class="article-share-link">分享</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/dp/">dp</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/greedy/">greedy</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/智商题/">智商题</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-
-  
-    <article id="post-OI/jixun_review/hash/cogs1176_sol" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2019/07/24/OI/jixun_review/hash/cogs1176_sol/" class="article-date">
-  <time class="post-time" datetime="2019-07-24T14:35:00.000Z" itemprop="datePublished">
-    <span class="post-month">7月</span><br/>
-    <span class="post-day">24</span>
-  </time>
-</a>
-   
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/07/24/OI/jixun_review/hash/cogs1176_sol/">COGS1176 月考 题解</a>
-    </h1>
-  
-
-        <div>
-          
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/OI/">OI</a>
-  </div>
-
-          
-              
-  &nbsp; | &nbsp;
-  <div class="view-box">
-    <span id="/2019/07/24/OI/jixun_review/hash/cogs1176_sol/" class="leancloud_visitors" data-flag-title="COGS1176 月考 题解">
-      &nbsp;阅读次数<span class="leancloud-visitors-count"></span>
-    </span>
-  </div>
-
-
-          
-        </div>
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>本来想复习一下hash，在rxz老师的博客里莫名发现了一篇课件讲这个的。于是复制了一份看了起来。于是便有了这一题。
-        
-          <p class="article-more-link">
-            <a href="/2019/07/24/OI/jixun_review/hash/cogs1176_sol/#more">expand all</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://froldH.github.io/2019/07/24/OI/jixun_review/hash/cogs1176_sol/" data-id="cjzkpke3h001pg8rq4o2s681e" class="article-share-link">分享</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hash/">hash</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/字符串/">字符串</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/腾飞营集训/">腾飞营集训</a></li></ul>
 
     </footer>
   </div>
@@ -791,9 +789,9 @@
     <h2 class="author">froldH</h2>
     <h3 class="description"></h3>
     <div class="count-box">
-      <a href="/archives"><div><strong>15</strong><br>文章</div></a>
+      <a href="/archives"><div><strong>16</strong><br>文章</div></a>
       <a href="/categories"><div><strong>2</strong><br>分类</div></a>
-      <a href="/tags"><div><strong>29</strong><br>标签</div></a>
+      <a href="/tags"><div><strong>30</strong><br>标签</div></a>
     </div>
 
 
