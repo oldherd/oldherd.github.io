@@ -26,6 +26,7 @@
   <link rel="stylesheet" href="/plugin/bganimation/bg.css">
   
 
+  <link href="https://cdn.bootcss.com/KaTeX/0.7.1/katex.min.css" rel="stylesheet">
 </head>
 </html>
 <body>
@@ -127,7 +128,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://froldH.github.io/2019/07/24/OI/jixun_review/hash/cogs1176_sol/" data-id="cjzkr5obe001tw0rq3si9duxg" class="article-share-link">分享</a>
+      <a data-url="http://froldH.github.io/2019/07/24/OI/jixun_review/hash/cogs1176_sol/" data-id="cjzm69hls001xkorqjw61vcrw" class="article-share-link">分享</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hash/">hash</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/字符串/">字符串</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/腾飞营集训/">腾飞营集训</a></li></ul>
@@ -184,7 +185,9 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>之前暑期集训有一道买汽水的题目和这个类似，现在复习做了一下。<br>本题是一个NPC问题，按照hzwer学长的说法，没有特殊特性的NPC问题一般都是用搜索解决。(01背包就是一个NPC问题但由于w比较小所以可以dp)<br>搜索的话状态空间2^N,N到20多就已经比较吃力了。45过不了。但是一半是可以通过的。所以考虑折半搜索。
+        <p>之前暑期集训有一道买汽水的题目和这个类似，现在复习做了一下。<br>
+本题是一个NPC问题，按照hzwer学长的说法，没有特殊特性的NPC问题一般都是用搜索解决。(01背包就是一个NPC问题但由于w比较小所以可以dp)<br>
+搜索的话状态空间2^N,N到20多就已经比较吃力了。45过不了。但是一半是可以通过的。所以考虑折半搜索。
         
           <p class="article-more-link">
             <a href="/2019/07/24/OI/jixun_review/meet_in_the_middle/gift_acwing171/#more">expand all</a>
@@ -193,7 +196,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://froldH.github.io/2019/07/24/OI/jixun_review/meet_in_the_middle/gift_acwing171/" data-id="cjzkr5obg001ww0rqjyxygl8h" class="article-share-link">分享</a>
+      <a data-url="http://froldH.github.io/2019/07/24/OI/jixun_review/meet_in_the_middle/gift_acwing171/" data-id="cjzm69hlv0022korqgdvag2z2" class="article-share-link">分享</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/meet-in-the-middle/">meet in the middle</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/搜索/">搜索</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/腾飞营集训/">腾飞营集训</a></li></ul>
@@ -250,8 +253,10 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="首先是关于二分答案法的一些赘述"><a href="#首先是关于二分答案法的一些赘述" class="headerlink" title="首先是关于二分答案法的一些赘述:"></a>首先是关于二分答案法的一些赘述:</h3><p>它大致上有几种模型。  </p>
-<h5 id="1-最大值的最小值，-最小值的最大值。"><a href="#1-最大值的最小值，-最小值的最大值。" class="headerlink" title="1.最大值的最小值， 最小值的最大值。"></a>1.最大值的最小值， 最小值的最大值。</h5><p>这是二分答案法最为常见的一种模型。只要证明解的单调性，就可以尝试使用二分答案法。在这种情况下二分适用时，二分答案法将最值性问题转化成判断性问题从而简化了求解的过程。它一般是不亏的，因为只增加了一个log的时间复杂度因子。然而在有些时候判断性问题不一定比最值性问题更优，这时候二分答案法就用不上了。例如:HDU4044 GeoDefense。
+        <h3 id="首先是关于二分答案法的一些赘述"><a class="markdownIt-Anchor" href="#首先是关于二分答案法的一些赘述"></a> 首先是关于二分答案法的一些赘述:</h3>
+<p>它大致上有几种模型。</p>
+<h5 id="1最大值的最小值-最小值的最大值"><a class="markdownIt-Anchor" href="#1最大值的最小值-最小值的最大值"></a> 1.最大值的最小值， 最小值的最大值。</h5>
+<p>这是二分答案法最为常见的一种模型。只要证明解的单调性，就可以尝试使用二分答案法。在这种情况下二分适用时，二分答案法将最值性问题转化成判断性问题从而简化了求解的过程。它一般是不亏的，因为只增加了一个log的时间复杂度因子。然而在有些时候判断性问题不一定比最值性问题更优，这时候二分答案法就用不上了。例如:HDU4044 GeoDefense。
         
           <p class="article-more-link">
             <a href="/2019/07/23/OI/daily/20190723/uva11090/#more">expand all</a>
@@ -260,7 +265,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://froldH.github.io/2019/07/23/OI/daily/20190723/uva11090/" data-id="cjzkr5ob3001jw0rqug51s12k" class="article-share-link">分享</a>
+      <a data-url="http://froldH.github.io/2019/07/23/OI/daily/20190723/uva11090/" data-id="cjzm69hlh001hkorqo8n21o6x" class="article-share-link">分享</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/SPFA/">SPFA</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/graphs/">graphs</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/二分/">二分</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/最短路/">最短路</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/负环/">负环</a></li></ul>
@@ -317,10 +322,12 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>本文主要记录日常用到过的hexo方法。  </p>
-<h3 id="1-文件开头"><a href="#1-文件开头" class="headerlink" title="1.文件开头"></a>1.文件开头</h3><figure class="highlight md"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">title: 		//存放文章标题</span><br><span class="line">date: 		//存放文章日期</span><br><span class="line">categories:	//存放文章类别</span><br><span class="line">tags[A, B, ...]	//存放文章标签</span><br></pre></td></tr></table></figure>
-
-<h3 id="2-yml"><a href="#2-yml" class="headerlink" title="2.yml"></a>2.yml</h3><p>hexo的基本配置信息在_config.yml中更改。<br>如:
+        <p>本文主要记录日常用到过的hexo方法。</p>
+<h3 id="1文件开头"><a class="markdownIt-Anchor" href="#1文件开头"></a> 1.文件开头</h3>
+<figure class="highlight md"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">title: 		//存放文章标题</span><br><span class="line">date: 		//存放文章日期</span><br><span class="line">categories:	//存放文章类别</span><br><span class="line">tags[A, B, ...]	//存放文章标签</span><br></pre></td></tr></table></figure>
+<h3 id="2yml"><a class="markdownIt-Anchor" href="#2yml"></a> 2.yml</h3>
+<p>hexo的基本配置信息在_config.yml中更改。<br>
+如:
         
           <p class="article-more-link">
             <a href="/2019/07/23/hexo/hexo_notes/#more">expand all</a>
@@ -329,7 +336,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://froldH.github.io/2019/07/23/hexo/hexo_notes/" data-id="cjzkr5o940004w0rq4qu13vul" class="article-share-link">分享</a>
+      <a data-url="http://froldH.github.io/2019/07/23/hexo/hexo_notes/" data-id="cjzm69hjz0004korqpcq6ec93" class="article-share-link">分享</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hexo/">hexo</a></li></ul>
@@ -386,7 +393,11 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="CF1195A-Drinks-Choosing"><a href="#CF1195A-Drinks-Choosing" class="headerlink" title="CF1195A Drinks Choosing"></a>CF1195A Drinks Choosing</h3><p>这题很显然是一个贪心，能够配对的配对，不能的则有一半(上取整)能配对。<br>考虑k&lt;=1000 ,所以只要开桶来存储即可。<br>如果增大k并且饮料标号不连续，则可以考察hash，并卡掉离散化。<br>我们动态地统计不成对数，每当成对减一，不成对加一，然后用全部数值减去得到成对数。可以用异或来实现，或者直接记录数量来判断奇偶性。
+        <h3 id="cf1195a-drinks-choosing"><a class="markdownIt-Anchor" href="#cf1195a-drinks-choosing"></a> CF1195A Drinks Choosing</h3>
+<p>这题很显然是一个贪心，能够配对的配对，不能的则有一半(上取整)能配对。<br>
+考虑k&lt;=1000 ,所以只要开桶来存储即可。<br>
+如果增大k并且饮料标号不连续，则可以考察hash，并卡掉离散化。<br>
+我们动态地统计不成对数，每当成对减一，不成对加一，然后用全部数值减去得到成对数。可以用异或来实现，或者直接记录数量来判断奇偶性。
         
           <p class="article-more-link">
             <a href="/2019/07/22/OI/codeforcesPlan/CF1195/#more">expand all</a>
@@ -395,7 +406,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://froldH.github.io/2019/07/22/OI/codeforcesPlan/CF1195/" data-id="cjzkr5oa00009w0rq36zjfg8i" class="article-share-link">分享</a>
+      <a data-url="http://froldH.github.io/2019/07/22/OI/codeforcesPlan/CF1195/" data-id="cjzm69hko0009korqw02j2i76" class="article-share-link">分享</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/codeforces/">codeforces</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/dp/">dp</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/greedy/">greedy</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/二分/">二分</a></li></ul>
@@ -452,7 +463,10 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>莫队算法将询问离线化，按区间右端点分块，然后暴力移动指针修改变化的位置的点。<br>莫队算法适用于能够O(1)维护删除一个点和增加一个点，统计类(统计量能够装入桶中)的题目，复杂度为O(n√n + m√n)。<br>一般块的大小为√n或者n / (√m * 2/3)，后者优于前者。<br>初始化将l = 1, r = 0.这样在它们移动到排序后的询问序列过程中的中间段分别被添加和删除各一次，正好抵消。
+        <p>莫队算法将询问离线化，按区间右端点分块，然后暴力移动指针修改变化的位置的点。<br>
+莫队算法适用于能够O(1)维护删除一个点和增加一个点，统计类(统计量能够装入桶中)的题目，复杂度为O(n√n + m√n)。<br>
+一般块的大小为√n或者n / (√m * 2/3)，后者优于前者。<br>
+初始化将l = 1, r = 0.这样在它们移动到排序后的询问序列过程中的中间段分别被添加和删除各一次，正好抵消。
         
           <p class="article-more-link">
             <a href="/2019/07/22/OI/summer2019plan/modui/modui/#more">expand all</a>
@@ -461,7 +475,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://froldH.github.io/2019/07/22/OI/summer2019plan/modui/modui/" data-id="cjzkr5obk0021w0rqn6l25snm" class="article-share-link">分享</a>
+      <a data-url="http://froldH.github.io/2019/07/22/OI/summer2019plan/modui/modui/" data-id="cjzm69hlx0024korqimwodqki" class="article-share-link">分享</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/莫队/">莫队</a></li></ul>

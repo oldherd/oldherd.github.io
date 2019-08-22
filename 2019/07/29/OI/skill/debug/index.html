@@ -5,18 +5,18 @@
   
   <title>关于调试的方法 | froldH&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="1.hzwer: 感觉gdb就不是给算法竞赛的学生用的。现在顶尖的选手都在用输调(输出调试)。2.关于特殊点的跟踪:往往我们在锁定循环中某一处的问题时,可以加一个if语句,把代码块单独放进去(记得continue)。然后在语句块内设置断点为所欲为。">
+  <meta name="description" content="1.hzwer: 感觉gdb就不是给算法竞赛的学生用的。现在顶尖的选手都在用输调(输出调试)。 2.关于特殊点的跟踪: 往往我们在锁定循环中某一处的问题时,可以加一个if语句,把代码块单独放进去(记得continue)。然后在语句块内设置断点为所欲为。">
 <meta name="keywords" content="调试,应试技巧">
 <meta property="og:type" content="article">
 <meta property="og:title" content="关于调试的方法">
 <meta property="og:url" content="http://froldH.github.io/2019/07/29/OI/skill/debug/index.html">
 <meta property="og:site_name" content="froldH&#39;s blog">
-<meta property="og:description" content="1.hzwer: 感觉gdb就不是给算法竞赛的学生用的。现在顶尖的选手都在用输调(输出调试)。2.关于特殊点的跟踪:往往我们在锁定循环中某一处的问题时,可以加一个if语句,把代码块单独放进去(记得continue)。然后在语句块内设置断点为所欲为。">
+<meta property="og:description" content="1.hzwer: 感觉gdb就不是给算法竞赛的学生用的。现在顶尖的选手都在用输调(输出调试)。 2.关于特殊点的跟踪: 往往我们在锁定循环中某一处的问题时,可以加一个if语句,把代码块单独放进去(记得continue)。然后在语句块内设置断点为所欲为。">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:updated_time" content="2019-07-29T15:50:02.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="关于调试的方法">
-<meta name="twitter:description" content="1.hzwer: 感觉gdb就不是给算法竞赛的学生用的。现在顶尖的选手都在用输调(输出调试)。2.关于特殊点的跟踪:往往我们在锁定循环中某一处的问题时,可以加一个if语句,把代码块单独放进去(记得continue)。然后在语句块内设置断点为所欲为。">
+<meta name="twitter:description" content="1.hzwer: 感觉gdb就不是给算法竞赛的学生用的。现在顶尖的选手都在用输调(输出调试)。 2.关于特殊点的跟踪: 往往我们在锁定循环中某一处的问题时,可以加一个if语句,把代码块单独放进去(记得continue)。然后在语句块内设置断点为所欲为。">
   
     <link rel="alternate" href="/atom.xml" title="froldH&#39;s blog" type="application/atom+xml">
   
@@ -30,6 +30,7 @@
   <link rel="stylesheet" href="/plugin/bganimation/bg.css">
   
 
+  <link href="https://cdn.bootcss.com/KaTeX/0.7.1/katex.min.css" rel="stylesheet">
 </head>
 </html>
 <body>
@@ -120,12 +121,16 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>1.hzwer: 感觉gdb就不是给算法竞赛的学生用的。现在顶尖的选手都在用输调(输出调试)。<br>2.关于特殊点的跟踪:<br>往往我们在锁定循环中某一处的问题时,可以加一个if语句,把代码块单独放进去(记得continue)。然后在语句块内设置断点为所欲为。<a id="more"></a><br>其他的日后想到会有更新 2019-07-29晚  </p>
-<h5 id="声明-本篇文章及本博客所有文章版权均归本人froldH所有。原文地址位于-https-froldh-github-io-2019-07-29-OI-skill-debug-。转载和整体或部分应用于其他场合如课件或讲义的制作均应当在明显位置保留本段声明，除非征得本人同意。用于商业用途的也应当征得本人同意。qq-2249133934。"><a href="#声明-本篇文章及本博客所有文章版权均归本人froldH所有。原文地址位于-https-froldh-github-io-2019-07-29-OI-skill-debug-。转载和整体或部分应用于其他场合如课件或讲义的制作均应当在明显位置保留本段声明，除非征得本人同意。用于商业用途的也应当征得本人同意。qq-2249133934。" class="headerlink" title="声明:本篇文章及本博客所有文章版权均归本人froldH所有。原文地址位于:https://froldh.github.io/2019/07/29/OI/skill/debug 。转载和整体或部分应用于其他场合如课件或讲义的制作均应当在明显位置保留本段声明，除非征得本人同意。用于商业用途的也应当征得本人同意。qq:2249133934。"></a>声明:本篇文章及本博客所有文章版权均归本人froldH所有。原文地址位于:<a href="https://froldh.github.io/2019/07/29/OI/skill/debug">https://froldh.github.io/2019/07/29/OI/skill/debug</a> 。转载和整体或部分应用于其他场合如课件或讲义的制作均应当在明显位置保留本段声明，除非征得本人同意。用于商业用途的也应当征得本人同意。qq:2249133934。</h5>
+        <p>1.hzwer: 感觉gdb就不是给算法竞赛的学生用的。现在顶尖的选手都在用输调(输出调试)。<br>
+2.关于特殊点的跟踪:<br>
+往往我们在锁定循环中某一处的问题时,可以加一个if语句,把代码块单独放进去(记得continue)。然后在语句块内设置断点为所欲为。<a id="more"></a><br>
+其他的日后想到会有更新 2019-07-29晚</p>
+<h5 id="声明本篇文章及本博客所有文章版权均归本人froldh所有-原文地址位于httpsfroldhgithubio20190729oiskilldebug-转载和整体或部分应用于其他场合如课件或讲义的制作均应当在明显位置保留本段声明除非征得本人同意-用于商业用途的也应当征得本人同意-qq2249133934"><a class="markdownIt-Anchor" href="#声明本篇文章及本博客所有文章版权均归本人froldh所有-原文地址位于httpsfroldhgithubio20190729oiskilldebug-转载和整体或部分应用于其他场合如课件或讲义的制作均应当在明显位置保留本段声明除非征得本人同意-用于商业用途的也应当征得本人同意-qq2249133934"></a> 声明:本篇文章及本博客所有文章版权均归本人froldH所有。原文地址位于:<a href="https://froldh.github.io/2019/07/29/OI/skill/debug">https://froldh.github.io/2019/07/29/OI/skill/debug</a> 。转载和整体或部分应用于其他场合如课件或讲义的制作均应当在明显位置保留本段声明，除非征得本人同意。用于商业用途的也应当征得本人同意。qq:2249133934。</h5>
+
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://froldH.github.io/2019/07/29/OI/skill/debug/" data-id="cjzkr5oa5000ew0rqdidkwbxs" class="article-share-link">分享</a>
+      <a data-url="http://froldH.github.io/2019/07/29/OI/skill/debug/" data-id="cjzm69hkr000dkorq2xnlttke" class="article-share-link">分享</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/应试技巧/">应试技巧</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/调试/">调试</a></li></ul>

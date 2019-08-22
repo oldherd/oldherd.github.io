@@ -5,18 +5,18 @@
   
   <title>hexo笔记 | froldH&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="本文主要记录日常用到过的hexo方法。   1.文件开头1234title: 		//存放文章标题date: 		//存放文章日期categories:	//存放文章类别tags[A, B, ...]	//存放文章标签  2.ymlhexo的基本配置信息在_config.yml中更改。如:">
+  <meta name="description" content="本文主要记录日常用到过的hexo方法。  1.文件开头 1234title: 		//存放文章标题date: 		//存放文章日期categories:	//存放文章类别tags[A, B, ...]	//存放文章标签  2.yml hexo的基本配置信息在_config.yml中更改。 如:">
 <meta name="keywords" content="hexo">
 <meta property="og:type" content="article">
 <meta property="og:title" content="hexo笔记">
 <meta property="og:url" content="http://froldH.github.io/2019/07/23/hexo/hexo_notes/index.html">
 <meta property="og:site_name" content="froldH&#39;s blog">
-<meta property="og:description" content="本文主要记录日常用到过的hexo方法。   1.文件开头1234title: 		//存放文章标题date: 		//存放文章日期categories:	//存放文章类别tags[A, B, ...]	//存放文章标签  2.ymlhexo的基本配置信息在_config.yml中更改。如:">
+<meta property="og:description" content="本文主要记录日常用到过的hexo方法。  1.文件开头 1234title: 		//存放文章标题date: 		//存放文章日期categories:	//存放文章类别tags[A, B, ...]	//存放文章标签  2.yml hexo的基本配置信息在_config.yml中更改。 如:">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:updated_time" content="2019-08-19T03:53:32.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="hexo笔记">
-<meta name="twitter:description" content="本文主要记录日常用到过的hexo方法。   1.文件开头1234title: 		//存放文章标题date: 		//存放文章日期categories:	//存放文章类别tags[A, B, ...]	//存放文章标签  2.ymlhexo的基本配置信息在_config.yml中更改。如:">
+<meta name="twitter:description" content="本文主要记录日常用到过的hexo方法。  1.文件开头 1234title: 		//存放文章标题date: 		//存放文章日期categories:	//存放文章类别tags[A, B, ...]	//存放文章标签  2.yml hexo的基本配置信息在_config.yml中更改。 如:">
   
     <link rel="alternate" href="/atom.xml" title="froldH&#39;s blog" type="application/atom+xml">
   
@@ -30,6 +30,7 @@
   <link rel="stylesheet" href="/plugin/bganimation/bg.css">
   
 
+  <link href="https://cdn.bootcss.com/KaTeX/0.7.1/katex.min.css" rel="stylesheet">
 </head>
 </html>
 <body>
@@ -120,21 +121,31 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>本文主要记录日常用到过的hexo方法。  </p>
-<h3 id="1-文件开头"><a href="#1-文件开头" class="headerlink" title="1.文件开头"></a>1.文件开头</h3><figure class="highlight md"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">title: 		//存放文章标题</span><br><span class="line">date: 		//存放文章日期</span><br><span class="line">categories:	//存放文章类别</span><br><span class="line">tags[A, B, ...]	//存放文章标签</span><br></pre></td></tr></table></figure>
-
-<h3 id="2-yml"><a href="#2-yml" class="headerlink" title="2.yml"></a>2.yml</h3><p>hexo的基本配置信息在_config.yml中更改。<br>如:<a id="more"></a>  </p>
+        <p>本文主要记录日常用到过的hexo方法。</p>
+<h3 id="1文件开头"><a class="markdownIt-Anchor" href="#1文件开头"></a> 1.文件开头</h3>
+<figure class="highlight md"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">title: 		//存放文章标题</span><br><span class="line">date: 		//存放文章日期</span><br><span class="line">categories:	//存放文章类别</span><br><span class="line">tags[A, B, ...]	//存放文章标签</span><br></pre></td></tr></table></figure>
+<h3 id="2yml"><a class="markdownIt-Anchor" href="#2yml"></a> 2.yml</h3>
+<p>hexo的基本配置信息在_config.yml中更改。<br>
+如:<a id="more"></a></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">title: 						//博客的名字</span><br><span class="line">author: 					//作者的名字</span><br><span class="line">language: 					//应用的语言，如zh-CN为简体中文</span><br><span class="line">theme:						//应用的主题</span><br><span class="line">deploy:</span><br><span class="line">  type: 					//发布形式，一般填写git</span><br><span class="line">  repo: 					//发布的位置，如在github上应填写：https://github.com/username/username.github.io.git(username为github用户名，创建的respositries名称应当与username相同)</span><br></pre></td></tr></table></figure>
+<h3 id="3theme"><a class="markdownIt-Anchor" href="#3theme"></a> 3.theme</h3>
+<p>主题的下载大致采用如下格式:<br>
+git clone + 网址 + themes/+主题名称<br>
+主题中可以更改一些东西，如背景等，应该在themes下的主题文件夹中的source/halmenu中更改<br>
+打开主题的excerpt(部分主题已经默认打开)，在文章中某部分加入<code>&lt;!-- more --&gt;</code>可以使在主页只加载这之前的部分作为预览。</p>
+<h3 id="4新建页面"><a class="markdownIt-Anchor" href="#4新建页面"></a> 4.新建页面</h3>
+<p>使用命令<code>hexo new page &quot;xxxxxx&quot;</code>新建对象名为<code>xxxxxx</code>的页面。会在sourse下创建一个同名新文件夹,内有文件<code>index.md</code>,在此处编辑新页面的内容。<br>
+在应用的主题的menu栏仿照按照格式填写<code>xxx: /xxxxxx</code>。就会在Sider Bar上添加名为<code>xxx</code>的导航链接。<code>xxx</code>可以为中文。</p>
+<h3 id="5关于图片"><a class="markdownIt-Anchor" href="#5关于图片"></a> 5.关于图片</h3>
+<p>官方的解决方式是添加插件。这里的解决方式是在source文件夹下创建子文件夹<code>images</code>然后在需要处使用绝对地址引用(除了在全局的css中可以使用相对地址,如滚动背景的css)。文件夹<code>images</code>位于网页的根目录中。</p>
+<h3 id="6发布"><a class="markdownIt-Anchor" href="#6发布"></a> 6.发布</h3>
+<p><code>hexo clean &amp;&amp; hexo g &amp;&amp; hexo d</code></p>
+<h5 id="声明本篇文章及本博客所有文章版权均归本人froldh所有-原文地址位于httpsfroldhgithubio20190723hexohexo_notes-转载和整体或部分应用于其他场合均应当在明显位置保留本段声明除非征得本人同意-用于商业用途的也应当征得本人同意-qq2249133934"><a class="markdownIt-Anchor" href="#声明本篇文章及本博客所有文章版权均归本人froldh所有-原文地址位于httpsfroldhgithubio20190723hexohexo_notes-转载和整体或部分应用于其他场合均应当在明显位置保留本段声明除非征得本人同意-用于商业用途的也应当征得本人同意-qq2249133934"></a> 声明:本篇文章及本博客所有文章版权均归本人froldH所有。原文地址位于:<a href="https://froldh.github.io/2019/07/23/hexo/hexo_notes/">https://froldh.github.io/2019/07/23/hexo/hexo_notes/</a> 。转载和整体或部分应用于其他场合均应当在明显位置保留本段声明，除非征得本人同意。用于商业用途的也应当征得本人同意。qq:2249133934。</h5>
 
-<h3 id="3-theme"><a href="#3-theme" class="headerlink" title="3.theme"></a>3.theme</h3><p>主题的下载大致采用如下格式:<br>git clone + 网址 + themes/+主题名称<br>主题中可以更改一些东西，如背景等，应该在themes下的主题文件夹中的source/halmenu中更改<br>打开主题的excerpt(部分主题已经默认打开)，在文章中某部分加入<code>&lt;!-- more --&gt;</code>可以使在主页只加载这之前的部分作为预览。  </p>
-<h3 id="4-新建页面"><a href="#4-新建页面" class="headerlink" title="4.新建页面"></a>4.新建页面</h3><p>使用命令<code>hexo new page &quot;xxxxxx&quot;</code>新建对象名为<code>xxxxxx</code>的页面。会在sourse下创建一个同名新文件夹,内有文件<code>index.md</code>,在此处编辑新页面的内容。<br>在应用的主题的menu栏仿照按照格式填写<code>xxx: /xxxxxx</code>。就会在Sider Bar上添加名为<code>xxx</code>的导航链接。<code>xxx</code>可以为中文。  </p>
-<h3 id="5-关于图片"><a href="#5-关于图片" class="headerlink" title="5.关于图片"></a>5.关于图片</h3><p>官方的解决方式是添加插件。这里的解决方式是在source文件夹下创建子文件夹<code>images</code>然后在需要处使用绝对地址引用(除了在全局的css中可以使用相对地址,如滚动背景的css)。文件夹<code>images</code>位于网页的根目录中。  </p>
-<h3 id="6-发布"><a href="#6-发布" class="headerlink" title="6.发布"></a>6.发布</h3><p><code>hexo clean &amp;&amp; hexo g &amp;&amp; hexo d</code>  </p>
-<h5 id="声明-本篇文章及本博客所有文章版权均归本人froldH所有。原文地址位于-https-froldh-github-io-2019-07-23-hexo-hexo-notes-。转载和整体或部分应用于其他场合均应当在明显位置保留本段声明，除非征得本人同意。用于商业用途的也应当征得本人同意。qq-2249133934。"><a href="#声明-本篇文章及本博客所有文章版权均归本人froldH所有。原文地址位于-https-froldh-github-io-2019-07-23-hexo-hexo-notes-。转载和整体或部分应用于其他场合均应当在明显位置保留本段声明，除非征得本人同意。用于商业用途的也应当征得本人同意。qq-2249133934。" class="headerlink" title="声明:本篇文章及本博客所有文章版权均归本人froldH所有。原文地址位于:https://froldh.github.io/2019/07/23/hexo/hexo_notes/ 。转载和整体或部分应用于其他场合均应当在明显位置保留本段声明，除非征得本人同意。用于商业用途的也应当征得本人同意。qq:2249133934。"></a>声明:本篇文章及本博客所有文章版权均归本人froldH所有。原文地址位于:<a href="https://froldh.github.io/2019/07/23/hexo/hexo_notes/">https://froldh.github.io/2019/07/23/hexo/hexo_notes/</a> 。转载和整体或部分应用于其他场合均应当在明显位置保留本段声明，除非征得本人同意。用于商业用途的也应当征得本人同意。qq:2249133934。</h5>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://froldH.github.io/2019/07/23/hexo/hexo_notes/" data-id="cjzkr5o940004w0rq4qu13vul" class="article-share-link">分享</a>
+      <a data-url="http://froldH.github.io/2019/07/23/hexo/hexo_notes/" data-id="cjzm69hjz0004korqpcq6ec93" class="article-share-link">分享</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hexo/">hexo</a></li></ul>

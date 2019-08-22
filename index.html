@@ -26,6 +26,7 @@
   <link rel="stylesheet" href="/plugin/bganimation/bg.css">
   
 
+  <link href="https://cdn.bootcss.com/KaTeX/0.7.1/katex.min.css" rel="stylesheet">
 </head>
 </html>
 <body>
@@ -127,7 +128,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://froldH.github.io/2019/08/21/OI/codeforcesPlan/R581/1204C/" data-id="cjzkr5ocd003dw0rq8iydlzi1" class="article-share-link">分享</a>
+      <a data-url="http://froldH.github.io/2019/08/21/OI/codeforcesPlan/R581/1204C/" data-id="cjzm69hli001jkorq8moa08hq" class="article-share-link">分享</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/floyd/">floyd</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/graphs/">graphs</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/最短路/">最短路</a></li></ul>
@@ -184,7 +185,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>数据采用二进制表示,这方便我们知道该数字介于哪两个二的幂次数之间。例如对数字100000010, 我们数出该数字前导1之后共有8位数字,该数字,故而该数字应当介于$2^8$和$2^9$之间。即一个二进制k位数应当介于$2^{k-1}$与$2^{k}$之间。特殊地,若一个二进制k位数在前导1之后的数位全为0,该数等于$2^{k-1}$。这样一来,我们就很容易求出该数介于哪两个4的幂次数之间（在这里幂次数不一定为整数）。即$4^\frac{k-1}{2}$和$4^\frac{k}{2}$。同样,特殊地,若一个数在前导1之后的数为全部为0,那么该数字等于$4^\frac{k-1}{2}$
+        <p>数据采用二进制表示,这方便我们知道该数字介于哪两个二的幂次数之间。例如对数字100000010, 我们数出该数字前导1之后共有8位数字,该数字,故而该数字应当介于<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msup><mn>2</mn><mn>8</mn></msup></mrow><annotation encoding="application/x-tex">2^8</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.8141079999999999em;"></span><span class="strut bottom" style="height:0.8141079999999999em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathrm">2</span><span class="vlist"><span style="top:-0.363em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle uncramped"><span class="mord mathrm">8</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span>和<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msup><mn>2</mn><mn>9</mn></msup></mrow><annotation encoding="application/x-tex">2^9</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.8141079999999999em;"></span><span class="strut bottom" style="height:0.8141079999999999em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathrm">2</span><span class="vlist"><span style="top:-0.363em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle uncramped"><span class="mord mathrm">9</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span>之间。即一个二进制k位数应当介于<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msup><mn>2</mn><mrow><mi>k</mi><mo>−</mo><mn>1</mn></mrow></msup></mrow><annotation encoding="application/x-tex">2^{k-1}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.849108em;"></span><span class="strut bottom" style="height:0.849108em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathrm">2</span><span class="vlist"><span style="top:-0.363em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle uncramped"><span class="mord scriptstyle uncramped"><span class="mord mathit" style="margin-right:0.03148em;">k</span><span class="mbin">−</span><span class="mord mathrm">1</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span>与<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msup><mn>2</mn><mrow><mi>k</mi></mrow></msup></mrow><annotation encoding="application/x-tex">2^{k}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.849108em;"></span><span class="strut bottom" style="height:0.849108em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathrm">2</span><span class="vlist"><span style="top:-0.363em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle uncramped"><span class="mord scriptstyle uncramped"><span class="mord mathit" style="margin-right:0.03148em;">k</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span>之间。特殊地,若一个二进制k位数在前导1之后的数位全为0,该数等于<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msup><mn>2</mn><mrow><mi>k</mi><mo>−</mo><mn>1</mn></mrow></msup></mrow><annotation encoding="application/x-tex">2^{k-1}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.849108em;"></span><span class="strut bottom" style="height:0.849108em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathrm">2</span><span class="vlist"><span style="top:-0.363em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle uncramped"><span class="mord scriptstyle uncramped"><span class="mord mathit" style="margin-right:0.03148em;">k</span><span class="mbin">−</span><span class="mord mathrm">1</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span>。这样一来,我们就很容易求出该数介于哪两个4的幂次数之间（在这里幂次数不一定为整数）。即<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msup><mn>4</mn><mfrac><mrow><mi>k</mi><mo>−</mo><mn>1</mn></mrow><mrow><mn>2</mn></mrow></mfrac></msup></mrow><annotation encoding="application/x-tex">4^\frac{k-1}{2}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.986885em;"></span><span class="strut bottom" style="height:0.986885em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathrm">4</span><span class="vlist"><span style="top:-0.363em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle uncramped"><span class="mord reset-scriptstyle scriptstyle uncramped"><span class="sizing reset-size5 size5 reset-scriptstyle textstyle uncramped nulldelimiter"></span><span class="mfrac"><span class="vlist"><span style="top:0.345em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-scriptstyle scriptscriptstyle cramped"><span class="mord scriptscriptstyle cramped"><span class="mord mathrm">2</span></span></span></span><span style="top:-0.22142857142857142em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-scriptstyle textstyle uncramped frac-line"></span></span><span style="top:-0.3952357142857143em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-scriptstyle scriptscriptstyle uncramped"><span class="mord scriptscriptstyle uncramped"><span class="mord mathit" style="margin-right:0.03148em;">k</span><span class="mbin">−</span><span class="mord mathrm">1</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="sizing reset-size5 size5 reset-scriptstyle textstyle uncramped nulldelimiter"></span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span>和<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msup><mn>4</mn><mfrac><mrow><mi>k</mi></mrow><mrow><mn>2</mn></mrow></mfrac></msup></mrow><annotation encoding="application/x-tex">4^\frac{k}{2}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.9860199999999999em;"></span><span class="strut bottom" style="height:0.9860199999999999em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathrm">4</span><span class="vlist"><span style="top:-0.363em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle uncramped"><span class="mord reset-scriptstyle scriptstyle uncramped"><span class="sizing reset-size5 size5 reset-scriptstyle textstyle uncramped nulldelimiter"></span><span class="mfrac"><span class="vlist"><span style="top:0.345em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-scriptstyle scriptscriptstyle cramped"><span class="mord scriptscriptstyle cramped"><span class="mord mathrm">2</span></span></span></span><span style="top:-0.22142857142857142em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-scriptstyle textstyle uncramped frac-line"></span></span><span style="top:-0.394em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-scriptstyle scriptscriptstyle uncramped"><span class="mord scriptscriptstyle uncramped"><span class="mord mathit" style="margin-right:0.03148em;">k</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="sizing reset-size5 size5 reset-scriptstyle textstyle uncramped nulldelimiter"></span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span>。同样,特殊地,若一个数在前导1之后的数为全部为0,那么该数字等于<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msup><mn>4</mn><mfrac><mrow><mi>k</mi><mo>−</mo><mn>1</mn></mrow><mrow><mn>2</mn></mrow></mfrac></msup></mrow><annotation encoding="application/x-tex">4^\frac{k-1}{2}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.986885em;"></span><span class="strut bottom" style="height:0.986885em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathrm">4</span><span class="vlist"><span style="top:-0.363em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle uncramped"><span class="mord reset-scriptstyle scriptstyle uncramped"><span class="sizing reset-size5 size5 reset-scriptstyle textstyle uncramped nulldelimiter"></span><span class="mfrac"><span class="vlist"><span style="top:0.345em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-scriptstyle scriptscriptstyle cramped"><span class="mord scriptscriptstyle cramped"><span class="mord mathrm">2</span></span></span></span><span style="top:-0.22142857142857142em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-scriptstyle textstyle uncramped frac-line"></span></span><span style="top:-0.3952357142857143em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-scriptstyle scriptscriptstyle uncramped"><span class="mord scriptscriptstyle uncramped"><span class="mord mathit" style="margin-right:0.03148em;">k</span><span class="mbin">−</span><span class="mord mathrm">1</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="sizing reset-size5 size5 reset-scriptstyle textstyle uncramped nulldelimiter"></span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span>
         
           <p class="article-more-link">
             <a href="/2019/08/21/OI/codeforcesPlan/R581/1204A/#more">expand all</a>
@@ -193,7 +194,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://froldH.github.io/2019/08/21/OI/codeforcesPlan/R581/1204A/" data-id="cjzkr5obi001yw0rqa7xniz76" class="article-share-link">分享</a>
+      <a data-url="http://froldH.github.io/2019/08/21/OI/codeforcesPlan/R581/1204A/" data-id="cjzm69hlj001kkorq2tqhhkin" class="article-share-link">分享</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/bit/">bit</a></li></ul>
@@ -251,7 +252,9 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>第一次正式参赛，打的真的惨。</p>
-<h4 id="1206A-Choose-Two-Numbers"><a href="#1206A-Choose-Two-Numbers" class="headerlink" title="1206A Choose Two Numbers"></a>1206A Choose Two Numbers</h4><p>目的是从给定的两个数组中选择两个数字使得其和不为两数组中的元素。<br>注意到题目限制数组中的元素为正整数，也就是说，我们可以从两个数组中选择最大的数，其和一定大于两数组中的任一数，换言之，不在两个数组之内。
+<h4 id="1206a-choose-two-numbers"><a class="markdownIt-Anchor" href="#1206a-choose-two-numbers"></a> 1206A Choose Two Numbers</h4>
+<p>目的是从给定的两个数组中选择两个数字使得其和不为两数组中的元素。<br>
+注意到题目限制数组中的元素为正整数，也就是说，我们可以从两个数组中选择最大的数，其和一定大于两数组中的任一数，换言之，不在两个数组之内。
         
           <p class="article-more-link">
             <a href="/2019/08/19/OI/codeforcesPlan/CFR580/#more">expand all</a>
@@ -260,7 +263,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://froldH.github.io/2019/08/19/OI/codeforcesPlan/CFR580/" data-id="cjzkr5oa4000dw0rql06oufqa" class="article-share-link">分享</a>
+      <a data-url="http://froldH.github.io/2019/08/19/OI/codeforcesPlan/CFR580/" data-id="cjzm69hkp000akorqqcy6mtmm" class="article-share-link">分享</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/floyd/">floyd</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/graphs/">graphs</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/math/">math</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/pod推算/">pod推算</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/抽屉原理/">抽屉原理</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/智商题/">智商题</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/最短路/">最短路</a></li></ul>
@@ -317,7 +320,9 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>此题的数据范围n&lt;=2500, m&lt;=2500,从数据上分析,应当可以通过O($n^2logn$)级别的算法,当然本题也有O($n^2$)的算法。<br>解法1: O($N^2logN$)<br>为了方便,我们定义对角线上为1,其他地方为0的正方形为合法矩形,定义合法矩形的大小为合法矩形的边长。
+        <p>此题的数据范围n&lt;=2500, m&lt;=2500,从数据上分析,应当可以通过O(<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msup><mi>n</mi><mn>2</mn></msup><mi>l</mi><mi>o</mi><mi>g</mi><mi>n</mi></mrow><annotation encoding="application/x-tex">n^2logn</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.8141079999999999em;"></span><span class="strut bottom" style="height:1.008548em;vertical-align:-0.19444em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit">n</span><span class="vlist"><span style="top:-0.363em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle uncramped"><span class="mord mathrm">2</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mord mathit" style="margin-right:0.01968em;">l</span><span class="mord mathit">o</span><span class="mord mathit" style="margin-right:0.03588em;">g</span><span class="mord mathit">n</span></span></span></span>)级别的算法,当然本题也有O(<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msup><mi>n</mi><mn>2</mn></msup></mrow><annotation encoding="application/x-tex">n^2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.8141079999999999em;"></span><span class="strut bottom" style="height:0.8141079999999999em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit">n</span><span class="vlist"><span style="top:-0.363em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle uncramped"><span class="mord mathrm">2</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span>)的算法。<br>
+解法1: O(<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msup><mi>N</mi><mn>2</mn></msup><mi>l</mi><mi>o</mi><mi>g</mi><mi>N</mi></mrow><annotation encoding="application/x-tex">N^2logN</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.8141079999999999em;"></span><span class="strut bottom" style="height:1.008548em;vertical-align:-0.19444em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit" style="margin-right:0.10903em;">N</span><span class="vlist"><span style="top:-0.363em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle uncramped"><span class="mord mathrm">2</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mord mathit" style="margin-right:0.01968em;">l</span><span class="mord mathit">o</span><span class="mord mathit" style="margin-right:0.03588em;">g</span><span class="mord mathit" style="margin-right:0.10903em;">N</span></span></span></span>)<br>
+为了方便,我们定义对角线上为1,其他地方为0的正方形为合法矩形,定义合法矩形的大小为合法矩形的边长。
         
           <p class="article-more-link">
             <a href="/2019/08/14/OI/daily/20190814/LuoguP1736/#more">expand all</a>
@@ -326,7 +331,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://froldH.github.io/2019/08/14/OI/daily/20190814/LuoguP1736/" data-id="cjzkr5obb001qw0rq94fuv44n" class="article-share-link">分享</a>
+      <a data-url="http://froldH.github.io/2019/08/14/OI/daily/20190814/LuoguP1736/" data-id="cjzm69hlt001zkorqzyvwxwxe" class="article-share-link">分享</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/dp/">dp</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/二分/">二分</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/多维dp/">多维dp</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/线性dp/">线性dp</a></li></ul>
@@ -383,8 +388,9 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>这道题其实是有原题的。原题并没有确定起点的灯的位置而是让我们自己选一个。这个等下会展开。  </p>
-<h3 id="状态设计-amp-转移方程"><a href="#状态设计-amp-转移方程" class="headerlink" title="状态设计&amp;转移方程"></a>状态设计&amp;转移方程</h3><p>$f_i,j,0|1$设为从开始到关掉区间[i,j]的所有路灯,最后站在0:左端点,1:右端点时消耗的总功率。
+        <p>这道题其实是有原题的。原题并没有确定起点的灯的位置而是让我们自己选一个。这个等下会展开。</p>
+<h3 id="状态设计转移方程"><a class="markdownIt-Anchor" href="#状态设计转移方程"></a> 状态设计&amp;转移方程</h3>
+<p><span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>f</mi><mi>i</mi></msub><mo separator="true">,</mo><mi>j</mi><mo separator="true">,</mo><mn>0</mn><mi mathvariant="normal">∣</mi><mn>1</mn></mrow><annotation encoding="application/x-tex">f_i,j,0|1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit" style="margin-right:0.10764em;">f</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.10764em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathit">i</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mpunct">,</span><span class="mord mathit" style="margin-right:0.05724em;">j</span><span class="mpunct">,</span><span class="mord mathrm">0</span><span class="mord mathrm">∣</span><span class="mord mathrm">1</span></span></span></span>设为从开始到关掉区间[i,j]的所有路灯,最后站在0:左端点,1:右端点时消耗的总功率。
         
           <p class="article-more-link">
             <a href="/2019/07/30/OI/daily/20190730/guandeng/#more">expand all</a>
@@ -393,7 +399,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://froldH.github.io/2019/07/30/OI/daily/20190730/guandeng/" data-id="cjzkr5ob7001mw0rqliupinzd" class="article-share-link">分享</a>
+      <a data-url="http://froldH.github.io/2019/07/30/OI/daily/20190730/guandeng/" data-id="cjzm69hlq001ukorqfzje1fpj" class="article-share-link">分享</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/dp/">dp</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/区间dp/">区间dp</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/腾飞营集训/">腾飞营集训</a></li></ul>
@@ -450,8 +456,11 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h4 id="观察"><a href="#观察" class="headerlink" title="观察"></a>观察</h4><p>方案数辣么多,正解应当在 搜索-dp 或者 数学/数论 中找。<br>于是根据直觉 搜索-dp。</p>
-<h4 id="状态设计"><a href="#状态设计" class="headerlink" title="状态设计"></a>状态设计</h4><p>$f_i,j,t,0|1$代表在坐标i,j使两人取得的魔力在模k+1意义下差值(小a-小uim)为t,当前格由0:小a,1:小uim收取在模1e9+7意义下的方案数。
+        <h4 id="观察"><a class="markdownIt-Anchor" href="#观察"></a> 观察</h4>
+<p>方案数辣么多,正解应当在 搜索-dp 或者 数学/数论 中找。<br>
+于是根据直觉 搜索-dp。</p>
+<h4 id="状态设计"><a class="markdownIt-Anchor" href="#状态设计"></a> 状态设计</h4>
+<p><span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>f</mi><mi>i</mi></msub><mo separator="true">,</mo><mi>j</mi><mo separator="true">,</mo><mi>t</mi><mo separator="true">,</mo><mn>0</mn><mi mathvariant="normal">∣</mi><mn>1</mn></mrow><annotation encoding="application/x-tex">f_i,j,t,0|1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit" style="margin-right:0.10764em;">f</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.10764em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathit">i</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mpunct">,</span><span class="mord mathit" style="margin-right:0.05724em;">j</span><span class="mpunct">,</span><span class="mord mathit">t</span><span class="mpunct">,</span><span class="mord mathrm">0</span><span class="mord mathrm">∣</span><span class="mord mathrm">1</span></span></span></span>代表在坐标i,j使两人取得的魔力在模k+1意义下差值(小a-小uim)为t,当前格由0:小a,1:小uim收取在模1e9+7意义下的方案数。
         
           <p class="article-more-link">
             <a href="/2019/07/30/OI/daily/20190730/LuoguP1373/#more">expand all</a>
@@ -460,7 +469,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://froldH.github.io/2019/07/30/OI/daily/20190730/LuoguP1373/" data-id="cjzkr5ob0001gw0rqmsackjfl" class="article-share-link">分享</a>
+      <a data-url="http://froldH.github.io/2019/07/30/OI/daily/20190730/LuoguP1373/" data-id="cjzm69hlo001rkorqonkya2ch" class="article-share-link">分享</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/dp/">dp</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/线性dp/">线性dp</a></li></ul>
@@ -517,8 +526,9 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>每一行都是一个区间dp。这点不难看出来。  </p>
-<h4 id="状态设计"><a href="#状态设计" class="headerlink" title="状态设计"></a>状态设计</h4><p>直接对取数设计dp有点困难。
+        <p>每一行都是一个区间dp。这点不难看出来。</p>
+<h4 id="状态设计"><a class="markdownIt-Anchor" href="#状态设计"></a> 状态设计</h4>
+<p>直接对取数设计dp有点困难。
         
           <p class="article-more-link">
             <a href="/2019/07/29/OI/daily/20190729/juzhenqushuyouxi_NOIp2007T3_dp/#more">expand all</a>
@@ -527,7 +537,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://froldH.github.io/2019/07/29/OI/daily/20190729/juzhenqushuyouxi_NOIp2007T3_dp/" data-id="cjzkr5ob1001hw0rqrflwemdz" class="article-share-link">分享</a>
+      <a data-url="http://froldH.github.io/2019/07/29/OI/daily/20190729/juzhenqushuyouxi_NOIp2007T3_dp/" data-id="cjzm69hlm001nkorqxq3478kk" class="article-share-link">分享</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/BigNumber/">BigNumber</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/dp/">dp</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/区间dp/">区间dp</a></li></ul>
@@ -584,7 +594,9 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>1.hzwer: 感觉gdb就不是给算法竞赛的学生用的。现在顶尖的选手都在用输调(输出调试)。<br>2.关于特殊点的跟踪:<br>往往我们在锁定循环中某一处的问题时,可以加一个if语句,把代码块单独放进去(记得continue)。然后在语句块内设置断点为所欲为。
+        <p>1.hzwer: 感觉gdb就不是给算法竞赛的学生用的。现在顶尖的选手都在用输调(输出调试)。<br>
+2.关于特殊点的跟踪:<br>
+往往我们在锁定循环中某一处的问题时,可以加一个if语句,把代码块单独放进去(记得continue)。然后在语句块内设置断点为所欲为。
         
           <p class="article-more-link">
             <a href="/2019/07/29/OI/skill/debug/#more">expand all</a>
@@ -593,7 +605,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://froldH.github.io/2019/07/29/OI/skill/debug/" data-id="cjzkr5oa5000ew0rqdidkwbxs" class="article-share-link">分享</a>
+      <a data-url="http://froldH.github.io/2019/07/29/OI/skill/debug/" data-id="cjzm69hkr000dkorq2xnlttke" class="article-share-link">分享</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/应试技巧/">应试技巧</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/调试/">调试</a></li></ul>
@@ -650,7 +662,8 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>hzwer: 更相减损术在时间上比较慢,一般用于证明一些结论和在高精度下求GCD。<br>本题数据范围在高精度的范畴,由于高精度除法(取模)难度较大,但是高精度相减而高精度除以单精度、乘以单精度在实现上相对简单,所以考虑用更相减损术来实现。
+        <p>hzwer: 更相减损术在时间上比较慢,一般用于证明一些结论和在高精度下求GCD。<br>
+本题数据范围在高精度的范畴,由于高精度除法(取模)难度较大,但是高精度相减而高精度除以单精度、乘以单精度在实现上相对简单,所以考虑用更相减损术来实现。
         
           <p class="article-more-link">
             <a href="/2019/07/28/OI/daily/20190728/SuperGCD_SDOI2009_LuoguP2152/#more">expand all</a>
@@ -659,7 +672,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://froldH.github.io/2019/07/28/OI/daily/20190728/SuperGCD_SDOI2009_LuoguP2152/" data-id="cjzkr5ob5001kw0rqc13lzy7q" class="article-share-link">分享</a>
+      <a data-url="http://froldH.github.io/2019/07/28/OI/daily/20190728/SuperGCD_SDOI2009_LuoguP2152/" data-id="cjzm69hlg001gkorqadcwoqxv" class="article-share-link">分享</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/BigNumber/">BigNumber</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/GCD/">GCD</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/更相减损术/">更相减损术</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/腾飞营集训/">腾飞营集训</a></li></ul>
@@ -716,7 +729,10 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>话说上一回的Regular Round 574题解还没更完，但是又开了一本(画风有点不对?)<br>因为从不修仙(有人信吗?)刷题所以没办法参加比赛只能赛后打打。所以您看到的一直是Div. 2(说的好像Div. 1我能做出几道一样)。<br>这次比赛几乎没有考察高级的算法，全都是智商题(其实就是水)。<br>这次首更四题
+        <p>话说上一回的Regular Round 574题解还没更完，但是又开了一本(画风有点不对?)<br>
+因为从不修仙(有人信吗?)刷题所以没办法参加比赛只能赛后打打。所以您看到的一直是Div. 2(说的好像Div. 1我能做出几道一样)。<br>
+这次比赛几乎没有考察高级的算法，全都是智商题(其实就是水)。<br>
+这次首更四题
         
           <p class="article-more-link">
             <a href="/2019/07/26/OI/codeforcesPlan/CF1197/#more">expand all</a>
@@ -725,7 +741,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://froldH.github.io/2019/07/26/OI/codeforcesPlan/CF1197/" data-id="cjzkr5oa1000aw0rqagkh0k3l" class="article-share-link">分享</a>
+      <a data-url="http://froldH.github.io/2019/07/26/OI/codeforcesPlan/CF1197/" data-id="cjzm69hks000ekorq6zy42k9p" class="article-share-link">分享</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/dp/">dp</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/greedy/">greedy</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/智商题/">智商题</a></li></ul>
