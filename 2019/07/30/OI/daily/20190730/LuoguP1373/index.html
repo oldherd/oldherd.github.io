@@ -13,7 +13,7 @@
 <meta property="og:site_name" content="froldH&#39;s blog">
 <meta property="og:description" content="观察 方案数辣么多,正解应当在 搜索-dp 或者 数学/数论 中找。 于是根据直觉 搜索-dp。  状态设计 fi,j,t,0∣1f_{i,j,t,0|1}f​i,j,t,0∣1​​代表在坐标i,j使两人取得的魔力在模k+1意义下差值(小a-小uim)为t,当前格由0:小a,1:小uim收取在模1e9+7意义下的方案数。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-08-22T06:55:48.000Z">
+<meta property="og:updated_time" content="2019-08-22T06:58:02.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="小a和uim之大逃离 LuoguP1373">
 <meta name="twitter:description" content="观察 方案数辣么多,正解应当在 搜索-dp 或者 数学/数论 中找。 于是根据直觉 搜索-dp。  状态设计 fi,j,t,0∣1f_{i,j,t,0|1}f​i,j,t,0∣1​​代表在坐标i,j使两人取得的魔力在模k+1意义下差值(小a-小uim)为t,当前格由0:小a,1:小uim收取在模1e9+7意义下的方案数。">
@@ -127,8 +127,8 @@
 <h4 id="状态设计"><a class="markdownIt-Anchor" href="#状态设计"></a> 状态设计</h4>
 <p><span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>f</mi><mrow><mi>i</mi><mo separator="true">,</mo><mi>j</mi><mo separator="true">,</mo><mi>t</mi><mo separator="true">,</mo><mn>0</mn><mi mathvariant="normal">∣</mi><mn>1</mn></mrow></msub></mrow><annotation encoding="application/x-tex">f_{i,j,t,0|1}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.69444em;"></span><span class="strut bottom" style="height:1.04964em;vertical-align:-0.3551999999999999em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit" style="margin-right:0.10764em;">f</span><span class="vlist"><span style="top:0.18019999999999992em;margin-right:0.05em;margin-left:-0.10764em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord scriptstyle cramped"><span class="mord mathit">i</span><span class="mpunct">,</span><span class="mord mathit" style="margin-right:0.05724em;">j</span><span class="mpunct">,</span><span class="mord mathit">t</span><span class="mpunct">,</span><span class="mord mathrm">0</span><span class="mord mathrm">∣</span><span class="mord mathrm">1</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span>代表在坐标i,j使两人取得的魔力在模k+1意义下差值(小a-小uim)为t,当前格由0:小a,1:小uim收取在模1e9+7意义下的方案数。<a id="more"></a></p>
 <h4 id="转移"><a class="markdownIt-Anchor" href="#转移"></a> 转移</h4>
-<p>f_{i,j,t,0} = f_{i-1,j,(t-a[i][j]+k+1)%(k+1),1} + f_{i,j-1,(t-a[i][j]+k+1)%(k+1),1} \quad\quad t \ne a[i][j]<br>
-f_{i,j,t,0} = f_{i-1,j,(t-a[i][j]+k+1)%(k+1),1} + f_{i,j-1,(t-a[i][j]+k+1)%(k+1),1 + 1} \quad\quad t = a[i][j]<br>
+<p>f_{i,j,t,0} = f_{i-1,j,(t-a[i][j]+k+1)%(k+1),1} + f_{i,j-1,(t-a[i][j]+k+1)%(k+1),1} \quad \quad t \ne a[i][j]<br>
+f_{i,j,t,0} = f_{i-1,j,(t-a[i][j]+k+1)%(k+1),1} + f_{i,j-1,(t-a[i][j]+k+1)%(k+1),1 + 1} \quad \quad t = a[i][j]<br>
 f_{i,j,t,1} = f_{i-1,j,(t+a[i][j])%(k+1),0} + f_{i,j-1,(t-a[i][j]+k+1)%(k+1),0}</p>
 <h3 id="边界"><a class="markdownIt-Anchor" href="#边界"></a> 边界</h3>
 <p>f_{i,j,a[i][j],0}$为出发点设为1(已经体现在了状态转移方程上面)。</p>
@@ -144,7 +144,7 @@ int飙到80MB开long long就MLE。<br>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://froldH.github.io/2019/07/30/OI/daily/20190730/LuoguP1373/" data-id="cjzmc1e4c001k30rqoo945fle" class="article-share-link">分享</a>
+      <a data-url="http://froldH.github.io/2019/07/30/OI/daily/20190730/LuoguP1373/" data-id="cjzmc48lt001gpsrqhtgh0kop" class="article-share-link">分享</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/dp/">dp</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/线性dp/">线性dp</a></li></ul>
