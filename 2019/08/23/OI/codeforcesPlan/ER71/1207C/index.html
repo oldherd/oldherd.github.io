@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+  <title>froldH&#39;s blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="这题可以贪心解决的说。 观察可以发现,可能有效的操作是,我们把一整片高度为1的管道全部拔高为2使得这片高度为1的点和两边高度相等从而减少之字形中额外消耗的竖条。我们记这片高度为1的管道的长度为len,显然,它有len+1len+1len+1个支撑物。这样做,拔高消耗的代价为b∗(len−1)b* (len-1)b∗(len−1),减少消耗的代价为2a2a2a。每一片的拔高决策是相互独立的,因此只需">
+<meta name="keywords" content="oi">
+<meta property="og:type" content="article">
+<meta property="og:title" content="froldH&#39;s blog">
+<meta property="og:url" content="http://froldH.github.io/2019/08/23/OI/codeforcesPlan/ER71/1207C/index.html">
+<meta property="og:site_name" content="froldH&#39;s blog">
+<meta property="og:description" content="这题可以贪心解决的说。 观察可以发现,可能有效的操作是,我们把一整片高度为1的管道全部拔高为2使得这片高度为1的点和两边高度相等从而减少之字形中额外消耗的竖条。我们记这片高度为1的管道的长度为len,显然,它有len+1len+1len+1个支撑物。这样做,拔高消耗的代价为b∗(len−1)b* (len-1)b∗(len−1),减少消耗的代价为2a2a2a。每一片的拔高决策是相互独立的,因此只需">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-08-23T04:21:08.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="froldH&#39;s blog">
+<meta name="twitter:description" content="这题可以贪心解决的说。 观察可以发现,可能有效的操作是,我们把一整片高度为1的管道全部拔高为2使得这片高度为1的点和两边高度相等从而减少之字形中额外消耗的竖条。我们记这片高度为1的管道的长度为len,显然,它有len+1len+1len+1个支撑物。这样做,拔高消耗的代价为b∗(len−1)b* (len-1)b∗(len−1),减少消耗的代价为2a2a2a。每一片的拔高决策是相互独立的,因此只需">
+  
+    <link rel="alternate" href="/atom.xml" title="froldH&#39;s blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/plugin/bganimation/bg.css">
+  
+
+  <link href="https://cdn.bootcss.com/KaTeX/0.7.1/katex.min.css" rel="stylesheet">
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <div class="outer">
+        <div class="widget-wrap mobile-header">
+  <h3 class="widget-title"></h3>
+  <div class="widget">
+    <img class="avatar" src="https://froldh.github.io/images/avatar/avatar2.jpg">
+    <h2 class="author">froldH</h2>
+    <h3 class="description"></h3>
+    <div class="count-box">
+      <a href="/archives"><div><strong>17</strong><br>文章</div></a>
+      <a href="/categories"><div><strong>2</strong><br>分类</div></a>
+      <a href="/tags"><div><strong>29</strong><br>标签</div></a>
+    </div>
+    <ul class="blog-link">
+     
+          <a href="/" title="Home">
+            <li>主页</li>
+          </a>
+        
+          <a href="/archives" title="Archives">
+            <li>归档</li>
+          </a>
+        
+          <a href="/categories" title="Categories">
+            <li>分类</li>
+          </a>
+        
+          <a href="/tags" title="Tags">
+            <li>标签</li>
+          </a>
+        
+          <a href="/about" title="About">
+            <li>关于</li>
+          </a>
+        
+          <a href="/feed" title="投喂">
+            <li>投喂</li>
+          </a>
+        
+    </ul>
+  </div>
+</div>
+
+        <section id="main"><article id="post-OI/codeforcesPlan/ER71/1207C" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/08/23/OI/codeforcesPlan/ER71/1207C/" class="article-date">
+  <time class="post-time" datetime="2019-08-23T04:19:44.520Z" itemprop="datePublished">
+    <span class="post-month">8月</span><br/>
+    <span class="post-day">23</span>
+  </time>
+</a>
+   
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>这题可以贪心解决的说。<br>
+观察可以发现,可能有效的操作是,我们把一整片高度为1的管道全部拔高为2使得这片高度为1的点和两边高度相等从而减少之字形中额外消耗的竖条。我们记这片高度为1的管道的长度为len,显然,它有<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>l</mi><mi>e</mi><mi>n</mi><mo>+</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">len+1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.69444em;"></span><span class="strut bottom" style="height:0.77777em;vertical-align:-0.08333em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.01968em;">l</span><span class="mord mathit">e</span><span class="mord mathit">n</span><span class="mbin">+</span><span class="mord mathrm">1</span></span></span></span>个支撑物。这样做,拔高消耗的代价为<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>b</mi><mo>∗</mo><mo>(</mo><mi>l</mi><mi>e</mi><mi>n</mi><mo>−</mo><mn>1</mn><mo>)</mo></mrow><annotation encoding="application/x-tex">b* (len-1)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mord mathit">b</span><span class="mbin">∗</span><span class="mopen">(</span><span class="mord mathit" style="margin-right:0.01968em;">l</span><span class="mord mathit">e</span><span class="mord mathit">n</span><span class="mbin">−</span><span class="mord mathrm">1</span><span class="mclose">)</span></span></span></span>,减少消耗的代价为<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>2</mn><mi>a</mi></mrow><annotation encoding="application/x-tex">2a</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.64444em;"></span><span class="strut bottom" style="height:0.64444em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathrm">2</span><span class="mord mathit">a</span></span></span></span>。每一片的拔高决策是相互独立的,因此只需要比较其大小取较小的一个即可。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">char</span> buf[<span class="number">2000000</span>], *p1 = buf, *p2 = buf;</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">char</span> <span class="title">gc</span><span class="params">()</span> </span>&#123; <span class="keyword">return</span> p1==p2&amp;&amp;(p2=(p1=buf)+fread(buf,<span class="number">1</span>,<span class="number">2000000</span>,<span class="built_in">stdin</span>), p1==p2)?EOF:*p1++; &#125;</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">read</span><span class="params">(<span class="keyword">int</span> &amp;x)</span> </span>&#123;</span><br><span class="line">    x = <span class="number">0</span>; <span class="keyword">char</span> ch = gc();</span><br><span class="line">    <span class="keyword">while</span>(ch &lt; <span class="string">'0'</span> || ch &gt; <span class="string">'9'</span>) ch = gc();</span><br><span class="line">    <span class="keyword">while</span>(ch &gt;= <span class="string">'0'</span> &amp;&amp; ch &lt;= <span class="string">'9'</span>) x = (x&lt;&lt;<span class="number">3</span>)+(x&lt;&lt;<span class="number">1</span>)+(ch&amp;<span class="number">15</span>), ch = gc();</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">int</span> <span class="title">min</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> y)</span> </span>&#123; <span class="keyword">return</span> x &lt; y ? x : y; &#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">int</span> t, b, p, f, h, c;</span><br><span class="line">	read(t);</span><br><span class="line">	<span class="keyword">while</span>(t--) &#123;</span><br><span class="line">		read(b); read(p); read(f);</span><br><span class="line">		read(h); read(c);</span><br><span class="line">		<span class="keyword">if</span>(h &lt; c) h^=c^=h^=c, p^=f^=p^=f;</span><br><span class="line">		<span class="keyword">if</span>((p&lt;&lt;<span class="number">1</span>) &gt; b) &#123;</span><br><span class="line">			<span class="built_in">printf</span>(<span class="string">"%d\n"</span>, h*(b&gt;&gt;<span class="number">1</span>));	</span><br><span class="line">		&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">			<span class="built_in">printf</span>(<span class="string">"%d\n"</span>, h*p+c*min((b-(p&lt;&lt;<span class="number">1</span>))&gt;&gt;<span class="number">1</span>, f));</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="声明本篇文章及本博客所有文章版权均归本人froldh所有-原文地址位于-httpsfroldhgithubio20190823oicodeforcesplane711207c-转载和整体或部分应用于其他场合均应当在明显位置保留本段声明除非征得本人同意-用于商业用途的也应当征得本人同意-qq2249133934"><a class="markdownIt-Anchor" href="#声明本篇文章及本博客所有文章版权均归本人froldh所有-原文地址位于-httpsfroldhgithubio20190823oicodeforcesplane711207c-转载和整体或部分应用于其他场合均应当在明显位置保留本段声明除非征得本人同意-用于商业用途的也应当征得本人同意-qq2249133934"></a> 声明:本篇文章及本博客所有文章版权均归本人froldH所有。原文地址位于: <a href="https://froldh.github.io/2019/08/23/OI/codeforcesPlan/E71/1207C">https://froldh.github.io/2019/08/23/OI/codeforcesPlan/E71/1207C</a> 。转载和整体或部分应用于其他场合均应当在明显位置保留本段声明，除非征得本人同意。用于商业用途的也应当征得本人同意。qq:2249133934。</h5>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://froldH.github.io/2019/08/23/OI/codeforcesPlan/ER71/1207C/" data-id="cjznlyib2001hk0rqitgkr3wu" class="article-share-link">分享</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2019/08/21/OI/codeforcesPlan/R581/1204C/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">下一篇</strong>
+      <div class="article-nav-title">Codeforces Round581 1204C题解</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    <div class="widget-wrap">
+  <h3 class="widget-title"></h3>
+  <div class="widget">
+    <h1 class="blog-title">froldH&#39;s blog</h1>
+    <h2 class="blog-subtitle"></h2>
+    <ul class="blog-link">
+     
+          <a href="/" title="Home">
+            <li>主页</li>
+          </a>
+        
+          <a href="/archives" title="Archives">
+            <li>归档</li>
+          </a>
+        
+          <a href="/categories" title="Categories">
+            <li>分类</li>
+          </a>
+        
+          <a href="/tags" title="Tags">
+            <li>标签</li>
+          </a>
+        
+          <a href="/about" title="About">
+            <li>关于</li>
+          </a>
+        
+          <a href="/feed" title="投喂">
+            <li>投喂</li>
+          </a>
+        
+    </ul>
+  </div>
+</div>
+
+  
+    <div class="widget-wrap">
+  <h3 class="widget-title"></h3>
+  <div class="widget">
+    <img class="avatar" src="https://froldh.github.io/images/avatar/avatar2.jpg">
+    <h2 class="author">froldH</h2>
+    <h3 class="description"></h3>
+    <div class="count-box">
+      <a href="/archives"><div><strong>17</strong><br>文章</div></a>
+      <a href="/categories"><div><strong>2</strong><br>分类</div></a>
+      <a href="/tags"><div><strong>29</strong><br>标签</div></a>
+    </div>
+
+
+
+    <div class="social-link">
+      
+        <a class="hvr-bounce-in" href="http://github.com/froldH" target="_blank" title="Github">
+          Github
+        </a>
+      
+        <a class="hvr-bounce-in" href="https://www.luogu.org/blog/oldherd/" target="_blank" title="Luogu博客">
+          Luogu博客
+        </a>
+      
+    </div>
+
+    <div class="friend-link">
+      <h2>友情链接</h2>
+      
+        <a class="hvr-bounce-in" href="https://yltx.cf/" target="_blank" title="yltx&#39;s blog">
+          yltx&#39;s blog
+        </a>
+      
+        <a class="hvr-bounce-in" href="http://blog.shanamaid.top/" target="_blank" title="ShanaMaid">
+          ShanaMaid
+        </a>
+      
+    </div>
+  </div>
+</div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy;2018 - 2019 froldH<br>
+      由<a href="http://hexo.io/" target="_blank">Hexo</a>强力驱动 | 
+      主题-<a href="https://github.com/ShanaMaid/hexo-theme-shana">Shana</a>
+      
+    </div>
+    
+  </div>
+</footer>
+    </div>
+    
+
+<script src="//apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="//apps.bdimg.com/libs/wow/0.1.6/wow.min.js"></script>
+<script>
+new WOW().init();
+</script>   
+
+
+  <link rel="stylesheet" href="/plugin/fancybox/jquery.fancybox.css">
+  <script src="/plugin/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+  <section class="hidden-xs"> 
+  <ul class="cb-slideshow"> 
+    <li><span>苟利</span></li> 
+    <li><span>国家</span></li> 
+    <li><span>生死以</span></li> 
+    <li><span>岂能</span></li> 
+    <li><span>祸福</span></li> 
+    <li><span>趋避之</span></li> 
+  </ul>
+</section>
+<script src="/js/script.js"></script>
+
+
+
+
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("", "");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.article-title').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+
+
+  </div>
+</body>
+</html>

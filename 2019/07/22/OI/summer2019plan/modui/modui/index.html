@@ -5,18 +5,18 @@
   
   <title>莫队算法练习 | froldH&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="莫队算法将询问离线化，按区间右端点分块，然后暴力移动指针修改变化的位置的点。 莫队算法适用于能够O(1)维护删除一个点和增加一个点，统计类(统计量能够装入桶中)的题目，复杂度为O(n√n + m√n)。 一般块的大小为√n或者n / (√m * 2/3)，后者优于前者。 初始化将l = 1, r = 0.这样在它们移动到排序后的询问序列过程中的中间段分别被添加和删除各一次，正好抵消。">
+  <meta name="description" content="莫队算法将询问离线化，按区间右端点分块，然后暴力移动指针修改变化的位置的点。 莫队算法适用于能够O(1)维护删除一个点和增加一个点，统计类(统计量能够装入桶中)的题目，复杂度为O(nn+mnn\sqrt{n} + m\sqrt{n}n√​n​​​+m√​n​​​)。 一般块的大小为n\sqrt{n}√​n​​​或者n23m\frac{n}{\frac{2}{3}\sqrt{m}}​​3​​2​​√">
 <meta name="keywords" content="莫队">
 <meta property="og:type" content="article">
 <meta property="og:title" content="莫队算法练习">
 <meta property="og:url" content="http://froldH.github.io/2019/07/22/OI/summer2019plan/modui/modui/index.html">
 <meta property="og:site_name" content="froldH&#39;s blog">
-<meta property="og:description" content="莫队算法将询问离线化，按区间右端点分块，然后暴力移动指针修改变化的位置的点。 莫队算法适用于能够O(1)维护删除一个点和增加一个点，统计类(统计量能够装入桶中)的题目，复杂度为O(n√n + m√n)。 一般块的大小为√n或者n / (√m * 2/3)，后者优于前者。 初始化将l = 1, r = 0.这样在它们移动到排序后的询问序列过程中的中间段分别被添加和删除各一次，正好抵消。">
+<meta property="og:description" content="莫队算法将询问离线化，按区间右端点分块，然后暴力移动指针修改变化的位置的点。 莫队算法适用于能够O(1)维护删除一个点和增加一个点，统计类(统计量能够装入桶中)的题目，复杂度为O(nn+mnn\sqrt{n} + m\sqrt{n}n√​n​​​+m√​n​​​)。 一般块的大小为n\sqrt{n}√​n​​​或者n23m\frac{n}{\frac{2}{3}\sqrt{m}}​​3​​2​​√">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-07-29T15:53:04.000Z">
+<meta property="og:updated_time" content="2019-08-22T14:30:36.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="莫队算法练习">
-<meta name="twitter:description" content="莫队算法将询问离线化，按区间右端点分块，然后暴力移动指针修改变化的位置的点。 莫队算法适用于能够O(1)维护删除一个点和增加一个点，统计类(统计量能够装入桶中)的题目，复杂度为O(n√n + m√n)。 一般块的大小为√n或者n / (√m * 2/3)，后者优于前者。 初始化将l = 1, r = 0.这样在它们移动到排序后的询问序列过程中的中间段分别被添加和删除各一次，正好抵消。">
+<meta name="twitter:description" content="莫队算法将询问离线化，按区间右端点分块，然后暴力移动指针修改变化的位置的点。 莫队算法适用于能够O(1)维护删除一个点和增加一个点，统计类(统计量能够装入桶中)的题目，复杂度为O(nn+mnn\sqrt{n} + m\sqrt{n}n√​n​​​+m√​n​​​)。 一般块的大小为n\sqrt{n}√​n​​​或者n23m\frac{n}{\frac{2}{3}\sqrt{m}}​​3​​2​​√">
   
     <link rel="alternate" href="/atom.xml" title="froldH&#39;s blog" type="application/atom+xml">
   
@@ -44,7 +44,7 @@
     <h2 class="author">froldH</h2>
     <h3 class="description"></h3>
     <div class="count-box">
-      <a href="/archives"><div><strong>16</strong><br>文章</div></a>
+      <a href="/archives"><div><strong>17</strong><br>文章</div></a>
       <a href="/categories"><div><strong>2</strong><br>分类</div></a>
       <a href="/tags"><div><strong>29</strong><br>标签</div></a>
     </div>
@@ -122,8 +122,8 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>莫队算法将询问离线化，按区间右端点分块，然后暴力移动指针修改变化的位置的点。<br>
-莫队算法适用于能够O(1)维护删除一个点和增加一个点，统计类(统计量能够装入桶中)的题目，复杂度为O(n√n + m√n)。<br>
-一般块的大小为√n或者n / (√m * 2/3)，后者优于前者。<br>
+莫队算法适用于能够O(1)维护删除一个点和增加一个点，统计类(统计量能够装入桶中)的题目，复杂度为O(<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi><msqrt><mrow><mi>n</mi></mrow></msqrt><mo>+</mo><mi>m</mi><msqrt><mrow><mi>n</mi></mrow></msqrt></mrow><annotation encoding="application/x-tex">n\sqrt{n} + m\sqrt{n}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.8002800000000001em;"></span><span class="strut bottom" style="height:1.04em;vertical-align:-0.23972em;"></span><span class="base textstyle uncramped"><span class="mord mathit">n</span><span class="sqrt mord"><span class="sqrt-sign" style="top:0.03971999999999998em;"><span class="style-wrap reset-textstyle textstyle uncramped">√</span></span><span class="vlist"><span style="top:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:1em;">​</span></span><span class="mord textstyle cramped"><span class="mord mathit">n</span></span></span><span style="top:-0.72028em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:1em;">​</span></span><span class="reset-textstyle textstyle uncramped sqrt-line"></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:1em;">​</span></span>​</span></span></span><span class="mbin">+</span><span class="mord mathit">m</span><span class="sqrt mord"><span class="sqrt-sign" style="top:0.03971999999999998em;"><span class="style-wrap reset-textstyle textstyle uncramped">√</span></span><span class="vlist"><span style="top:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:1em;">​</span></span><span class="mord textstyle cramped"><span class="mord mathit">n</span></span></span><span style="top:-0.72028em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:1em;">​</span></span><span class="reset-textstyle textstyle uncramped sqrt-line"></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:1em;">​</span></span>​</span></span></span></span></span></span>)。<br>
+一般块的大小为<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msqrt><mrow><mi>n</mi></mrow></msqrt></mrow><annotation encoding="application/x-tex">\sqrt{n}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.8002800000000001em;"></span><span class="strut bottom" style="height:1.04em;vertical-align:-0.23972em;"></span><span class="base textstyle uncramped"><span class="sqrt mord"><span class="sqrt-sign" style="top:0.03971999999999998em;"><span class="style-wrap reset-textstyle textstyle uncramped">√</span></span><span class="vlist"><span style="top:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:1em;">​</span></span><span class="mord textstyle cramped"><span class="mord mathit">n</span></span></span><span style="top:-0.72028em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:1em;">​</span></span><span class="reset-textstyle textstyle uncramped sqrt-line"></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:1em;">​</span></span>​</span></span></span></span></span></span>或者<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mfrac><mrow><mi>n</mi></mrow><mrow><mfrac><mrow><mn>2</mn></mrow><mrow><mn>3</mn></mrow></mfrac><msqrt><mrow><mi>m</mi></mrow></msqrt></mrow></mfrac></mrow><annotation encoding="application/x-tex">\frac{n}{\frac{2}{3}\sqrt{m}}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.695392em;"></span><span class="strut bottom" style="height:1.3449119999999999em;vertical-align:-0.64952em;"></span><span class="base textstyle uncramped"><span class="mord reset-textstyle textstyle uncramped"><span class="sizing reset-size5 size5 reset-textstyle textstyle uncramped nulldelimiter"></span><span class="mfrac"><span class="vlist"><span style="top:0.40802000000000005em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:1em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord scriptstyle cramped"><span class="mord reset-scriptstyle scriptstyle cramped"><span class="sizing reset-size5 size5 reset-scriptstyle textstyle uncramped nulldelimiter"></span><span class="mfrac"><span class="vlist"><span style="top:0.345em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-scriptstyle scriptscriptstyle cramped"><span class="mord scriptscriptstyle cramped"><span class="mord mathrm">3</span></span></span></span><span style="top:-0.22142857142857142em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-scriptstyle textstyle uncramped frac-line"></span></span><span style="top:-0.394em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-scriptstyle scriptscriptstyle cramped"><span class="mord scriptscriptstyle cramped"><span class="mord mathrm">2</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="sizing reset-size5 size5 reset-scriptstyle textstyle uncramped nulldelimiter"></span></span><span class="sqrt mord"><span class="sqrt-sign" style="top:0.02043428571428585em;"><span class="style-wrap reset-scriptstyle scriptstyle uncramped">√</span></span><span class="vlist"><span style="top:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:1.4285714285714286em;">​</span></span><span class="mord scriptstyle cramped"><span class="mord mathit">m</span></span></span><span style="top:-0.722422857142857em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:1.4285714285714286em;">​</span></span><span class="reset-scriptstyle textstyle uncramped sqrt-line"></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:1.4285714285714286em;">​</span></span>​</span></span></span></span></span></span><span style="top:-0.22999999999999998em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:1em;">​</span></span><span class="reset-textstyle textstyle uncramped frac-line"></span></span><span style="top:-0.394em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:1em;">​</span></span><span class="reset-textstyle scriptstyle uncramped"><span class="mord scriptstyle uncramped"><span class="mord mathit">n</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:1em;">​</span></span>​</span></span></span><span class="sizing reset-size5 size5 reset-textstyle textstyle uncramped nulldelimiter"></span></span></span></span></span>,后者优于前者。<br>
 初始化将l = 1, r = 0.这样在它们移动到排序后的询问序列过程中的中间段分别被添加和删除各一次，正好抵消。<a id="more"></a></p>
 <h3 id="例题一小b的询问-洛谷p2709-bzoj3781"><a class="markdownIt-Anchor" href="#例题一小b的询问-洛谷p2709-bzoj3781"></a> 例题一:小B的询问 洛谷P2709 BZOJ3781</h3>
 <p>这是一道板子题。</p>
@@ -137,7 +137,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://froldH.github.io/2019/07/22/OI/summer2019plan/modui/modui/" data-id="cjzmrow0v002tx0rqgjn8g0vf" class="article-share-link">分享</a>
+      <a data-url="http://froldH.github.io/2019/07/22/OI/summer2019plan/modui/modui/" data-id="cjznlyibn0027k0rqm61iejco" class="article-share-link">分享</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/莫队/">莫队</a></li></ul>
@@ -212,7 +212,7 @@
     <h2 class="author">froldH</h2>
     <h3 class="description"></h3>
     <div class="count-box">
-      <a href="/archives"><div><strong>16</strong><br>文章</div></a>
+      <a href="/archives"><div><strong>17</strong><br>文章</div></a>
       <a href="/categories"><div><strong>2</strong><br>分类</div></a>
       <a href="/tags"><div><strong>29</strong><br>标签</div></a>
     </div>
