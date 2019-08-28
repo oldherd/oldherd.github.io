@@ -40,9 +40,9 @@
     <h2 class="author">froldH</h2>
     <h3 class="description"></h3>
     <div class="count-box">
-      <a href="/archives"><div><strong>21</strong><br>文章</div></a>
-      <a href="/categories"><div><strong>3</strong><br>分类</div></a>
-      <a href="/tags"><div><strong>31</strong><br>标签</div></a>
+      <a href="/archives"><div><strong>22</strong><br>文章</div></a>
+      <a href="/categories"><div><strong>6</strong><br>分类</div></a>
+      <a href="/tags"><div><strong>32</strong><br>标签</div></a>
     </div>
     <ul class="blog-link">
      
@@ -76,6 +76,76 @@
 
         <section id="main">
   
+    <article id="post-OI/codeforcesPlan/CF1195" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/07/22/OI/codeforcesPlan/CF1195/" class="article-date">
+  <time class="post-time" datetime="2019-07-21T16:00:00.000Z" itemprop="datePublished">
+    <span class="post-month">7月</span><br/>
+    <span class="post-day">22</span>
+  </time>
+</a>
+   
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/07/22/OI/codeforcesPlan/CF1195/">Codeforces Round 574(Div. 2), contest 1195 题解</a>
+    </h1>
+  
+
+        <div>
+          
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/OI-题解/">OI-题解</a>
+  </div>
+
+          
+              
+  &nbsp; | &nbsp;
+  <div class="view-box">
+    <span id="/2019/07/22/OI/codeforcesPlan/CF1195/" class="leancloud_visitors" data-flag-title="Codeforces Round 574(Div. 2), contest 1195 题解">
+      &nbsp;阅读次数<span class="leancloud-visitors-count"></span>
+    </span>
+  </div>
+
+
+          
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="cf1195a-drinks-choosing"><a class="markdownIt-Anchor" href="#cf1195a-drinks-choosing"></a> CF1195A Drinks Choosing</h3>
+<p>这题很显然是一个贪心，能够配对的配对，不能的则有一半(上取整)能配对。<br>
+考虑<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>k</mi><mo>&lt;</mo><mo>=</mo><mn>1</mn><mn>0</mn><mn>0</mn><mn>0</mn></mrow><annotation encoding="application/x-tex">k&lt;=1000</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.69444em;"></span><span class="strut bottom" style="height:0.73354em;vertical-align:-0.0391em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.03148em;">k</span><span class="mrel">&lt;</span><span class="mrel">=</span><span class="mord mathrm">1</span><span class="mord mathrm">0</span><span class="mord mathrm">0</span><span class="mord mathrm">0</span></span></span></span>,所以只要开桶来存储即可。<br>
+如果增大k并且饮料标号不连续，则可以考察hash，并卡掉离散化。<br>
+我们动态地统计不成对数，每当成对减一，不成对加一，然后用全部数值减去得到成对数。可以用异或来实现，或者直接记录数量来判断奇偶性。
+        
+          <p class="article-more-link">
+            <a href="/2019/07/22/OI/codeforcesPlan/CF1195/#more">expand all</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://froldH.github.io/2019/07/22/OI/codeforcesPlan/CF1195/" data-id="cjzuvni9e000grkrq6lzea5y6" class="article-share-link">分享</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/codeforces/">codeforces</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/dp/">dp</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/greedy/">greedy</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/二分/">二分</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+
+  
     <article id="post-OI/summer2019plan/modui/modui" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2019/07/22/OI/summer2019plan/modui/modui/" class="article-date">
@@ -100,7 +170,7 @@
         <div>
           
   <div class="article-category">
-    <a class="article-category-link" href="/categories/OI/">OI</a>
+    <a class="article-category-link" href="/categories/OI-算法专题/">OI-算法专题</a>
   </div>
 
           
@@ -131,7 +201,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://froldH.github.io/2019/07/22/OI/summer2019plan/modui/modui/" data-id="cjzup7f4l002ea0rqi5b56fwj" class="article-share-link">分享</a>
+      <a data-url="http://froldH.github.io/2019/07/22/OI/summer2019plan/modui/modui/" data-id="cjzuvnibm002frkrqak7m7ckd" class="article-share-link">分享</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/莫队/">莫队</a></li></ul>
@@ -197,9 +267,9 @@
     <h2 class="author">froldH</h2>
     <h3 class="description"></h3>
     <div class="count-box">
-      <a href="/archives"><div><strong>21</strong><br>文章</div></a>
-      <a href="/categories"><div><strong>3</strong><br>分类</div></a>
-      <a href="/tags"><div><strong>31</strong><br>标签</div></a>
+      <a href="/archives"><div><strong>22</strong><br>文章</div></a>
+      <a href="/categories"><div><strong>6</strong><br>分类</div></a>
+      <a href="/tags"><div><strong>32</strong><br>标签</div></a>
     </div>
 
 
