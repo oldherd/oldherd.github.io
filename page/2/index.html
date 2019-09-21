@@ -40,9 +40,9 @@
     <h2 class="author">froldH</h2>
     <h3 class="description"></h3>
     <div class="count-box">
-      <a href="/archives"><div><strong>23</strong><br>文章</div></a>
-      <a href="/categories"><div><strong>6</strong><br>分类</div></a>
-      <a href="/tags"><div><strong>34</strong><br>标签</div></a>
+      <a href="/archives"><div><strong>25</strong><br>文章</div></a>
+      <a href="/categories"><div><strong>7</strong><br>分类</div></a>
+      <a href="/tags"><div><strong>37</strong><br>标签</div></a>
     </div>
     <ul class="blog-link">
      
@@ -75,6 +75,141 @@
 </div>
 
         <section id="main">
+  
+    <article id="post-OI/codeforcesPlan/R581/1204A" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/08/21/OI/codeforcesPlan/R581/1204A/" class="article-date">
+  <time class="post-time" datetime="2019-08-21T03:21:21.000Z" itemprop="datePublished">
+    <span class="post-month">8月</span><br/>
+    <span class="post-day">21</span>
+  </time>
+</a>
+   
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/08/21/OI/codeforcesPlan/R581/1204A/">Codeforces Round581 1204A题解</a>
+    </h1>
+  
+
+        <div>
+          
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/OI-题解/">OI-题解</a>
+  </div>
+
+          
+              
+  &nbsp; | &nbsp;
+  <div class="view-box">
+    <span id="/2019/08/21/OI/codeforcesPlan/R581/1204A/" class="leancloud_visitors" data-flag-title="Codeforces Round581 1204A题解">
+      &nbsp;阅读次数<span class="leancloud-visitors-count"></span>
+    </span>
+  </div>
+
+
+          
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>数据采用二进制表示,这方便我们知道该数字介于哪两个二的幂次数之间。例如对数字100000010, 我们数出该数字前导1之后共有8位数字,该数字,故而该数字应当介于<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msup><mn>2</mn><mn>8</mn></msup></mrow><annotation encoding="application/x-tex">2^8</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.8141079999999999em;"></span><span class="strut bottom" style="height:0.8141079999999999em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathrm">2</span><span class="vlist"><span style="top:-0.363em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle uncramped"><span class="mord mathrm">8</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span>和<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msup><mn>2</mn><mn>9</mn></msup></mrow><annotation encoding="application/x-tex">2^9</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.8141079999999999em;"></span><span class="strut bottom" style="height:0.8141079999999999em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathrm">2</span><span class="vlist"><span style="top:-0.363em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle uncramped"><span class="mord mathrm">9</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span>之间。即一个二进制k位数应当介于<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msup><mn>2</mn><mrow><mi>k</mi><mo>−</mo><mn>1</mn></mrow></msup></mrow><annotation encoding="application/x-tex">2^{k-1}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.849108em;"></span><span class="strut bottom" style="height:0.849108em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathrm">2</span><span class="vlist"><span style="top:-0.363em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle uncramped"><span class="mord scriptstyle uncramped"><span class="mord mathit" style="margin-right:0.03148em;">k</span><span class="mbin">−</span><span class="mord mathrm">1</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span>与<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msup><mn>2</mn><mrow><mi>k</mi></mrow></msup></mrow><annotation encoding="application/x-tex">2^{k}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.849108em;"></span><span class="strut bottom" style="height:0.849108em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathrm">2</span><span class="vlist"><span style="top:-0.363em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle uncramped"><span class="mord scriptstyle uncramped"><span class="mord mathit" style="margin-right:0.03148em;">k</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span>之间。特殊地,若一个二进制k位数在前导1之后的数位全为0,该数等于<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msup><mn>2</mn><mrow><mi>k</mi><mo>−</mo><mn>1</mn></mrow></msup></mrow><annotation encoding="application/x-tex">2^{k-1}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.849108em;"></span><span class="strut bottom" style="height:0.849108em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathrm">2</span><span class="vlist"><span style="top:-0.363em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle uncramped"><span class="mord scriptstyle uncramped"><span class="mord mathit" style="margin-right:0.03148em;">k</span><span class="mbin">−</span><span class="mord mathrm">1</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span>。这样一来,我们就很容易求出该数介于哪两个4的幂次数之间（在这里幂次数不一定为整数）。即<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msup><mn>4</mn><mfrac><mrow><mi>k</mi><mo>−</mo><mn>1</mn></mrow><mrow><mn>2</mn></mrow></mfrac></msup></mrow><annotation encoding="application/x-tex">4^\frac{k-1}{2}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.986885em;"></span><span class="strut bottom" style="height:0.986885em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathrm">4</span><span class="vlist"><span style="top:-0.363em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle uncramped"><span class="mord reset-scriptstyle scriptstyle uncramped"><span class="sizing reset-size5 size5 reset-scriptstyle textstyle uncramped nulldelimiter"></span><span class="mfrac"><span class="vlist"><span style="top:0.345em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-scriptstyle scriptscriptstyle cramped"><span class="mord scriptscriptstyle cramped"><span class="mord mathrm">2</span></span></span></span><span style="top:-0.22142857142857142em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-scriptstyle textstyle uncramped frac-line"></span></span><span style="top:-0.3952357142857143em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-scriptstyle scriptscriptstyle uncramped"><span class="mord scriptscriptstyle uncramped"><span class="mord mathit" style="margin-right:0.03148em;">k</span><span class="mbin">−</span><span class="mord mathrm">1</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="sizing reset-size5 size5 reset-scriptstyle textstyle uncramped nulldelimiter"></span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span>和<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msup><mn>4</mn><mfrac><mrow><mi>k</mi></mrow><mrow><mn>2</mn></mrow></mfrac></msup></mrow><annotation encoding="application/x-tex">4^\frac{k}{2}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.9860199999999999em;"></span><span class="strut bottom" style="height:0.9860199999999999em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathrm">4</span><span class="vlist"><span style="top:-0.363em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle uncramped"><span class="mord reset-scriptstyle scriptstyle uncramped"><span class="sizing reset-size5 size5 reset-scriptstyle textstyle uncramped nulldelimiter"></span><span class="mfrac"><span class="vlist"><span style="top:0.345em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-scriptstyle scriptscriptstyle cramped"><span class="mord scriptscriptstyle cramped"><span class="mord mathrm">2</span></span></span></span><span style="top:-0.22142857142857142em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-scriptstyle textstyle uncramped frac-line"></span></span><span style="top:-0.394em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-scriptstyle scriptscriptstyle uncramped"><span class="mord scriptscriptstyle uncramped"><span class="mord mathit" style="margin-right:0.03148em;">k</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="sizing reset-size5 size5 reset-scriptstyle textstyle uncramped nulldelimiter"></span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span>。同样,特殊地,若一个数在前导1之后的数为全部为0,那么该数字等于<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msup><mn>4</mn><mfrac><mrow><mi>k</mi><mo>−</mo><mn>1</mn></mrow><mrow><mn>2</mn></mrow></mfrac></msup></mrow><annotation encoding="application/x-tex">4^\frac{k-1}{2}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.986885em;"></span><span class="strut bottom" style="height:0.986885em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathrm">4</span><span class="vlist"><span style="top:-0.363em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle uncramped"><span class="mord reset-scriptstyle scriptstyle uncramped"><span class="sizing reset-size5 size5 reset-scriptstyle textstyle uncramped nulldelimiter"></span><span class="mfrac"><span class="vlist"><span style="top:0.345em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-scriptstyle scriptscriptstyle cramped"><span class="mord scriptscriptstyle cramped"><span class="mord mathrm">2</span></span></span></span><span style="top:-0.22142857142857142em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-scriptstyle textstyle uncramped frac-line"></span></span><span style="top:-0.3952357142857143em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-scriptstyle scriptscriptstyle uncramped"><span class="mord scriptscriptstyle uncramped"><span class="mord mathit" style="margin-right:0.03148em;">k</span><span class="mbin">−</span><span class="mord mathrm">1</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="sizing reset-size5 size5 reset-scriptstyle textstyle uncramped nulldelimiter"></span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span>
+        
+          <p class="article-more-link">
+            <a href="/2019/08/21/OI/codeforcesPlan/R581/1204A/#more">expand all</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://froldH.github.io/2019/08/21/OI/codeforcesPlan/R581/1204A/" data-id="ck0tny7e3001mm4rqr0jctnhc" class="article-share-link">分享</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/bit/">bit</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+
+  
+    <article id="post-OI/codeforcesPlan/CFR580" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/08/19/OI/codeforcesPlan/CFR580/" class="article-date">
+  <time class="post-time" datetime="2019-08-19T03:37:37.000Z" itemprop="datePublished">
+    <span class="post-month">8月</span><br/>
+    <span class="post-day">19</span>
+  </time>
+</a>
+   
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/08/19/OI/codeforcesPlan/CFR580/">Codeforces Round#580 div2 题解</a>
+    </h1>
+  
+
+        <div>
+          
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/OI-题解/">OI-题解</a>
+  </div>
+
+          
+              
+  &nbsp; | &nbsp;
+  <div class="view-box">
+    <span id="/2019/08/19/OI/codeforcesPlan/CFR580/" class="leancloud_visitors" data-flag-title="Codeforces Round#580 div2 题解">
+      &nbsp;阅读次数<span class="leancloud-visitors-count"></span>
+    </span>
+  </div>
+
+
+          
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>第一次正式参赛，打的真的惨。</p>
+<h4 id="1206a-choose-two-numbers"><a class="markdownIt-Anchor" href="#1206a-choose-two-numbers"></a> 1206A Choose Two Numbers</h4>
+<p>目的是从给定的两个数组中选择两个数字使得其和不为两数组中的元素。<br>
+注意到题目限制数组中的元素为正整数，也就是说，我们可以从两个数组中选择最大的数，其和一定大于两数组中的任一数，换言之，不在两个数组之内。
+        
+          <p class="article-more-link">
+            <a href="/2019/08/19/OI/codeforcesPlan/CFR580/#more">expand all</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://froldH.github.io/2019/08/19/OI/codeforcesPlan/CFR580/" data-id="ck0tny7dm000um4rqnh46fobw" class="article-share-link">分享</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/floyd/">floyd</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/graphs/">graphs</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/math/">math</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/抽屉原理/">抽屉原理</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/推算-结论题/">推算&结论题</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/智商题/">智商题</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/最短路/">最短路</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+
   
     <article id="post-OI/daily/20190814/LuoguP1736" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
@@ -130,7 +265,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://froldH.github.io/2019/08/14/OI/daily/20190814/LuoguP1736/" data-id="ck0jnu9e700330grqfv6rjlsn" class="article-share-link">分享</a>
+      <a data-url="http://froldH.github.io/2019/08/14/OI/daily/20190814/LuoguP1736/" data-id="ck0tny7eo002jm4rquo2x26jz" class="article-share-link">分享</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/dp/">dp</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/二分/">二分</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/多维dp/">多维dp</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/线性dp/">线性dp</a></li></ul>
@@ -198,7 +333,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://froldH.github.io/2019/07/30/OI/daily/20190730/guandeng/" data-id="ck0jnu9e500320grq0u0dd5mf" class="article-share-link">分享</a>
+      <a data-url="http://froldH.github.io/2019/07/30/OI/daily/20190730/guandeng/" data-id="ck0tny7el002em4rqddhtitac" class="article-share-link">分享</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/dp/">dp</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/区间dp/">区间dp</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/腾飞营集训/">腾飞营集训</a></li></ul>
@@ -268,7 +403,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://froldH.github.io/2019/07/30/OI/daily/20190730/LuoguP1373/" data-id="ck0jnu9d700200grq2eta8xng" class="article-share-link">分享</a>
+      <a data-url="http://froldH.github.io/2019/07/30/OI/daily/20190730/LuoguP1373/" data-id="ck0tny7ek002dm4rqc1q3cueg" class="article-share-link">分享</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/dp/">dp</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/线性dp/">线性dp</a></li></ul>
@@ -336,7 +471,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://froldH.github.io/2019/07/29/OI/daily/20190729/juzhenqushuyouxi_NOIp2007T3_dp/" data-id="ck0jnu9d2001t0grqlfufyskc" class="article-share-link">分享</a>
+      <a data-url="http://froldH.github.io/2019/07/29/OI/daily/20190729/juzhenqushuyouxi_NOIp2007T3_dp/" data-id="ck0tny7e6001sm4rqyvmy7edz" class="article-share-link">分享</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/BigNumber/">BigNumber</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/dp/">dp</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/区间dp/">区间dp</a></li></ul>
@@ -404,7 +539,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://froldH.github.io/2019/07/29/OI/skill/debug/" data-id="ck0jnu9be000c0grq894cnghs" class="article-share-link">分享</a>
+      <a data-url="http://froldH.github.io/2019/07/29/OI/skill/debug/" data-id="ck0tny7dn000vm4rq5wyl6bv5" class="article-share-link">分享</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/应试技巧/">应试技巧</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/调试/">调试</a></li></ul>
@@ -471,7 +606,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://froldH.github.io/2019/07/28/OI/daily/20190728/SuperGCD_SDOI2009_LuoguP2152/" data-id="ck0jnu9d4001w0grq9t7ebksb" class="article-share-link">分享</a>
+      <a data-url="http://froldH.github.io/2019/07/28/OI/daily/20190728/SuperGCD_SDOI2009_LuoguP2152/" data-id="ck0tny7eh002am4rqcajmfvs8" class="article-share-link">分享</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/BigNumber/">BigNumber</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/GCD/">GCD</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/更相减损术/">更相减损术</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/腾飞营集训/">腾飞营集训</a></li></ul>
@@ -540,7 +675,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://froldH.github.io/2019/07/26/OI/codeforcesPlan/CF1197/" data-id="ck0jnu9bp000h0grqq1s55tw3" class="article-share-link">分享</a>
+      <a data-url="http://froldH.github.io/2019/07/26/OI/codeforcesPlan/CF1197/" data-id="ck0tny7d7000dm4rqwqnt4nit" class="article-share-link">分享</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/dp/">dp</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/greedy/">greedy</a></li></ul>
@@ -606,147 +741,10 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://froldH.github.io/2019/07/24/OI/jixun_review/hash/cogs1176_sol/" data-id="ck0jnu9ej003c0grqlfoaslps" class="article-share-link">分享</a>
+      <a data-url="http://froldH.github.io/2019/07/24/OI/jixun_review/hash/cogs1176_sol/" data-id="ck0tny7es002pm4rqorw4p39w" class="article-share-link">分享</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hash/">hash</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/字符串/">字符串</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/腾飞营集训/">腾飞营集训</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-
-  
-    <article id="post-OI/jixun_review/meet_in_the_middle/gift_acwing171" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2019/07/24/OI/jixun_review/meet_in_the_middle/gift_acwing171/" class="article-date">
-  <time class="post-time" datetime="2019-07-23T16:00:00.000Z" itemprop="datePublished">
-    <span class="post-month">7月</span><br/>
-    <span class="post-day">24</span>
-  </time>
-</a>
-   
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/07/24/OI/jixun_review/meet_in_the_middle/gift_acwing171/">送礼物 ACwing171 题解</a>
-    </h1>
-  
-
-        <div>
-          
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/OI-题解/">OI-题解</a>
-  </div>
-
-          
-              
-  &nbsp; | &nbsp;
-  <div class="view-box">
-    <span id="/2019/07/24/OI/jixun_review/meet_in_the_middle/gift_acwing171/" class="leancloud_visitors" data-flag-title="送礼物 ACwing171 题解">
-      &nbsp;阅读次数<span class="leancloud-visitors-count"></span>
-    </span>
-  </div>
-
-
-          
-        </div>
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>之前暑期集训有一道买汽水的题目和这个类似，现在复习做了一下。<br>
-本题是一个NPC问题，按照hzwer学长的说法，没有特殊特性的NPC问题一般都是用搜索解决。(01背包就是一个NPC问题但由于w比较小所以可以dp)<br>
-搜索的话状态空间<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msup><mn>2</mn><mi>N</mi></msup></mrow><annotation encoding="application/x-tex">2^N</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.8413309999999999em;"></span><span class="strut bottom" style="height:0.8413309999999999em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathrm">2</span><span class="vlist"><span style="top:-0.363em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle uncramped"><span class="mord mathit" style="margin-right:0.10903em;">N</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span>,N到20多就已经比较吃力了。45过不了。但是一半是可以通过的。所以考虑折半搜索。
-        
-          <p class="article-more-link">
-            <a href="/2019/07/24/OI/jixun_review/meet_in_the_middle/gift_acwing171/#more">expand all</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://froldH.github.io/2019/07/24/OI/jixun_review/meet_in_the_middle/gift_acwing171/" data-id="ck0jnu9dh00230grqwjdqe7r9" class="article-share-link">分享</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/meet-in-the-middle/">meet in the middle</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/搜索/">搜索</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/腾飞营集训/">腾飞营集训</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-
-  
-    <article id="post-OI/daily/20190723/uva11090" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2019/07/23/OI/daily/20190723/uva11090/" class="article-date">
-  <time class="post-time" datetime="2019-07-23T10:40:33.000Z" itemprop="datePublished">
-    <span class="post-month">7月</span><br/>
-    <span class="post-day">23</span>
-  </time>
-</a>
-   
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/07/23/OI/daily/20190723/uva11090/">UVA11090 Going in cycle!! 题解(有关于二分答案和spfa判(负)环的详细讨论)</a>
-    </h1>
-  
-
-        <div>
-          
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/OI-题解/">OI-题解</a>
-  </div>
-
-          
-              
-  &nbsp; | &nbsp;
-  <div class="view-box">
-    <span id="/2019/07/23/OI/daily/20190723/uva11090/" class="leancloud_visitors" data-flag-title="UVA11090 Going in cycle!! 题解(有关于二分答案和spfa判(负)环的详细讨论)">
-      &nbsp;阅读次数<span class="leancloud-visitors-count"></span>
-    </span>
-  </div>
-
-
-          
-        </div>
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="首先是关于二分答案法的一些赘述"><a class="markdownIt-Anchor" href="#首先是关于二分答案法的一些赘述"></a> 首先是关于二分答案法的一些赘述:</h3>
-<p>它大致上有几种模型。</p>
-<h5 id="1最大值的最小值-最小值的最大值"><a class="markdownIt-Anchor" href="#1最大值的最小值-最小值的最大值"></a> 1.最大值的最小值， 最小值的最大值。</h5>
-<p>这是二分答案法最为常见的一种模型。只要证明解的单调性，就可以尝试使用二分答案法。在这种情况下二分适用时，二分答案法将最值性问题转化成判断性问题从而简化了求解的过程。它一般是不亏的，因为只增加了一个log的时间复杂度因子。然而在有些时候判断性问题不一定比最值性问题更优，这时候二分答案法就用不上了。例如:HDU4044 GeoDefense。
-        
-          <p class="article-more-link">
-            <a href="/2019/07/23/OI/daily/20190723/uva11090/#more">expand all</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://froldH.github.io/2019/07/23/OI/daily/20190723/uva11090/" data-id="ck0jnu9cu001n0grqb0yezy9x" class="article-share-link">分享</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/SPFA/">SPFA</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/graphs/">graphs</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/二分/">二分</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/最短路/">最短路</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/负环/">负环</a></li></ul>
 
     </footer>
   </div>
@@ -809,9 +807,9 @@
     <h2 class="author">froldH</h2>
     <h3 class="description"></h3>
     <div class="count-box">
-      <a href="/archives"><div><strong>23</strong><br>文章</div></a>
-      <a href="/categories"><div><strong>6</strong><br>分类</div></a>
-      <a href="/tags"><div><strong>34</strong><br>标签</div></a>
+      <a href="/archives"><div><strong>25</strong><br>文章</div></a>
+      <a href="/categories"><div><strong>7</strong><br>分类</div></a>
+      <a href="/tags"><div><strong>37</strong><br>标签</div></a>
     </div>
 
 
