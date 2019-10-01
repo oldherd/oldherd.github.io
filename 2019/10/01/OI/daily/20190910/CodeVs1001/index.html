@@ -3,20 +3,20 @@
 <head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="utf-8">
   
-  <title>COGS1176 月考 题解 | froldH&#39;s blog</title>
+  <title>CodeVs1001 舒适的路线 | froldH&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="本来想复习一下hash，在rxz老师的博客里莫名发现了一篇课件讲这个的。于是复制了一份看了起来。于是便有了这一题。">
-<meta name="keywords" content="腾飞营集训,hash,字符串">
+  <meta name="description" content="巧妙的贪心+并查集题。">
+<meta name="keywords" content="并查集">
 <meta property="og:type" content="article">
-<meta property="og:title" content="COGS1176 月考 题解">
-<meta property="og:url" content="http://froldH.github.io/2019/07/24/OI/jixun_review/hash/cogs1176_sol/index.html">
+<meta property="og:title" content="CodeVs1001 舒适的路线">
+<meta property="og:url" content="http://froldH.github.io/2019/10/01/OI/daily/20190910/CodeVs1001/index.html">
 <meta property="og:site_name" content="froldH&#39;s blog">
-<meta property="og:description" content="本来想复习一下hash，在rxz老师的博客里莫名发现了一篇课件讲这个的。于是复制了一份看了起来。于是便有了这一题。">
+<meta property="og:description" content="巧妙的贪心+并查集题。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-08-28T06:24:18.000Z">
+<meta property="og:updated_time" content="2019-10-01T15:10:16.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="COGS1176 月考 题解">
-<meta name="twitter:description" content="本来想复习一下hash，在rxz老师的博客里莫名发现了一篇课件讲这个的。于是复制了一份看了起来。于是便有了这一题。">
+<meta name="twitter:title" content="CodeVs1001 舒适的路线">
+<meta name="twitter:description" content="巧妙的贪心+并查集题。">
   
     <link rel="alternate" href="/atom.xml" title="froldH&#39;s blog" type="application/atom+xml">
   
@@ -79,12 +79,12 @@
 </div>
 
         <section id="main">
-<article id="post-OI/jixun_review/hash/cogs1176_sol" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
+<article id="post-OI/daily/20190910/CodeVs1001" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2019/07/24/OI/jixun_review/hash/cogs1176_sol/" class="article-date">
-  <time class="post-time" datetime="2019-07-24T14:35:00.000Z" itemprop="datePublished">
-    <span class="post-month">7月</span><br/>
-    <span class="post-day">24</span>
+    <a href="/2019/10/01/OI/daily/20190910/CodeVs1001/" class="article-date">
+  <time class="post-time" datetime="2019-10-01T15:04:06.000Z" itemprop="datePublished">
+    <span class="post-month">10月</span><br/>
+    <span class="post-day">01</span>
   </time>
 </a>
    
@@ -96,7 +96,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      COGS1176 月考 题解
+      CodeVs1001 舒适的路线
     </h1>
   
 
@@ -110,7 +110,7 @@
               
   &nbsp; | &nbsp;
   <div class="view-box">
-    <span id="/2019/07/24/OI/jixun_review/hash/cogs1176_sol/" class="leancloud_visitors" data-flag-title="COGS1176 月考 题解">
+    <span id="/2019/10/01/OI/daily/20190910/CodeVs1001/" class="leancloud_visitors" data-flag-title="CodeVs1001 舒适的路线">
       &nbsp;阅读次数<span class="leancloud-visitors-count"></span>
     </span>
   </div>
@@ -122,19 +122,20 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>本来想复习一下hash，在rxz老师的博客里莫名发现了一篇课件讲这个的。于是复制了一份看了起来。于是便有了这一题。<a id="more"></a><br>
-hzwer老师说过一般先考虑STL实现。于是并没有手写字符串hash然后苦逼地开散列去存它。<br>
-于是有了这一篇用map水过去地题解。(话说写完之后这个码风连我自己也不敢认QaQ)</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="built_in">map</span>&lt;<span class="built_in">string</span>, <span class="keyword">bool</span>&gt; h;</span><br><span class="line"></span><br><span class="line"><span class="built_in">string</span> s;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	freopen(<span class="string">"mtest.in"</span>, <span class="string">"r"</span>, <span class="built_in">stdin</span>);</span><br><span class="line">	freopen(<span class="string">"mtest.out"</span>, <span class="string">"w"</span>, <span class="built_in">stdout</span>);</span><br><span class="line">	<span class="keyword">int</span> n, cnt = <span class="number">0</span>;</span><br><span class="line">	<span class="built_in">cin</span> &gt;&gt; n;</span><br><span class="line">	<span class="keyword">while</span>(n--) &#123;</span><br><span class="line">		<span class="built_in">cin</span> &gt;&gt; s;</span><br><span class="line">		h[s] = <span class="literal">true</span>;	</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">cin</span> &gt;&gt; n;</span><br><span class="line">	<span class="keyword">while</span>(n--) &#123;</span><br><span class="line">		<span class="built_in">cin</span> &gt;&gt; s;</span><br><span class="line">		<span class="keyword">if</span>(h[s]) cnt++, h[s] = <span class="literal">false</span>;	</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; cnt &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h5 id="声明本篇文章及本博客所有文章版权均归本人froldh所有-原文地址位于httpsfroldhgithubio20190724oijixun_reviewhashcogs1176_sol-转载和整体或部分应用于其他场合如课件或讲义的制作均应当在明显位置保留本段声明除非征得本人同意-用于商业用途的也应当征得本人同意-qq2249133934"><a class="markdownIt-Anchor" href="#声明本篇文章及本博客所有文章版权均归本人froldh所有-原文地址位于httpsfroldhgithubio20190724oijixun_reviewhashcogs1176_sol-转载和整体或部分应用于其他场合如课件或讲义的制作均应当在明显位置保留本段声明除非征得本人同意-用于商业用途的也应当征得本人同意-qq2249133934"></a> 声明:本篇文章及本博客所有文章版权均归本人froldH所有。原文地址位于:<a href="https://froldh.github.io/2019/07/24/OI/jixun_review/hash/cogs1176_sol">https://froldh.github.io/2019/07/24/OI/jixun_review/hash/cogs1176_sol</a> 。转载和整体或部分应用于其他场合如课件或讲义的制作均应当在明显位置保留本段声明，除非征得本人同意。用于商业用途的也应当征得本人同意。qq:2249133934。</h5>
+        <p>巧妙的贪心+并查集题。<a id="more"></a><br>
+枚举最小边。<br>
+根据贪心性,如果答案的边长为d,那么小于等于d的边应当尽量在图中。(与二分答案法的贪心处理类似)因而将边排序从最小边开始加边知道两个结点连通,此时最大的边即为该最小边长对应的最大边长。<br>
+对于所有的枚举都这样处理,取最小值即为答案。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn=<span class="number">510</span>,maxm=<span class="number">5100</span>,inf=<span class="number">0x3f3f3f3f</span>;</span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">edge</span>&#123;</span></span><br><span class="line">	<span class="keyword">int</span> u,v,w;</span><br><span class="line">	<span class="keyword">bool</span> <span class="keyword">operator</span> &lt; (<span class="keyword">const</span> edge&amp; o) <span class="keyword">const</span> &#123; <span class="keyword">return</span> w&lt;o.w; &#125;</span><br><span class="line">&#125;e[maxm];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">gcd</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b)</span> </span>&#123; <span class="keyword">int</span> t; <span class="keyword">while</span>(b) &#123; t=b; b=a%b; a=t; &#125; <span class="keyword">return</span> a; &#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> fa[maxn],af1=inf,af2=<span class="number">1</span>;</span><br><span class="line"><span class="keyword">double</span> ad=inf;</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">int</span> <span class="title">gf</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">return</span> x==fa[x]?x:fa[x]=gf(fa[x]);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">un</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> y)</span> </span>&#123;</span><br><span class="line">	x=gf(x); y=gf(y);</span><br><span class="line">	fa[x]=y;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	ios::sync_with_stdio(<span class="literal">false</span>);</span><br><span class="line">	<span class="keyword">int</span> n,m,u,v,w,s,t,f1,f2,g;</span><br><span class="line">	<span class="keyword">double</span> d;</span><br><span class="line">	<span class="built_in">cin</span>&gt;&gt;n&gt;&gt;m;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>; i&lt;=m; i++) &#123;</span><br><span class="line">		<span class="built_in">cin</span>&gt;&gt;u&gt;&gt;v&gt;&gt;w;</span><br><span class="line">		e[i].u=u; e[i].v=v; e[i].w=w;	</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">cin</span>&gt;&gt;s&gt;&gt;t;</span><br><span class="line">	sort(e+<span class="number">1</span>,e+m+<span class="number">1</span>);</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>; i&lt;=m; i++) &#123;</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">1</span>; j&lt;=n; j++) fa[j]=j;</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> j=i; j&lt;=m; j++) &#123; 	</span><br><span class="line">			<span class="keyword">if</span>(gf(e[j].u)!=gf(e[j].v))</span><br><span class="line">				un(e[j].u,e[j].v);	</span><br><span class="line">			<span class="keyword">if</span>(gf(s)==gf(t)) &#123;</span><br><span class="line">				f1=e[j].w; f2=e[i].w;</span><br><span class="line">				(ad&gt;(<span class="keyword">double</span>)f1/f2) &amp;&amp; (ad=(<span class="keyword">double</span>)f1/f2,af1=f1,af2=f2,<span class="number">1</span>);</span><br><span class="line">				<span class="keyword">break</span>;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	g=gcd(af1,af2); af1/=g; af2/=g;</span><br><span class="line">	af1==<span class="number">0x3f3f3f3f</span>&amp;&amp;af2==<span class="number">1</span> &amp;&amp; (<span class="built_in">cout</span>&lt;&lt;<span class="string">"IMPOSSIBLE"</span>&lt;&lt;<span class="built_in">endl</span>,<span class="number">1</span>) || (<span class="built_in">cout</span>&lt;&lt;af1,af2==<span class="number">1</span>||<span class="built_in">cout</span>&lt;&lt;<span class="string">"/"</span>&lt;&lt;af2,<span class="built_in">cout</span>&lt;&lt;<span class="built_in">endl</span>);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="声明本文原创转载请注明出处"><a class="markdownIt-Anchor" href="#声明本文原创转载请注明出处"></a> 声明:本文原创,转载请注明出处。</h5>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://froldH.github.io/2019/07/24/OI/jixun_review/hash/cogs1176_sol/" data-id="ck17zeyw5002j2krq1ujfhdrl" class="article-share-link">分享</a>
+      <a data-url="http://froldH.github.io/2019/10/01/OI/daily/20190910/CodeVs1001/" data-id="ck17zeywp002x2krqht2gk024" class="article-share-link">分享</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hash/">hash</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/字符串/">字符串</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/腾飞营集训/">腾飞营集训</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/并查集/">并查集</a></li></ul>
 
     </footer>
   </div>
@@ -142,19 +143,10 @@ hzwer老师说过一般先考虑STL实现。于是并没有手写字符串hash�
     
 <nav id="article-nav">
   
-    <a href="/2019/07/26/OI/codeforcesPlan/CF1197/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">上一篇</strong>
-      <div class="article-nav-title">
-        
-          Educational codeforces Round 69(Rated for Div. 2), contest 1197 题解
-        
-      </div>
-    </a>
   
-  
-    <a href="/2019/07/24/OI/jixun_review/meet_in_the_middle/gift_acwing171/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2019/09/21/OI/codeforcesPlan/R158/260D/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">下一篇</strong>
-      <div class="article-nav-title">送礼物 ACwing171 题解</div>
+      <div class="article-nav-title">CodeForces Round158 260D 题解</div>
     </a>
   
 </nav>
