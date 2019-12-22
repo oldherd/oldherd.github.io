@@ -13,7 +13,7 @@
 <meta property="og:site_name" content="froldH&#39;s blog">
 <meta property="og:description" content="巧妙的贪心+并查集题。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-10-01T15:10:16.000Z">
+<meta property="og:updated_time" content="2019-12-22T15:09:53.310Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="CodeVs1001 舒适的路线">
 <meta name="twitter:description" content="巧妙的贪心+并查集题。">
@@ -44,9 +44,9 @@
     <h2 class="author">froldH</h2>
     <h3 class="description"></h3>
     <div class="count-box">
-      <a href="/archives"><div><strong>39</strong><br>文章</div></a>
+      <a href="/archives"><div><strong>48</strong><br>文章</div></a>
       <a href="/categories"><div><strong>8</strong><br>分类</div></a>
-      <a href="/tags"><div><strong>57</strong><br>标签</div></a>
+      <a href="/tags"><div><strong>67</strong><br>标签</div></a>
     </div>
     <ul class="blog-link">
      
@@ -127,12 +127,12 @@
 根据贪心性,如果答案的边长为d,那么小于等于d的边应当尽量在图中。(与二分答案法的贪心处理类似)因而将边排序从最小边开始加边知道两个结点连通,此时最大的边即为该最小边长对应的最大边长。<br>
 对于所有的枚举都这样处理,取最小值即为答案。</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn=<span class="number">510</span>,maxm=<span class="number">5100</span>,inf=<span class="number">0x3f3f3f3f</span>;</span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">edge</span>&#123;</span></span><br><span class="line">	<span class="keyword">int</span> u,v,w;</span><br><span class="line">	<span class="keyword">bool</span> <span class="keyword">operator</span> &lt; (<span class="keyword">const</span> edge&amp; o) <span class="keyword">const</span> &#123; <span class="keyword">return</span> w&lt;o.w; &#125;</span><br><span class="line">&#125;e[maxm];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">gcd</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b)</span> </span>&#123; <span class="keyword">int</span> t; <span class="keyword">while</span>(b) &#123; t=b; b=a%b; a=t; &#125; <span class="keyword">return</span> a; &#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> fa[maxn],af1=inf,af2=<span class="number">1</span>;</span><br><span class="line"><span class="keyword">double</span> ad=inf;</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">int</span> <span class="title">gf</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">return</span> x==fa[x]?x:fa[x]=gf(fa[x]);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">un</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> y)</span> </span>&#123;</span><br><span class="line">	x=gf(x); y=gf(y);</span><br><span class="line">	fa[x]=y;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	ios::sync_with_stdio(<span class="literal">false</span>);</span><br><span class="line">	<span class="keyword">int</span> n,m,u,v,w,s,t,f1,f2,g;</span><br><span class="line">	<span class="keyword">double</span> d;</span><br><span class="line">	<span class="built_in">cin</span>&gt;&gt;n&gt;&gt;m;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>; i&lt;=m; i++) &#123;</span><br><span class="line">		<span class="built_in">cin</span>&gt;&gt;u&gt;&gt;v&gt;&gt;w;</span><br><span class="line">		e[i].u=u; e[i].v=v; e[i].w=w;	</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">cin</span>&gt;&gt;s&gt;&gt;t;</span><br><span class="line">	sort(e+<span class="number">1</span>,e+m+<span class="number">1</span>);</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>; i&lt;=m; i++) &#123;</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">1</span>; j&lt;=n; j++) fa[j]=j;</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> j=i; j&lt;=m; j++) &#123; 	</span><br><span class="line">			<span class="keyword">if</span>(gf(e[j].u)!=gf(e[j].v))</span><br><span class="line">				un(e[j].u,e[j].v);	</span><br><span class="line">			<span class="keyword">if</span>(gf(s)==gf(t)) &#123;</span><br><span class="line">				f1=e[j].w; f2=e[i].w;</span><br><span class="line">				(ad&gt;(<span class="keyword">double</span>)f1/f2) &amp;&amp; (ad=(<span class="keyword">double</span>)f1/f2,af1=f1,af2=f2,<span class="number">1</span>);</span><br><span class="line">				<span class="keyword">break</span>;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	g=gcd(af1,af2); af1/=g; af2/=g;</span><br><span class="line">	af1==<span class="number">0x3f3f3f3f</span>&amp;&amp;af2==<span class="number">1</span> &amp;&amp; (<span class="built_in">cout</span>&lt;&lt;<span class="string">"IMPOSSIBLE"</span>&lt;&lt;<span class="built_in">endl</span>,<span class="number">1</span>) || (<span class="built_in">cout</span>&lt;&lt;af1,af2==<span class="number">1</span>||<span class="built_in">cout</span>&lt;&lt;<span class="string">"/"</span>&lt;&lt;af2,<span class="built_in">cout</span>&lt;&lt;<span class="built_in">endl</span>);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h5 id="声明本文原创转载请注明出处"><a class="markdownIt-Anchor" href="#声明本文原创转载请注明出处"></a> 声明:本文原创,转载请注明出处。</h5>
+<p>本文为froldH原创,转载请注明出处。</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://froldH.github.io/2019/10/01/OI/daily/20190910/CodeVs1001/" data-id="ck2vpdrm5002d54rqow8nb3kk" class="article-share-link">分享</a>
+      <a data-url="http://froldH.github.io/2019/10/01/OI/daily/20190910/CodeVs1001/" data-id="ck4h6ohmb002pxsrqt5oo0bz9" class="article-share-link">分享</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/并查集/">并查集</a></li></ul>
@@ -213,9 +213,9 @@
     <h2 class="author">froldH</h2>
     <h3 class="description"></h3>
     <div class="count-box">
-      <a href="/archives"><div><strong>39</strong><br>文章</div></a>
+      <a href="/archives"><div><strong>48</strong><br>文章</div></a>
       <a href="/categories"><div><strong>8</strong><br>分类</div></a>
-      <a href="/tags"><div><strong>57</strong><br>标签</div></a>
+      <a href="/tags"><div><strong>67</strong><br>标签</div></a>
     </div>
 
 

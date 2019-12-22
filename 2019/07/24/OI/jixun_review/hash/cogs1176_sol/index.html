@@ -13,7 +13,7 @@
 <meta property="og:site_name" content="froldH&#39;s blog">
 <meta property="og:description" content="本来想复习一下hash，在rxz老师的博客里莫名发现了一篇课件讲这个的。于是复制了一份看了起来。于是便有了这一题。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-08-28T06:24:18.000Z">
+<meta property="og:updated_time" content="2019-12-22T15:10:08.179Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="COGS1176 月考 题解">
 <meta name="twitter:description" content="本来想复习一下hash，在rxz老师的博客里莫名发现了一篇课件讲这个的。于是复制了一份看了起来。于是便有了这一题。">
@@ -44,9 +44,9 @@
     <h2 class="author">froldH</h2>
     <h3 class="description"></h3>
     <div class="count-box">
-      <a href="/archives"><div><strong>39</strong><br>文章</div></a>
+      <a href="/archives"><div><strong>48</strong><br>文章</div></a>
       <a href="/categories"><div><strong>8</strong><br>分类</div></a>
-      <a href="/tags"><div><strong>57</strong><br>标签</div></a>
+      <a href="/tags"><div><strong>67</strong><br>标签</div></a>
     </div>
     <ul class="blog-link">
      
@@ -126,12 +126,12 @@
 hzwer老师说过一般先考虑STL实现。于是并没有手写字符串hash然后苦逼地开散列去存它。<br>
 于是有了这一篇用map水过去地题解。(话说写完之后这个码风连我自己也不敢认QaQ)</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="built_in">map</span>&lt;<span class="built_in">string</span>, <span class="keyword">bool</span>&gt; h;</span><br><span class="line"></span><br><span class="line"><span class="built_in">string</span> s;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	freopen(<span class="string">"mtest.in"</span>, <span class="string">"r"</span>, <span class="built_in">stdin</span>);</span><br><span class="line">	freopen(<span class="string">"mtest.out"</span>, <span class="string">"w"</span>, <span class="built_in">stdout</span>);</span><br><span class="line">	<span class="keyword">int</span> n, cnt = <span class="number">0</span>;</span><br><span class="line">	<span class="built_in">cin</span> &gt;&gt; n;</span><br><span class="line">	<span class="keyword">while</span>(n--) &#123;</span><br><span class="line">		<span class="built_in">cin</span> &gt;&gt; s;</span><br><span class="line">		h[s] = <span class="literal">true</span>;	</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">cin</span> &gt;&gt; n;</span><br><span class="line">	<span class="keyword">while</span>(n--) &#123;</span><br><span class="line">		<span class="built_in">cin</span> &gt;&gt; s;</span><br><span class="line">		<span class="keyword">if</span>(h[s]) cnt++, h[s] = <span class="literal">false</span>;	</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; cnt &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h5 id="声明本篇文章及本博客所有文章版权均归本人froldh所有-原文地址位于httpsfroldhgithubio20190724oijixun_reviewhashcogs1176_sol-转载和整体或部分应用于其他场合如课件或讲义的制作均应当在明显位置保留本段声明除非征得本人同意-用于商业用途的也应当征得本人同意-qq2249133934"><a class="markdownIt-Anchor" href="#声明本篇文章及本博客所有文章版权均归本人froldh所有-原文地址位于httpsfroldhgithubio20190724oijixun_reviewhashcogs1176_sol-转载和整体或部分应用于其他场合如课件或讲义的制作均应当在明显位置保留本段声明除非征得本人同意-用于商业用途的也应当征得本人同意-qq2249133934"></a> 声明:本篇文章及本博客所有文章版权均归本人froldH所有。原文地址位于:<a href="https://froldh.github.io/2019/07/24/OI/jixun_review/hash/cogs1176_sol">https://froldh.github.io/2019/07/24/OI/jixun_review/hash/cogs1176_sol</a> 。转载和整体或部分应用于其他场合如课件或讲义的制作均应当在明显位置保留本段声明，除非征得本人同意。用于商业用途的也应当征得本人同意。qq:2249133934。</h5>
+<p>本文为froldH原创,转载请注明出处。原文地址位于:<a href="https://froldh.github.io/2019/07/24/OI/jixun_review/hash/cogs1176_sol">https://froldh.github.io/2019/07/24/OI/jixun_review/hash/cogs1176_sol</a></p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://froldH.github.io/2019/07/24/OI/jixun_review/hash/cogs1176_sol/" data-id="ck2vpdrmc002i54rqckywkrf3" class="article-share-link">分享</a>
+      <a data-url="http://froldH.github.io/2019/07/24/OI/jixun_review/hash/cogs1176_sol/" data-id="ck4h6ohm8002ixsrq45pqbeoy" class="article-share-link">分享</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hash/">hash</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/字符串/">字符串</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/腾飞营集训/">腾飞营集训</a></li></ul>
@@ -212,9 +212,9 @@ hzwer老师说过一般先考虑STL实现。于是并没有手写字符串hash�
     <h2 class="author">froldH</h2>
     <h3 class="description"></h3>
     <div class="count-box">
-      <a href="/archives"><div><strong>39</strong><br>文章</div></a>
+      <a href="/archives"><div><strong>48</strong><br>文章</div></a>
       <a href="/categories"><div><strong>8</strong><br>分类</div></a>
-      <a href="/tags"><div><strong>57</strong><br>标签</div></a>
+      <a href="/tags"><div><strong>67</strong><br>标签</div></a>
     </div>
 
 

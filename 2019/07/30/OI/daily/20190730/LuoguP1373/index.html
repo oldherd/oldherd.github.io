@@ -13,7 +13,7 @@
 <meta property="og:site_name" content="froldH&#39;s blog">
 <meta property="og:description" content="观察 方案数辣么多,正解应当在 搜索-dp 或者 数学/数论 中找。 于是根据直觉 搜索-dp。  状态设计 fi,j,t,0∣1f_{i,j,t,0|1}f​i,j,t,0∣1​​代表在坐标i,j使两人取得的魔力在模k+1意义下差值(小a-小uim)为t,当前格由0:小a,1:小uim收取在模1e9+7意义下的方案数。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-08-28T06:23:46.000Z">
+<meta property="og:updated_time" content="2019-12-22T15:09:14.626Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="小a和uim之大逃离 LuoguP1373">
 <meta name="twitter:description" content="观察 方案数辣么多,正解应当在 搜索-dp 或者 数学/数论 中找。 于是根据直觉 搜索-dp。  状态设计 fi,j,t,0∣1f_{i,j,t,0|1}f​i,j,t,0∣1​​代表在坐标i,j使两人取得的魔力在模k+1意义下差值(小a-小uim)为t,当前格由0:小a,1:小uim收取在模1e9+7意义下的方案数。">
@@ -44,9 +44,9 @@
     <h2 class="author">froldH</h2>
     <h3 class="description"></h3>
     <div class="count-box">
-      <a href="/archives"><div><strong>39</strong><br>文章</div></a>
+      <a href="/archives"><div><strong>48</strong><br>文章</div></a>
       <a href="/categories"><div><strong>8</strong><br>分类</div></a>
-      <a href="/tags"><div><strong>57</strong><br>标签</div></a>
+      <a href="/tags"><div><strong>67</strong><br>标签</div></a>
     </div>
     <ul class="blog-link">
      
@@ -140,12 +140,12 @@
 int飙到80MB开long long就MLE。<br>
 2.谁告诉你模k了,k+1才清空好不好。</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn = <span class="number">810</span>, maxm = <span class="number">810</span>, maxk = <span class="number">16</span>, p = <span class="number">1000000007</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> f[maxn][maxm][maxk][<span class="number">2</span>];</span><br><span class="line"><span class="keyword">int</span> a[maxn][maxm];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">int</span> n, m, k;</span><br><span class="line">	<span class="keyword">long</span> <span class="keyword">long</span> ans = <span class="number">0</span>;</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">"%d %d %d"</span>, &amp;n, &amp;m, &amp;k);</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++)</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">1</span>; j &lt;= m; j++)</span><br><span class="line">			<span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;a[i][j]);</span><br><span class="line">	<span class="built_in">memset</span>(f, <span class="number">0</span>, <span class="keyword">sizeof</span>(f));</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++)</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">1</span>; j &lt;= m; j++) &#123;</span><br><span class="line">			f[i][j][a[i][j]][<span class="number">0</span>]++;</span><br><span class="line">			f[i][j][a[i][j]][<span class="number">0</span>] %= p;</span><br><span class="line">			<span class="keyword">for</span>(<span class="keyword">int</span> t = <span class="number">0</span>; t &lt;= k; t++) &#123;</span><br><span class="line">				<span class="keyword">if</span>(i<span class="number">-1</span> &gt; <span class="number">0</span>) &#123;</span><br><span class="line">					f[i][j][t][<span class="number">0</span>] += f[i<span class="number">-1</span>][j][(t-a[i][j]+k+<span class="number">1</span>)%(k+<span class="number">1</span>)][<span class="number">1</span>];</span><br><span class="line">					f[i][j][t][<span class="number">1</span>] += f[i<span class="number">-1</span>][j][(t+a[i][j])%(k+<span class="number">1</span>)][<span class="number">0</span>];</span><br><span class="line">					f[i][j][t][<span class="number">0</span>] %= p; f[i][j][t][<span class="number">1</span>] %= p;</span><br><span class="line">				&#125;</span><br><span class="line">				<span class="keyword">if</span>(j<span class="number">-1</span> &gt; <span class="number">0</span>) &#123;</span><br><span class="line">					f[i][j][t][<span class="number">0</span>] += f[i][j<span class="number">-1</span>][(t-a[i][j]+k+<span class="number">1</span>)%(k+<span class="number">1</span>)][<span class="number">1</span>];</span><br><span class="line">					f[i][j][t][<span class="number">1</span>] += f[i][j<span class="number">-1</span>][(t+a[i][j])%(k+<span class="number">1</span>)][<span class="number">0</span>];</span><br><span class="line">					f[i][j][t][<span class="number">0</span>] %= p; f[i][j][t][<span class="number">1</span>] %= p; </span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">			ans = (ans + f[i][j][<span class="number">0</span>][<span class="number">1</span>]) % p;</span><br><span class="line">		&#125; </span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"%lld\n"</span>, ans);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h5 id="声明本篇文章及本博客所有文章版权均归本人froldh所有-原文地址位于httpsfroldhgithubio20190730oidaily20190730luogup1373-转载和整体或部分应用于其他场合均应当在明显位置保留本段声明除非征得本人同意-用于商业用途的也应当征得本人同意-qq2249133934"><a class="markdownIt-Anchor" href="#声明本篇文章及本博客所有文章版权均归本人froldh所有-原文地址位于httpsfroldhgithubio20190730oidaily20190730luogup1373-转载和整体或部分应用于其他场合均应当在明显位置保留本段声明除非征得本人同意-用于商业用途的也应当征得本人同意-qq2249133934"></a> 声明:本篇文章及本博客所有文章版权均归本人froldH所有。原文地址位于:<a href="https://froldh.github.io/2019/07/30/OI/daily/20190730/LuoguP1373/">https://froldh.github.io/2019/07/30/OI/daily/20190730/LuoguP1373/</a> 。转载和整体或部分应用于其他场合均应当在明显位置保留本段声明，除非征得本人同意。用于商业用途的也应当征得本人同意。qq:2249133934。</h5>
+<p>本文为froldH原创,转载请注明出处。原文地址位于:<a href="https://froldh.github.io/2019/07/30/OI/daily/20190730/LuoguP1373/">https://froldh.github.io/2019/07/30/OI/daily/20190730/LuoguP1373/</a></p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://froldH.github.io/2019/07/30/OI/daily/20190730/LuoguP1373/" data-id="ck2vpdrlr001z54rqnzuh12o1" class="article-share-link">分享</a>
+      <a data-url="http://froldH.github.io/2019/07/30/OI/daily/20190730/LuoguP1373/" data-id="ck4h6ohm4002cxsrq9lpt9d4f" class="article-share-link">分享</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/dp/">dp</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/线性dp/">线性dp</a></li></ul>
@@ -226,9 +226,9 @@ int飙到80MB开long long就MLE。<br>
     <h2 class="author">froldH</h2>
     <h3 class="description"></h3>
     <div class="count-box">
-      <a href="/archives"><div><strong>39</strong><br>文章</div></a>
+      <a href="/archives"><div><strong>48</strong><br>文章</div></a>
       <a href="/categories"><div><strong>8</strong><br>分类</div></a>
-      <a href="/tags"><div><strong>57</strong><br>标签</div></a>
+      <a href="/tags"><div><strong>67</strong><br>标签</div></a>
     </div>
 
 
