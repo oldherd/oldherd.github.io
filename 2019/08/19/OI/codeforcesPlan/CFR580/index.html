@@ -3,14 +3,14 @@
 <head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="utf-8">
   
-  <title>Codeforces Round#580 div2 题解 | froldH&#39;s blog</title>
+  <title>Codeforces Round#580 div2 题解 | oldherd&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="第一次正式参赛，打的真的惨。  1206A Choose Two Numbers 目的是从给定的两个数组中选择两个数字使得其和不为两数组中的元素。 注意到题目限制数组中的元素为正整数，也就是说，我们可以从两个数组中选择最大的数，其和一定大于两数组中的任一数，换言之，不在两个数组之内。">
 <meta name="keywords" content="math,floyd,最短路,graphs,智商题,抽屉原理,推算&amp;结论题">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Codeforces Round#580 div2 题解">
-<meta property="og:url" content="http://froldH.github.io/2019/08/19/OI/codeforcesPlan/CFR580/index.html">
-<meta property="og:site_name" content="froldH&#39;s blog">
+<meta property="og:url" content="http://oldherd.github.io/2019/08/19/OI/codeforcesPlan/CFR580/index.html">
+<meta property="og:site_name" content="oldherd&#39;s blog">
 <meta property="og:description" content="第一次正式参赛，打的真的惨。  1206A Choose Two Numbers 目的是从给定的两个数组中选择两个数字使得其和不为两数组中的元素。 注意到题目限制数组中的元素为正整数，也就是说，我们可以从两个数组中选择最大的数，其和一定大于两数组中的任一数，换言之，不在两个数组之内。">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:updated_time" content="2019-12-22T15:08:10.268Z">
@@ -18,7 +18,7 @@
 <meta name="twitter:title" content="Codeforces Round#580 div2 题解">
 <meta name="twitter:description" content="第一次正式参赛，打的真的惨。  1206A Choose Two Numbers 目的是从给定的两个数组中选择两个数字使得其和不为两数组中的元素。 注意到题目限制数组中的元素为正整数，也就是说，我们可以从两个数组中选择最大的数，其和一定大于两数组中的任一数，换言之，不在两个数组之内。">
   
-    <link rel="alternate" href="/atom.xml" title="froldH&#39;s blog" type="application/atom+xml">
+    <link rel="alternate" href="/atom.xml" title="oldherd&#39;s blog" type="application/atom+xml">
   
   
     <link rel="icon" href="/favicon.png">
@@ -41,7 +41,7 @@
   <h3 class="widget-title"></h3>
   <div class="widget">
     <img class="avatar" src="https://froldh.github.io/images/avatar/avatar2.jpg">
-    <h2 class="author">froldH</h2>
+    <h2 class="author">oldherd</h2>
     <h3 class="description"></h3>
     <div class="count-box">
       <a href="/archives"><div><strong>51</strong><br>文章</div></a>
@@ -148,12 +148,12 @@ n &lt; 128时跑floyd最小环。<br>
 对于<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>a</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">a_i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.58056em;vertical-align:-0.15em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit">a</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathit">i</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span> = 0, 其实不可能与任何点连边,读入的时候要剔掉。<br>
 类似的证明题目在腾飞营集训的第一天考试第三题和第一天上午的讲课中都出现过,而且都是用抽屉原理等证明的。以后写了题解会挂链接。</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt; </span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> sz = <span class="number">2000000</span>, maxn = <span class="number">130</span>, inf = <span class="number">70000000</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">char</span> buf[sz], *p1 = buf, *p2 = buf;</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">char</span> <span class="title">gc</span><span class="params">()</span> </span>&#123; <span class="keyword">return</span> p1==p2&amp;&amp;(p2=(p1=buf)+fread(buf,<span class="number">1</span>,sz,<span class="built_in">stdin</span>), p1==p2)?EOF:*p1++; &#125;</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">long</span> <span class="keyword">long</span> <span class="title">read</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">long</span> <span class="keyword">long</span> x = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> f = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">char</span> ch = gc();</span><br><span class="line">    <span class="keyword">while</span>(ch &lt; <span class="string">'0'</span> || ch &gt; <span class="string">'9'</span>) &#123; <span class="keyword">if</span>(ch == <span class="string">'-'</span>) f = <span class="number">-1</span>; ch = gc(); &#125;</span><br><span class="line">    <span class="keyword">while</span>(ch &gt;= <span class="string">'0'</span> &amp;&amp; ch &lt;= <span class="string">'9'</span>) x = (x&lt;&lt;<span class="number">3</span>)+(x&lt;&lt;<span class="number">1</span>)+(ch&amp;<span class="number">15</span>), ch = gc();</span><br><span class="line">    <span class="keyword">return</span> x *= f;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">int</span> <span class="title">min</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b)</span> </span>&#123; <span class="keyword">return</span> a &lt; b ? a : b; &#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">long</span> <span class="keyword">long</span> a[maxn];</span><br><span class="line"><span class="keyword">int</span> f[maxn][maxn], m[maxn][maxn];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">int</span> n = (<span class="keyword">int</span>)read();</span><br><span class="line">	<span class="keyword">int</span> ans = inf;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++) &#123;</span><br><span class="line">		<span class="keyword">if</span>(i &gt;= <span class="number">128</span>) <span class="keyword">break</span>;</span><br><span class="line">		a[i] = read();</span><br><span class="line">		<span class="keyword">if</span>(!a[i]) &#123;</span><br><span class="line">			n--; i--;	</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">if</span>(n &gt;= <span class="number">128</span>) &#123;</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">"3\n"</span>);</span><br><span class="line">		<span class="keyword">return</span> <span class="number">0</span>;	</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++)</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">1</span>; j &lt;= n; j++)</span><br><span class="line">			<span class="keyword">if</span>((a[i] &amp; a[j]) &amp;&amp; (i != j))</span><br><span class="line">				f[i][j] = m[i][j] = <span class="number">1</span>;</span><br><span class="line">			<span class="keyword">else</span></span><br><span class="line">				f[i][j] = m[i][j] = inf;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> k = <span class="number">1</span>; k &lt;= n; k++) &#123;</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++)</span><br><span class="line">			<span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">1</span>; j &lt;= n; j++) &#123;</span><br><span class="line">				<span class="keyword">if</span>(i == j || j == k || k == i) <span class="keyword">continue</span>;</span><br><span class="line">				ans = min(ans, f[i][j]+m[i][k]+m[k][j]);</span><br><span class="line">			&#125;</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++)</span><br><span class="line">			<span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">1</span>; j &lt;= n; j++)</span><br><span class="line">				<span class="keyword">if</span>(f[i][j] &gt; f[i][k] + f[k][j])</span><br><span class="line">					f[i][j] = f[i][k] + f[k][j];</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"%d\n"</span>, ans==inf?<span class="number">-1</span>:ans);	</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;	</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>本文为froldH原创,转载请注明出处。原文地址位于: <a href="https://froldh.github.io/2019/08/19/OI/codeforcesPlan/CFR580/">https://froldh.github.io/2019/08/19/OI/codeforcesPlan/CFR580/</a></p>
+<p>本文为froldH原创,转载请注明出处。原文地址位于: <a href="https://froldh.github.io/2019/08/19/OI/codeforcesPlan/CFR580/" target="_blank" rel="noopener">https://froldh.github.io/2019/08/19/OI/codeforcesPlan/CFR580/</a></p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://froldH.github.io/2019/08/19/OI/codeforcesPlan/CFR580/" data-id="ck5n6bsvv000crcrqa3gx2grl" class="article-share-link">分享</a>
+      <a data-url="http://oldherd.github.io/2019/08/19/OI/codeforcesPlan/CFR580/" data-id="ck6ag6djo000uwcrqqdqryum8" class="article-share-link">分享</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/floyd/">floyd</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/graphs/">graphs</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/math/">math</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/抽屉原理/">抽屉原理</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/推算-结论题/">推算&结论题</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/智商题/">智商题</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/最短路/">最短路</a></li></ul>
@@ -194,7 +194,7 @@ n &lt; 128时跑floyd最小环。<br>
     <div class="widget-wrap">
   <h3 class="widget-title"></h3>
   <div class="widget">
-    <h1 class="blog-title">froldH&#39;s blog</h1>
+    <h1 class="blog-title">oldherd&#39;s blog</h1>
     <h2 class="blog-subtitle"></h2>
     <ul class="blog-link">
      
@@ -227,7 +227,7 @@ n &lt; 128时跑floyd最小环。<br>
   <h3 class="widget-title"></h3>
   <div class="widget">
     <img class="avatar" src="https://froldh.github.io/images/avatar/avatar2.jpg">
-    <h2 class="author">froldH</h2>
+    <h2 class="author">oldherd</h2>
     <h3 class="description"></h3>
     <div class="count-box">
       <a href="/archives"><div><strong>51</strong><br>文章</div></a>
@@ -272,7 +272,7 @@ n &lt; 128时跑floyd最小环。<br>
   
   <div class="outer">
     <div id="footer-info" class="inner">
-      &copy;2019 - 2020 froldH<br>
+      &copy;2019 - 2020 oldherd<br>
       由<a href="http://hexo.io/" target="_blank">Hexo</a>强力驱动 | 
       主题-<a href="https://github.com/ShanaMaid/hexo-theme-shana">Shana</a>
       

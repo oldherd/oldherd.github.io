@@ -3,14 +3,14 @@
 <head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="utf-8">
   
-  <title>Educational Codeforces Round71 1207C | froldH&#39;s blog</title>
+  <title>Educational Codeforces Round71 1207C | oldherd&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="这题可以贪心解决的说。 观察可以发现,可能有效的操作是,我们把一整片高度为1的管道全部拔高为2使得这片高度为1的点和两边高度相等从而减少之字形中额外消耗的竖条。我们记这片高度为1的管道的长度为len,显然,它有len+1len+1len+1个支撑物。这样做,拔高消耗的代价为b∗(len−1)b* (len-1)b∗(len−1),减少消耗的代价为2a2a2a。每一片的拔高决策是相互独立的,因此只需">
 <meta name="keywords" content="greedy">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Educational Codeforces Round71 1207C">
-<meta property="og:url" content="http://froldH.github.io/2019/08/23/OI/codeforcesPlan/ER71/1207C/index.html">
-<meta property="og:site_name" content="froldH&#39;s blog">
+<meta property="og:url" content="http://oldherd.github.io/2019/08/23/OI/codeforcesPlan/ER71/1207C/index.html">
+<meta property="og:site_name" content="oldherd&#39;s blog">
 <meta property="og:description" content="这题可以贪心解决的说。 观察可以发现,可能有效的操作是,我们把一整片高度为1的管道全部拔高为2使得这片高度为1的点和两边高度相等从而减少之字形中额外消耗的竖条。我们记这片高度为1的管道的长度为len,显然,它有len+1len+1len+1个支撑物。这样做,拔高消耗的代价为b∗(len−1)b* (len-1)b∗(len−1),减少消耗的代价为2a2a2a。每一片的拔高决策是相互独立的,因此只需">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:updated_time" content="2019-12-22T15:06:22.893Z">
@@ -18,7 +18,7 @@
 <meta name="twitter:title" content="Educational Codeforces Round71 1207C">
 <meta name="twitter:description" content="这题可以贪心解决的说。 观察可以发现,可能有效的操作是,我们把一整片高度为1的管道全部拔高为2使得这片高度为1的点和两边高度相等从而减少之字形中额外消耗的竖条。我们记这片高度为1的管道的长度为len,显然,它有len+1len+1len+1个支撑物。这样做,拔高消耗的代价为b∗(len−1)b* (len-1)b∗(len−1),减少消耗的代价为2a2a2a。每一片的拔高决策是相互独立的,因此只需">
   
-    <link rel="alternate" href="/atom.xml" title="froldH&#39;s blog" type="application/atom+xml">
+    <link rel="alternate" href="/atom.xml" title="oldherd&#39;s blog" type="application/atom+xml">
   
   
     <link rel="icon" href="/favicon.png">
@@ -41,7 +41,7 @@
   <h3 class="widget-title"></h3>
   <div class="widget">
     <img class="avatar" src="https://froldh.github.io/images/avatar/avatar2.jpg">
-    <h2 class="author">froldH</h2>
+    <h2 class="author">oldherd</h2>
     <h3 class="description"></h3>
     <div class="count-box">
       <a href="/archives"><div><strong>51</strong><br>文章</div></a>
@@ -122,12 +122,12 @@
 观察可以发现,可能有效的操作是,我们把一整片高度为1的管道全部拔高为2使得这片高度为1的点和两边高度相等从而减少之字形中额外消耗的竖条。我们记这片高度为1的管道的长度为len,显然,它有<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>l</mi><mi>e</mi><mi>n</mi><mo>+</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">len+1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.69444em;"></span><span class="strut bottom" style="height:0.77777em;vertical-align:-0.08333em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.01968em;">l</span><span class="mord mathit">e</span><span class="mord mathit">n</span><span class="mbin">+</span><span class="mord mathrm">1</span></span></span></span>个支撑物。这样做,拔高消耗的代价为<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>b</mi><mo>∗</mo><mo>(</mo><mi>l</mi><mi>e</mi><mi>n</mi><mo>−</mo><mn>1</mn><mo>)</mo></mrow><annotation encoding="application/x-tex">b* (len-1)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mord mathit">b</span><span class="mbin">∗</span><span class="mopen">(</span><span class="mord mathit" style="margin-right:0.01968em;">l</span><span class="mord mathit">e</span><span class="mord mathit">n</span><span class="mbin">−</span><span class="mord mathrm">1</span><span class="mclose">)</span></span></span></span>,减少消耗的代价为<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>2</mn><mi>a</mi></mrow><annotation encoding="application/x-tex">2a</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.64444em;"></span><span class="strut bottom" style="height:0.64444em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathrm">2</span><span class="mord mathit">a</span></span></span></span>。每一片的拔高决策是相互独立的,因此只需要比较其大小取较小的一个即可。<a id="more"></a><br>
 注意,题目给出的两边的管道高度必定为1,且不允许拔高。考的时候辣鸡翻译器没有翻出这句话导致爆了QaQ.</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn = <span class="number">200010</span>;</span><br><span class="line"><span class="keyword">char</span> str[maxn];</span><br><span class="line"><span class="keyword">int</span> pp[maxn], pu;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">long</span> <span class="keyword">long</span> ans;</span><br><span class="line">	<span class="keyword">int</span> n, a, b, t, len, plr;</span><br><span class="line">	<span class="keyword">char</span> las = <span class="string">'0'</span>;</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;t);</span><br><span class="line">	<span class="keyword">while</span>(t--) &#123;</span><br><span class="line">		<span class="built_in">scanf</span>(<span class="string">"%d %d %d %s"</span>, &amp;n, &amp;a, &amp;b, str);</span><br><span class="line">		las = <span class="string">'0'</span>; pu = <span class="number">0</span>; len = <span class="number">1</span>; plr = <span class="number">2</span>;</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; n; i++) &#123;</span><br><span class="line">			plr += ((str[i]&amp;<span class="number">15</span>)||str[i<span class="number">-1</span>]&amp;<span class="number">15</span>)?<span class="number">2</span>:<span class="number">1</span>;</span><br><span class="line">			<span class="keyword">if</span>(str[i] == las) len++;</span><br><span class="line">			<span class="keyword">else</span> &#123;</span><br><span class="line">				pp[pu++] = len;</span><br><span class="line">				las = str[i];</span><br><span class="line">				len = <span class="number">1</span>;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		pp[pu++] = len;</span><br><span class="line">		ans = (<span class="keyword">long</span> <span class="keyword">long</span>)a*n + plr*(<span class="keyword">long</span> <span class="keyword">long</span>)b;</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">2</span>; i + <span class="number">1</span> &lt; pu; i += <span class="number">2</span>)</span><br><span class="line">			ans += min((pp[i]<span class="number">-1</span>)*(<span class="keyword">long</span> <span class="keyword">long</span>)b, (<span class="keyword">long</span> <span class="keyword">long</span>)a*<span class="number">2</span>);</span><br><span class="line">		<span class="keyword">if</span>(pu!=<span class="number">1</span>) ans += <span class="number">2</span>*a;</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">"%lld\n"</span>, ans);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>本文为froldH原创。原文地址位于: <a href="https://froldh.github.io/2019/08/23/OI/codeforcesPlan/ER71/1207C/">https://froldh.github.io/2019/08/23/OI/codeforcesPlan/ER71/1207C/</a></p>
+<p>本文为froldH原创。原文地址位于: <a href="https://froldh.github.io/2019/08/23/OI/codeforcesPlan/ER71/1207C/" target="_blank" rel="noopener">https://froldh.github.io/2019/08/23/OI/codeforcesPlan/ER71/1207C/</a></p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://froldH.github.io/2019/08/23/OI/codeforcesPlan/ER71/1207C/" data-id="ck5n6bsx0001ircrqmjr1e8au" class="article-share-link">分享</a>
+      <a data-url="http://oldherd.github.io/2019/08/23/OI/codeforcesPlan/ER71/1207C/" data-id="ck6ag6dkb001iwcrqjud9krmr" class="article-share-link">分享</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/greedy/">greedy</a></li></ul>
@@ -168,7 +168,7 @@
     <div class="widget-wrap">
   <h3 class="widget-title"></h3>
   <div class="widget">
-    <h1 class="blog-title">froldH&#39;s blog</h1>
+    <h1 class="blog-title">oldherd&#39;s blog</h1>
     <h2 class="blog-subtitle"></h2>
     <ul class="blog-link">
      
@@ -201,7 +201,7 @@
   <h3 class="widget-title"></h3>
   <div class="widget">
     <img class="avatar" src="https://froldh.github.io/images/avatar/avatar2.jpg">
-    <h2 class="author">froldH</h2>
+    <h2 class="author">oldherd</h2>
     <h3 class="description"></h3>
     <div class="count-box">
       <a href="/archives"><div><strong>51</strong><br>文章</div></a>
@@ -246,7 +246,7 @@
   
   <div class="outer">
     <div id="footer-info" class="inner">
-      &copy;2019 - 2020 froldH<br>
+      &copy;2019 - 2020 oldherd<br>
       由<a href="http://hexo.io/" target="_blank">Hexo</a>强力驱动 | 
       主题-<a href="https://github.com/ShanaMaid/hexo-theme-shana">Shana</a>
       

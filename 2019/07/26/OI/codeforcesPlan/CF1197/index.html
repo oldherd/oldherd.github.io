@@ -3,14 +3,14 @@
 <head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="utf-8">
   
-  <title>Educational codeforces Round 69(Rated for Div. 2), contest 1197 题解 | froldH&#39;s blog</title>
+  <title>Educational codeforces Round 69(Rated for Div. 2), contest 1197 题解 | oldherd&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="话说上一回的Regular Round 574题解还没更完，但是又开了一本(画风有点不对?) 因为从不修仙(有人信吗?)刷题所以没办法参加比赛只能赛后打打。 这次比赛几乎没有考察高级的算法，全都是智商题(其实就是水)。 这次首更四题">
 <meta name="keywords" content="greedy,dp">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Educational codeforces Round 69(Rated for Div. 2), contest 1197 题解">
-<meta property="og:url" content="http://froldH.github.io/2019/07/26/OI/codeforcesPlan/CF1197/index.html">
-<meta property="og:site_name" content="froldH&#39;s blog">
+<meta property="og:url" content="http://oldherd.github.io/2019/07/26/OI/codeforcesPlan/CF1197/index.html">
+<meta property="og:site_name" content="oldherd&#39;s blog">
 <meta property="og:description" content="话说上一回的Regular Round 574题解还没更完，但是又开了一本(画风有点不对?) 因为从不修仙(有人信吗?)刷题所以没办法参加比赛只能赛后打打。 这次比赛几乎没有考察高级的算法，全都是智商题(其实就是水)。 这次首更四题">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:updated_time" content="2019-12-22T15:07:58.625Z">
@@ -18,7 +18,7 @@
 <meta name="twitter:title" content="Educational codeforces Round 69(Rated for Div. 2), contest 1197 题解">
 <meta name="twitter:description" content="话说上一回的Regular Round 574题解还没更完，但是又开了一本(画风有点不对?) 因为从不修仙(有人信吗?)刷题所以没办法参加比赛只能赛后打打。 这次比赛几乎没有考察高级的算法，全都是智商题(其实就是水)。 这次首更四题">
   
-    <link rel="alternate" href="/atom.xml" title="froldH&#39;s blog" type="application/atom+xml">
+    <link rel="alternate" href="/atom.xml" title="oldherd&#39;s blog" type="application/atom+xml">
   
   
     <link rel="icon" href="/favicon.png">
@@ -41,7 +41,7 @@
   <h3 class="widget-title"></h3>
   <div class="widget">
     <img class="avatar" src="https://froldh.github.io/images/avatar/avatar2.jpg">
-    <h2 class="author">froldH</h2>
+    <h2 class="author">oldherd</h2>
     <h3 class="description"></h3>
     <div class="count-box">
       <a href="/archives"><div><strong>51</strong><br>文章</div></a>
@@ -150,12 +150,12 @@ k最大能到多少呢?至多到比第二小的数小一。否则不满足题意
 关于边界条件,首先<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>f</mi><mrow><mn>0</mn><mo separator="true">,</mo><mn>0</mn></mrow></msub><mo>=</mo><msub><mi>a</mi><mn>0</mn></msub></mrow><annotation encoding="application/x-tex">f_{0,0} = a_0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.69444em;"></span><span class="strut bottom" style="height:0.980548em;vertical-align:-0.286108em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit" style="margin-right:0.10764em;">f</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.10764em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord scriptstyle cramped"><span class="mord mathrm">0</span><span class="mpunct">,</span><span class="mord mathrm">0</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mrel">=</span><span class="mord"><span class="mord mathit">a</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathrm">0</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span>, 有一些值不可能取到,比如<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>f</mi><mrow><mn>0</mn><mo separator="true">,</mo><mn>1</mn></mrow></msub></mrow><annotation encoding="application/x-tex">f_{0,1}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.69444em;"></span><span class="strut bottom" style="height:0.980548em;vertical-align:-0.286108em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit" style="margin-right:0.10764em;">f</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.10764em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord scriptstyle cramped"><span class="mord mathrm">0</span><span class="mpunct">,</span><span class="mord mathrm">1</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span>,这显然是不可能的。我们把除了<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>f</mi><mrow><mn>0</mn><mo separator="true">,</mo><mn>0</mn></mrow></msub></mrow><annotation encoding="application/x-tex">f_{0,0}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.69444em;"></span><span class="strut bottom" style="height:0.980548em;vertical-align:-0.286108em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit" style="margin-right:0.10764em;">f</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.10764em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord scriptstyle cramped"><span class="mord mathrm">0</span><span class="mpunct">,</span><span class="mord mathrm">0</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span>的地方全部赋初值为负无穷,要算的地方就不会由他们更新得到,只会由<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>f</mi><mrow><mn>0</mn><mo separator="true">,</mo><mn>0</mn></mrow></msub></mrow><annotation encoding="application/x-tex">f_{0,0}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.69444em;"></span><span class="strut bottom" style="height:0.980548em;vertical-align:-0.286108em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit" style="margin-right:0.10764em;">f</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.10764em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord scriptstyle cramped"><span class="mord mathrm">0</span><span class="mpunct">,</span><span class="mord mathrm">0</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span>与合法更新得到的值更新得到。</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn = <span class="number">300010</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">long</span> <span class="keyword">long</span> lf = <span class="number">6666666666666666666</span>;</span><br><span class="line"><span class="keyword">int</span> a[maxn];</span><br><span class="line"><span class="keyword">long</span> <span class="keyword">long</span> f[maxn][<span class="number">15</span>];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">long</span> <span class="keyword">long</span> <span class="title">max</span><span class="params">(<span class="keyword">long</span> <span class="keyword">long</span> x, <span class="keyword">long</span> <span class="keyword">long</span> y)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">return</span> x &gt; y ? x : y;	</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">int</span> n, m, k;</span><br><span class="line">	<span class="keyword">long</span> <span class="keyword">long</span> ans = <span class="number">0</span>;</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">"%d %d %d"</span>, &amp;n, &amp;m, &amp;k);</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++) <span class="built_in">scanf</span>(<span class="string">"%d"</span>, a+i);</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++)</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; m; j++)</span><br><span class="line">			f[i][j] = -lf;</span><br><span class="line">	f[<span class="number">0</span>][<span class="number">0</span>] = a[<span class="number">0</span>] - k; ans = max(ans, a[<span class="number">0</span>] - k);</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; n; i++) &#123;</span><br><span class="line">		f[i][<span class="number">0</span>] = max(f[i<span class="number">-1</span>][m<span class="number">-1</span>] + a[i], a[i]) - k;</span><br><span class="line">		ans = max(ans, f[i][<span class="number">0</span>]);</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">1</span>; j &lt; m; j++) &#123;</span><br><span class="line">			f[i][j] = f[i<span class="number">-1</span>][j<span class="number">-1</span>] + a[i];</span><br><span class="line">			ans = max(ans, f[i][j]);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"%lld\n"</span>, ans);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>剩下的等我慢慢拖更吧(逃)。 2019.07.26 22:44<br>
-本文为froldH原创,转载请注明出处。原文地址位于: <a href="https://froldh.github.io/2019/07/26/OI/codeforcesPlan/CF1197/">https://froldh.github.io/2019/07/26/OI/codeforcesPlan/CF1197/</a></p>
+本文为froldH原创,转载请注明出处。原文地址位于: <a href="https://froldh.github.io/2019/07/26/OI/codeforcesPlan/CF1197/" target="_blank" rel="noopener">https://froldh.github.io/2019/07/26/OI/codeforcesPlan/CF1197/</a></p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://froldH.github.io/2019/07/26/OI/codeforcesPlan/CF1197/" data-id="ck5n6bsvz000grcrqr2uvz68a" class="article-share-link">分享</a>
+      <a data-url="http://oldherd.github.io/2019/07/26/OI/codeforcesPlan/CF1197/" data-id="ck6ag6dja000dwcrq3404f5r5" class="article-share-link">分享</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/dp/">dp</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/greedy/">greedy</a></li></ul>
@@ -196,7 +196,7 @@ k最大能到多少呢?至多到比第二小的数小一。否则不满足题意
     <div class="widget-wrap">
   <h3 class="widget-title"></h3>
   <div class="widget">
-    <h1 class="blog-title">froldH&#39;s blog</h1>
+    <h1 class="blog-title">oldherd&#39;s blog</h1>
     <h2 class="blog-subtitle"></h2>
     <ul class="blog-link">
      
@@ -229,7 +229,7 @@ k最大能到多少呢?至多到比第二小的数小一。否则不满足题意
   <h3 class="widget-title"></h3>
   <div class="widget">
     <img class="avatar" src="https://froldh.github.io/images/avatar/avatar2.jpg">
-    <h2 class="author">froldH</h2>
+    <h2 class="author">oldherd</h2>
     <h3 class="description"></h3>
     <div class="count-box">
       <a href="/archives"><div><strong>51</strong><br>文章</div></a>
@@ -274,7 +274,7 @@ k最大能到多少呢?至多到比第二小的数小一。否则不满足题意
   
   <div class="outer">
     <div id="footer-info" class="inner">
-      &copy;2019 - 2020 froldH<br>
+      &copy;2019 - 2020 oldherd<br>
       由<a href="http://hexo.io/" target="_blank">Hexo</a>强力驱动 | 
       主题-<a href="https://github.com/ShanaMaid/hexo-theme-shana">Shana</a>
       
